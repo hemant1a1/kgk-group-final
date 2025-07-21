@@ -15,7 +15,7 @@ import { Navigation, Mousewheel } from 'swiper/modules';
 import milestonesTemp from '@/assets/images/milestones-temp.jpg';
 
 export default function MilestoneTimeline({ data = [] }) {
-  const [activeIndex, setActiveIndex] = useState(3);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const getScale = (index) => {
     const distance = Math.abs(index - activeIndex);
