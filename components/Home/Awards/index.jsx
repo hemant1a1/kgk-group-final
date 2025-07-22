@@ -9,31 +9,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import clsx from 'clsx';
 
-import award1 from '@/assets/images/awards/1.png';
-import award2 from '@/assets/images/awards/2.jpg';
-import award3 from '@/assets/images/awards/3.jpg';
-
-const awardsData = [
-  { id: 1, image: award1, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 2, image: award2, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 3, image: award3, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 4, image: award1, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 5, image: award2, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 6, image: award3, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 7, image: award1, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-  { id: 8, image: award2, title: 'Celebrating years of commitment',
-    subtitle: 'at “Long Service Appreciation Event”, KGK Namibia', },
-];
-
 const AwardsSwiper = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const MIN_ITEMS = 10;
+  let extendedData = [...data];
+  while (extendedData.length < MIN_ITEMS) {
+    extendedData = [...extendedData, ...data];
+  }
+  extendedData = extendedData.slice(0, Math.max(MIN_ITEMS, extendedData.length));
 
   return (
     <div>
@@ -70,7 +54,7 @@ const AwardsSwiper = ({ data }) => {
             }}
             className="pb-16"
           >
-            {data.map((item, index) => {
+            {extendedData.map((item, index) => {
               const isActive = index === activeIndex;
 
               return (

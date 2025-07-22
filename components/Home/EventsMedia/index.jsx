@@ -9,32 +9,6 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import images
-import thumb1 from "@/assets/images/events/1.jpg";
-import thumb2 from "@/assets/images/events/2.png";
-import thumb3 from "@/assets/images/events/3.jpg";
-import thumb4 from "@/assets/images/events/4.jpg";
-import thumb5 from "@/assets/images/events/2.png";
-import thumb6 from "@/assets/images/events/3.jpg";
-import thumb7 from "@/assets/images/events/4.jpg";
-import thumb8 from "@/assets/images/events/2.png";
-import thumb9 from "@/assets/images/events/3.jpg";
-import thumb10 from "@/assets/images/events/4.jpg";
-import thumb11 from "@/assets/images/events/2.png";
-import thumb12 from "@/assets/images/events/3.jpg";
-import thumb13 from "@/assets/images/events/4.jpg";
-import thumb14 from "@/assets/images/events/2.png";
-import thumb15 from "@/assets/images/events/3.jpg";
-import thumb16 from "@/assets/images/events/4.jpg";
-import thumb17 from "@/assets/images/events/2.png";
-import thumb18 from "@/assets/images/events/3.jpg";
-import thumb19 from "@/assets/images/events/4.jpg";
-import thumb20 from "@/assets/images/events/2.png";
-import thumb21 from "@/assets/images/events/3.jpg";
-import thumb22 from "@/assets/images/events/4.jpg";
-
-//const allImages = [thumb1, thumb2, thumb3, thumb4, thumb5, thumb6, thumb7, thumb8, thumb9, thumb10, thumb11, thumb12, thumb13, thumb14, thumb15, thumb16, thumb17, thumb18, thumb19, thumb20, thumb21, thumb22];
-
 export default function EventsMedia({ data }) {
   const allImages = data ?? [];
   console.log("EventsMedia Data:", allImages);
@@ -114,12 +88,12 @@ export default function EventsMedia({ data }) {
           modules={[Navigation, Scrollbar]}
           className=""
         >
-          {thumbnails.map((img, idx) => {
-            const isActive = img.src === mainImage.src;
+          {thumbnails.map((item, idx) => {
+            const isActive = item.src === mainImage.src;
             return (
               <SwiperSlide key={idx}>
                 <div
-                  onClick={() => setMainImage(img)}
+                  onClick={() => setMainImage(item)}
                   className={`relative w-full h-32 rounded-lg overflow-hidden cursor-pointer border transition-all ${
                     isActive
                       ? "border-white grayscale-0"
@@ -127,7 +101,7 @@ export default function EventsMedia({ data }) {
                   }`}
                 >
                   <Image
-                    src={img}
+                    src={item.image}
                     alt={`Thumbnail ${idx + 1}`}
                     fill
                     className="object-cover"
