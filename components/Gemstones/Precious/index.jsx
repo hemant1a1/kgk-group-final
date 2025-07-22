@@ -84,7 +84,6 @@ export default function Precious() {
                               animate={{
                                 scale: isActive ? 1.1 : 0.95,
                                 opacity: isActive ? 1 : 0.8,
-                                rotate: isActive ? 1 : 0,
                               }}
                               transition={{ duration: 0.4, ease: 'easeOut' }}
                             >
