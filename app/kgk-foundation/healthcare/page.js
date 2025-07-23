@@ -9,6 +9,12 @@ import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
 
 import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
 
+import logo from '@/assets/images/bmchrc-logo.png';
+import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
+import oncologyImg from '@/assets/images/oncology.jpg';
+import ipdImg from '@/assets/images/ipd.jpg';
+import careImg from '@/assets/images/cancer-care.jpg';
+
 export default function Healthcare() {
   return (
     <>
@@ -66,7 +72,37 @@ export default function Healthcare() {
           },
         ]}
       />
-      <BMCHRCSection />
+
+      <BMCHRCSection
+        title="Bhagwan Mahaveer Cancer Hospital & Research Centre (BMCHRC)"
+        description={
+          <>
+            <p>
+             Established in 1997, BMCHRC stands as North India’s premier oncology center, offering comprehensive cancer care with cutting-edge medical technology and expert specialists. NABH-accredited and equipped with 350 beds, the hospital integrates advanced treatments with compassionate care to provide holistic cancer management.
+            </p>
+          </>
+        }
+        logo={logo}
+        hospitalImage={hospitalImg}
+        cards={[
+          {
+            img: oncologyImg,
+            title: 'Multidisciplinary Treatment Approach',
+            desc: 'Combining medical, surgical, and radiation oncology with personalized patient care.',
+          },
+          {
+            img: ipdImg,
+            title: 'Newly Inaugurated In-Patient Department (IPD) Block',
+            desc: 'A seven-story facility designed to enhance patient comfort and streamline cancer treatment services.',
+          },
+          {
+            img: careImg,
+            title: 'All-Women Cancer Care Wing',
+            desc: 'Extending financial aid and emotional support to underprivileged female patients, ensuring equitable access to life-saving treatments.',
+          },
+        ]}
+      />
+
       <HalfIntro
           backgroundImage="/images/healthcare-bg2.jpg"
           title="A Commitment to Compassionate Healthcare"

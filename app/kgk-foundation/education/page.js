@@ -9,6 +9,13 @@ import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
 
 import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
 
+
+import logo from '@/assets/images/bmchrc-logo.png';
+import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
+import oncologyImg from '@/assets/images/oncology.jpg';
+import ipdImg from '@/assets/images/ipd.jpg';
+import careImg from '@/assets/images/cancer-care.jpg';
+
 export default function Education() {
   return (
     <>
@@ -66,21 +73,38 @@ export default function Education() {
           },
         ]}
       />
-      <BMCHRCSection />
-      <HalfIntro
-          backgroundImage="/images/healthcare-bg2.jpg"
-          title="A Commitment to Compassionate Healthcare"
-          description={
-              <>
-              <p>KGK Foundation remains steadfast in its mission to bridge the healthcare gap, offering world-class treatment facilities and financial assistance to make a meaningful difference in people’s lives. Through continuous advancements and unwavering dedication, the foundation strives to create a healthier tomorrow for all.</p>
-              </>
-          }
-          textColor="text-heading"
-          headingCustomClass = "max-w-xl lg:pr-0"
-          descriptionCustomClass = "max-w-lg lg:pr-24"
-          showButton={false}
-          paddingLeftClass="pl-[50px]"
+
+      <BMCHRCSection
+        title="The Shri Ram Universal School (TSUS), Jaipur"
+        description={
+          <>
+            <p>
+              As a premier initiative under the KGK Foundation, The Shri Ram Universal School (TSUS), Jaipur is committed to providing an educational experience that seamlessly blends academic excellence with character-building and innovation.
+            </p>
+          </>
+        }
+        logo={logo}
+        hospitalImage={hospitalImg}
+        cards={[
+          {
+            img: oncologyImg,
+            title: 'Academic Rigor',
+            desc: 'A strong foundation combined with modern teaching methodologies.',
+          },
+          {
+            img: ipdImg,
+            title: 'Innovation & Creativity',
+            desc: 'Encouraging students to explore ideas and develop unique solutions.',
+          },
+          {
+            img: careImg,
+            title: 'Leadership & Social Responsibility',
+            desc: 'Instilling values that extend beyond personal success to create meaningful impact in society.',
+          },
+        ]}
       />
+
+      
     </>
   );
 }
