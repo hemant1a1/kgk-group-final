@@ -9,17 +9,17 @@ import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
 
 import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
 
-export default function Healthcare() {
+export default function Education() {
   return (
     <>
       <Breadcrumb
-        heading="Healthcare"
+        heading="Education"
         subheading={
           <>
-            Advancing Medical Care,
+            Shaping Tomorrow Through
             <span className="inline-block lg:hidden">&nbsp;</span>
             <br className="hidden lg:block" />
-            Transforming Lives
+            Knowledge
           </>
         }
         bgImage={bgImage}
@@ -28,41 +28,41 @@ export default function Healthcare() {
         image={healthcareImg}
         title="Advancing Medical Care, Transforming Lives"
         description={
-          <p 
-            className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-white max-w-lg lg:pr-6"
-          >
-            KGK Foundation is dedicated to ensuring that life-saving treatments, advanced medical care, 
-            and compassionate support reach those who need them the most. Through a commitment to medical 
-            excellence and accessibility, the foundation drives impactful healthcare initiatives that uplift 
-            communities and create a healthier future.
-          </p>
+          <>
+            <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-white max-w-lg lg:pr-6 mb-3">
+              Dedicated to fostering a holistic learning environment that nurtures curiosity, innovation, and leadership for a brighter tomorrow.
+            </p>
+            <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-white max-w-lg lg:pr-6 mt-4">
+              KGK Foundation believes that education is the key to unlocking potential, fostering innovation, and shaping the leaders of tomorrow. With a commitment to holistic development, the foundation works to create learning environments that go beyond traditional academics, equipping students with the skills, confidence, and values needed to excel in a rapidly changing world.
+            </p>
+          </>
         }
       />
        <HealthcareInitiatives
         heading="Expanding Access to Quality Healthcare"
-        highlightLabel="Key Healthcare Initiatives:"
+        highlightLabel="Key Education Initiatives:"
         description={
           <>
             <p>
-              Believing that healthcare is a fundamental right, KGK Foundation actively works to bridge the gap in medical accessibility. Through strategic partnerships, infrastructure development, and specialized programs, the foundation enhances healthcare services, bringing modern treatments and expert care to underserved populations.
+              Recognizing that education is a lifelong journey, KGK Foundation supports initiatives that enhance learning opportunities for students across diverse backgrounds. Through modern infrastructure, innovative teaching methodologies, and value-driven programs, the foundation nurtures future leaders who are not only academically strong but also socially responsible.
             </p>
           </>
         }
         initiatives={[
           {
-            title: 'Medical Outreach Programs',
+            title: 'Scholarships & Financial Aid',
             description:
-              'Organizing free health check-ups, awareness drives, and diagnostic camps to promote early detection and prevention.',
+              'Supporting meritorious and underprivileged students to ensure education is accessible to all.',
           },
           {
-            title: 'Infrastructure & Equipment Support',
+            title: 'Teacher Training & Development',
             description:
-              'Strengthening hospitals and clinics with modern technology and medical advancements.',
+              'Investing in educators to enhance teaching methodologies and student engagement.',
           },
           {
-            title: 'Financial Aid for Treatments',
+            title: 'Skill Development & Innovation Programs',
             description:
-              'Providing support to underprivileged patients, ensuring that financial constraints never stand in the way of critical healthcare.',
+              'Encouraging experiential learning, critical thinking, and leadership skills to prepare students for the future.',
           },
         ]}
       />

@@ -3,21 +3,25 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
-
-const HealthcareSection = () => {
+const HealthcareSection = ({
+  image,
+  title,
+  description,
+  altText = 'Image',
+  reverse = false,
+}) => {
   return (
-    <section className="flex flex-col lg:flex-row items-center lg:items-stretch bg-forth text-white">
+    <section className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center lg:items-stretch bg-forth text-white`}>
       <motion.div 
         className="w-full lg:w-1/2 h-72 lg:h-auto relative"
-        initial={{ opacity: 0, x: -60 }}
+        initial={{ opacity: 0, x: reverse ? 60 : -60 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
         <Image
-          src={healthcareImg}
-          alt="KGK Foundation - Healthcare"
+          src={image}
+          alt={altText}
           fill
           className="object-cover"
           priority
@@ -33,20 +37,17 @@ const HealthcareSection = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            Advancing Medical Care, Transforming Lives
+            {title}
           </motion.h2>
-          <motion.p 
-            className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-white max-w-lg lg:pr-6"
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            KGK Foundation is dedicated to ensuring that life-saving treatments, advanced medical care, 
-            and compassionate support reach those who need them the most. Through a commitment to medical 
-            excellence and accessibility, the foundation drives impactful healthcare initiatives that uplift 
-            communities and create a healthier future.
-          </motion.p>
+          {description}
+          </motion.div>
         </div>
       </div>
     </section>

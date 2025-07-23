@@ -5,14 +5,19 @@ import { motion } from 'framer-motion';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0 },
 };
 
-const HealthcareInitiatives = () => {
+const HealthcareInitiatives = ({
+  heading,
+  description,
+  highlightLabel = 'Key Healthcare Initiatives:',
+  initiatives = [],
+}) => {
   return (
     <section className="bg-white py-16 px-4 lg:px-24">
       <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-12 xl:px-14">
-        {/* Left Text Section */}
+        {/* Left Section */}
         <motion.div
           className="w-full lg:w-[42%]"
           variants={fadeInUp}
@@ -26,26 +31,21 @@ const HealthcareInitiatives = () => {
             variants={fadeInUp}
             transition={{ duration: 0.8 }}
           >
-            Expanding Access
-            <span className="hidden lg:inline"><br /></span>
-            <span className="inline lg:hidden"> </span>
-            to Quality Healthcare
+            {heading}
           </motion.h2>
-          <motion.p
-            className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-heading xl:max-w-sm lg:pr-12"
+
+          <motion.div
+            className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-heading xl:max-w-sm lg:pr-12 space-y-4"
             variants={fadeInUp}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Believing that healthcare is a fundamental right, KGK Foundation actively works to
-            bridge the gap in medical accessibility. Through strategic partnerships, infrastructure
-            development, and specialized programs, the foundation enhances healthcare services,
-            bringing modern treatments and expert care to underserved populations.
-          </motion.p>
+            {description}
+          </motion.div>
         </motion.div>
 
-        {/* Right Boxes Section */}
+        {/* Right Section */}
         <div className="w-full lg:w-[58%] flex flex-col gap-4">
-          {/* 1st Row */}
+          {/* Highlight Box */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4"
             variants={fadeInUp}
@@ -56,66 +56,62 @@ const HealthcareInitiatives = () => {
           >
             <div className="w-full sm:w-[30%] bg-[#d4f1f9] rounded-lg p-8 text-lg lg:text-xl xl:text-2xl font-medium text-heading flex items-center justify-center">
               <div>
-                Key
-                <span className="hidden lg:inline"><br /></span>
-                <span className="inline lg:hidden"> </span>
-                Healthcare
-                <span className="hidden lg:inline"><br /></span>
-                <span className="inline lg:hidden"> </span>
-                Initiatives:
+                {highlightLabel.split(' ').map((word, index) => (
+                  <React.Fragment key={index}>
+                    {word}
+                    {index !== highlightLabel.split(' ').length - 1 && (
+                      <>
+                        <span className="hidden lg:inline"><br /></span>
+                        <span className="inline lg:hidden"> </span>
+                      </>
+                    )}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
-            <motion.div
-              className="w-full sm:w-[70%] bg-gray-100 rounded-lg p-8"
-              variants={fadeInUp}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <h4 className="text-sm lg:text-[15px] font-black text-heading mb-2">
-                Medical Outreach Programs
-              </h4>
-              <p className="text-sm text-gray-700">
-                Organizing free health check-ups, awareness drives, and diagnostic camps to promote
-                early detection and prevention.
-              </p>
-            </motion.div>
+
+            {/* First Card */}
+            {initiatives[0] && (
+              <motion.div
+                className="w-full sm:w-[70%] bg-gray-100 rounded-lg p-8"
+                variants={fadeInUp}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <h4 className="text-sm lg:text-[15px] font-black text-heading mb-2">
+                  {initiatives[0].title}
+                </h4>
+                <p className="text-sm text-gray-700">
+                  {initiatives[0].description}
+                </p>
+              </motion.div>
+            )}
           </motion.div>
 
-          {/* 2nd Row */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
+          {/* Rest of the Cards */}
+          {initiatives.slice(1).length > 0 && (
             <motion.div
-              className="w-full sm:w-1/2 bg-gray-100 rounded-lg p-8"
+              className="flex flex-col sm:flex-row gap-4"
               variants={fadeInUp}
-              transition={{ duration: 0.5 }}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
             >
-              <h4 className="text-sm lg:text-[15px] font-black text-heading mb-2">
-                Infrastructure & Equipment Support
-              </h4>
-              <p className="text-sm text-gray-700">
-                Strengthening hospitals and clinics with modern technology and medical advancements.
-              </p>
+              {initiatives.slice(1).map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="w-full sm:w-1/2 bg-gray-100 rounded-lg p-8"
+                  variants={fadeInUp}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <h4 className="text-sm lg:text-[15px] font-black text-heading mb-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm text-gray-700">{item.description}</p>
+                </motion.div>
+              ))}
             </motion.div>
-
-            <motion.div
-              className="w-full sm:w-1/2 bg-gray-100 rounded-lg p-8"
-              variants={fadeInUp}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <h4 className="text-sm lg:text-[15px] font-black text-heading mb-2">
-                Financial Aid for Treatments
-              </h4>
-              <p className="text-sm text-gray-700">
-                Providing support to underprivileged patients, ensuring that financial constraints never
-                stand in the way of critical healthcare.
-              </p>
-            </motion.div>
-          </motion.div>
+          )}
         </div>
       </div>
     </section>

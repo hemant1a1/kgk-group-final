@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <>
-      <HeroSlider data={data.sliders} />
+      <HeroSlider data={data.hero_slider} />
       <Legacy />
       <OurBusiness data={data.businesses} />
       <OurPresence />
