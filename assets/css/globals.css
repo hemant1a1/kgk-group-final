@@ -118,3 +118,9 @@ body {
 .custom-card1 {
   filter: drop-shadow(-2.588px 9.659px 13px rgba(118, 118, 118, 0.32));
 }
+
+.fade-slide {
+  opacity: 0 !important;
+          pointer-events: none;
+          transition: opacity 0.5s ease-in-out;
+}

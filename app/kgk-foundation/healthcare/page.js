@@ -14,6 +14,7 @@ export default function Healthcare() {
         subheading={
           <>
             Advancing Medical Care,
+            <span className="inline-block lg:hidden">&nbsp;</span>
             <br className="hidden lg:block" />
             Transforming Lives
           </>
