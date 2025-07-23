@@ -1,4 +1,4 @@
-
+import { fetchFromAPI } from '@/lib/api';
 import Breadcrumb from '@/components/Breadcrumb';
 import KGKStonesSection from '@/components/KGKStonesSection';
 import StonesSemiPrecious from '@/components/StonesSemiPrecious';
@@ -10,7 +10,9 @@ import Newsletter from "@/components/Home/Newsletter";
 import bgImage from '@/assets/images/banners/stones-banner.jpg';
 import newsletterImg from '@/assets/images/stones-bg1.jpg';
 
-export default function Stones() {
+export default async function Stones() {
+  const data = await fetchFromAPI('stones');
+
   return (
     <>
       <Breadcrumb
@@ -20,7 +22,7 @@ export default function Stones() {
       />
       <KGKStonesSection />
       <StonesSemiPrecious />
-      <NaturalStones />
+      <NaturalStones data={data.stones} />
       <HalfIntro />
       <Newsletter
         img={newsletterImg}

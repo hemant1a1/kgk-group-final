@@ -3,11 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-import marbleImg from '@/assets/images/stones-3.jpg';
-import graniteImg from '@/assets/images/stones-4.jpg';
-import quartziteImg from '@/assets/images/stones-5.jpg';
-
-const NaturalStones = () => {
+const NaturalStonesClient = ({ data }) => {
   return (
     <section className="relative w-full bg-[#33342f]">
       {/* 2-layer background */}
@@ -15,7 +11,7 @@ const NaturalStones = () => {
 
       {/* Content */}
       <div className="text-white text-center pt-10 pb-9 px-4">
-        <motion.h2 
+        <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white mb-4"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +20,7 @@ const NaturalStones = () => {
         >
           Explore the Beauty of Natural Stones
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-white max-w-4xl mx-auto lg:px-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,13 +32,9 @@ const NaturalStones = () => {
         </motion.p>
       </div>
 
-      {/* Cards overlapping background transition */}
+      {/* Cards */}
       <div className="max-w-screen-xl mx-auto px-4 pb-9 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
-        {[
-          { img: marbleImg, title: 'Marbles', desc: 'Prized for their timeless appeal and natural veins.' },
-          { img: graniteImg, title: 'Granite', desc: 'Celebrated for strength, resilience, and beauty.' },
-          { img: quartziteImg, title: 'Quartzite', desc: 'Popular for its unique patterns and versatility.' },
-        ].map((card, index) => (
+        {data.map((card, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
@@ -50,9 +42,14 @@ const NaturalStones = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <StoneCard {...card} />
+            <StoneCard
+              img={card.image}
+              title={card.title}
+              desc={card.description}
+            />
           </motion.div>
         ))}
+        
       </div>
     </section>
   );
@@ -70,4 +67,4 @@ const StoneCard = ({ img, title, desc }) => (
   </div>
 );
 
-export default NaturalStones;
+export default NaturalStonesClient;
