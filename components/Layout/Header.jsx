@@ -40,14 +40,18 @@ export default function Header() {
   const searchIconStyle = isBlogDetailPage ? "invert" : "";
   const textColor = isBlogDetailPage ? "text-black" : "text-white";
 
-  const linkClass = (href) =>
-    `border-b ${
-      pathname === href
-        ? isBlogDetailPage
-          ? "border-black"
-          : "border-white"
-        : "border-transparent"
-    }`;
+
+const linkClass = (href) => {
+  const isActive = pathname === href;
+
+  return `relative pb-1 transition duration-300 border-b ${
+    isActive
+      ? isBlogDetailPage
+        ? "border-black"
+        : "border-white"
+      : "border-transparent hover:border-white"
+  }`;
+};    
 
   return (
     <>
