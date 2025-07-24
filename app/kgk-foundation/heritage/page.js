@@ -5,16 +5,16 @@ import HealthcareInitiatives from '@/components/HealthcareInitiatives';
 import BMCHRCSection from '@/components/BMCHRCSection';
 import HalfIntro from '@/components/HalfIntro';
 
-import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
+import bgImage from '@/assets/images/heritage/banner.jpg';
 
-import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
+import healthcareImg from '@/assets/images/heritage/Revitalizing-History-with-Purpose.jpg'; 
 
 
 import logo from '@/assets/images/bmchrc-logo.png';
-import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
-import oncologyImg from '@/assets/images/oncology.jpg';
-import ipdImg from '@/assets/images/ipd.jpg';
-import careImg from '@/assets/images/cancer-care.jpg';
+import hospitalImg from '@/assets/images/heritage/Jal-Mahal.jpg';
+import oncologyImg from '@/assets/images/heritage/Historians-&-Conservationis.jpg';
+import ipdImg from '@/assets/images/heritage/Master-Craftsmen.jpg';
+import careImg from '@/assets/images/heritage/Environmental-Experts.jpg';
 
 export default function Heritage() {
   return (
@@ -83,7 +83,6 @@ export default function Heritage() {
             </p>
           </>
         }
-        logo={logo}
         hospitalImage={hospitalImg}
         cards={[
           {
@@ -104,7 +103,7 @@ export default function Heritage() {
         ]}
       />
 
-      <HalfIntro
+      {/* <HalfIntro
             backgroundImage="/images/healthcare-bg2.jpg"
             title="The Importance of Heritage Conservation"
             description={
@@ -131,7 +130,7 @@ export default function Heritage() {
             descriptionCustomClass = "max-w-lg lg:pr-24"
             showButton={false}
             paddingLeftClass="pl-[50px]"
-        />
+        /> */}
     </>
   );
 }

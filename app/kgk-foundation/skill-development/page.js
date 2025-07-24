@@ -5,16 +5,16 @@ import HealthcareInitiatives from '@/components/HealthcareInitiatives';
 import BMCHRCSection from '@/components/BMCHRCSection';
 import HalfIntro from '@/components/HalfIntro';
 
-import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
+import bgImage from '@/assets/images/skill/banner.jpg';
 
-import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
+import healthcareImg from '@/assets/images/skill/Comprehensive-business-training.jpg'; 
 
 
 import logo from '@/assets/images/bmchrc-logo.png';
-import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
-import oncologyImg from '@/assets/images/oncology.jpg';
-import ipdImg from '@/assets/images/ipd.jpg';
-import careImg from '@/assets/images/cancer-care.jpg';
+import hospitalImg from '@/assets/images/skill/KGK-academy.jpg';
+import oncologyImg from '@/assets/images/skill/Specialized-training.jpg';
+import ipdImg from '@/assets/images/skill/Mentorship.jpg';
+import careImg from '@/assets/images/skill/Transforming-Lives-Through-Skill-Development.jpg';
 
 export default function SkillDevelopment() {
   return (
@@ -83,7 +83,6 @@ export default function SkillDevelopment() {
             </p>
           </>
         }
-        logo={logo}
         hospitalImage={hospitalImg}
         cards={[
           {
@@ -104,7 +103,7 @@ export default function SkillDevelopment() {
         ]}
       />
 
-      <HalfIntro
+      {/* <HalfIntro
             backgroundImage="/images/healthcare-bg2.jpg"
             title="Driving Industry Growth and Economic Progress"
             description={
@@ -117,7 +116,7 @@ export default function SkillDevelopment() {
             descriptionCustomClass = "max-w-lg lg:pr-24"
             showButton={false}
             paddingLeftClass="pl-[50px]"
-        />
+        /> */}
     </>
   );
 }

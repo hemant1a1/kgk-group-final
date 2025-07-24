@@ -5,16 +5,16 @@ import HealthcareInitiatives from '@/components/HealthcareInitiatives';
 import BMCHRCSection from '@/components/BMCHRCSection';
 import HalfIntro from '@/components/HalfIntro';
 
-import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
+import bgImage from '@/assets/images/education/banner.jpg';
 
-import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
+import healthcareImg from '@/assets/images/education/Expanding-Access-to-Quality-Education-.jpg'; 
 
 
 import logo from '@/assets/images/bmchrc-logo.png';
-import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
-import oncologyImg from '@/assets/images/oncology.jpg';
-import ipdImg from '@/assets/images/ipd.jpg';
-import careImg from '@/assets/images/cancer-care.jpg';
+import hospitalImg from '@/assets/images/education/The-Shri-Ram-Universal-School.jpg';
+import oncologyImg from '@/assets/images/education/Academic-Rigor.jpg';
+import ipdImg from '@/assets/images/education/Innovation-&-Creativity.jpg';
+import careImg from '@/assets/images/education/Leadership-&-Social-Responsibility.jpg';
 
 export default function Education() {
   return (
@@ -83,7 +83,6 @@ export default function Education() {
             </p>
           </>
         }
-        logo={logo}
         hospitalImage={hospitalImg}
         cards={[
           {

@@ -5,16 +5,16 @@ import HealthcareInitiatives from '@/components/HealthcareInitiatives';
 import BMCHRCSection from '@/components/BMCHRCSection';
 import HalfIntro from '@/components/HalfIntro';
 
-import bgImage from '@/assets/images/banners/healthcare-banner.jpg';
+import bgImage from '@/assets/images/art/banner.jpg';
 
-import healthcareImg from '@/assets/images/healthcare-1.jpg'; 
+import healthcareImg from '@/assets/images/art/Preserving-Heritage-Through-Cultural-Initiatives.jpg'; 
 
 
 import logo from '@/assets/images/bmchrc-logo.png';
-import hospitalImg from '@/assets/images/bmchrc-hospital.jpg';
-import oncologyImg from '@/assets/images/oncology.jpg';
-import ipdImg from '@/assets/images/ipd.jpg';
-import careImg from '@/assets/images/cancer-care.jpg';
+import hospitalImg from '@/assets/images/art/Jaigarh.jpg';
+import oncologyImg from '@/assets/images/art/Safeguarding-Endangered-Art-Forms.jpg';
+import ipdImg from '@/assets/images/art/Empowering-Artists-&-Performers.jpg';
+import careImg from '@/assets/images/art/Encouraging-Cultural-Exchang.jpg';
 
 export default function ArtCulture() {
   return (
@@ -83,7 +83,6 @@ export default function ArtCulture() {
             </p>
           </>
         }
-        logo={logo}
         hospitalImage={hospitalImg}
         cards={[
           {

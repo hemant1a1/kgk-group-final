@@ -29,9 +29,11 @@ const BMCHRCSection = ({
           </div>
 
           <div className="relative w-full">
+            {logo && (
             <div className="w-32 h-32 absolute -top-[60px] -left-[20px]">
               <Image src={logo} alt="Logo" className="w-full h-full object-contain" />
             </div>
+            )}
             <div className="h-64 overflow-hidden">
               <Image src={hospitalImage} alt="Hospital" className="w-full h-full object-cover" />
             </div>
@@ -67,9 +69,11 @@ const BMCHRCSection = ({
                 variants={fadeInUp}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
+                {logo && (
                 <div className="w-80 h-80 absolute -top-[108px] -left-[28px]">
                   <Image src={logo} alt="Logo" className="w-full h-full object-contain" />
                 </div>
+                )}
                 <div className="w-full h-80 overflow-hidden pl-40">
                   <Image src={hospitalImage} alt="Hospital" className="w-full h-full object-cover" />
                 </div>
