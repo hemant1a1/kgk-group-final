@@ -20,19 +20,19 @@ const gemstones = [
     name: 'Emerald',
     outlined: emeraldOutlined,
     filled: emeraldFilled,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description: 'A symbol of timeless elegance, the emerald enchants with its rich, regal charm.',
   },
   {
     name: 'Ruby',
     outlined: rubyOutlined,
     filled: rubyFilled,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description: 'Radiating bold passion and fiery brilliance, the ruby commands attention with every glance.',
   },
   {
     name: 'Sapphire',
     outlined: saphireOutlined,
     filled: saphireFilled,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    description: 'Sophisticated and captivating, the sapphire embodies grace with a deep, enduring allure.',
   },
 ];
 
@@ -103,7 +103,7 @@ export default function Precious() {
                               viewport={{ once: true }}
                             >{gem.name}</motion.h3>
                             <motion.p 
-                              className="text-base leading-5 font-light mt-1"
+                              className="text-sm leading-5 font-light mt-1"
                               initial={{ opacity: 0, y: 30 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}

@@ -42,11 +42,12 @@ export default function LifeSlider() {
     <Swiper
       modules={[Autoplay]}
       slidesPerView={1}
+      loop={true}
       autoplay={{
         delay: 3000, 
         disableOnInteraction: false, 
       }}
-      onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+      onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
     >
       <SwiperSlide>
         <KGKGrid
