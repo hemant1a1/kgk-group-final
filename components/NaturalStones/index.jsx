@@ -10,7 +10,7 @@ const NaturalStonesClient = ({ data }) => {
       <div className="hidden md:block absolute left-0 right-0 bottom-0 bg-white w-full h-48 lg:h-44 z-0" />
 
       {/* Content */}
-      <div className="text-white text-center pt-10 pb-9 px-4">
+      <div className="text-white text-center pt-10 px-4">
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white mb-4"
           initial={{ opacity: 0, y: 40 }}
@@ -33,10 +33,12 @@ const NaturalStonesClient = ({ data }) => {
       </div>
 
       {/* Cards */}
-      <div className="max-w-screen-xl mx-auto px-4 pb-9 grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
+      <div className="max-w-screen-xl mx-auto -mx-8 pb-9 flex flex-wrap justify-center">
         {data.map((card, index) => (
+          
           <motion.div
             key={index}
+            className="flex flex-initial pt-8 px-8 w-full md:w-4/12"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
