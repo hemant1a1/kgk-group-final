@@ -91,7 +91,7 @@ export default function Header() {
                     { href: "/our-business/real-estate", label: "Real Estate" },
                     { href: "/our-business/stones", label: "Marble Mining" },
                     { href: "/our-business/hospitality", label: "Hospitality" },
-                    { href: "/our-business/technology", label: "Technology & Innovations" },
+                    { href: "/diamatrics", label: "Technology & Innovations" },
                   ].map(({ href, label }, idx) => (
                     <li
                       key={idx}
@@ -173,7 +173,7 @@ export default function Header() {
                 <li><Link href="/our-business/real-estate" onClick={() => setDrawerOpen(false)}>Real Estate</Link></li>
                 <li><Link href="/our-business/stones" onClick={() => setDrawerOpen(false)}>Marble Mining</Link></li>
                 <li><Link href="/our-business/hospitality" onClick={() => setDrawerOpen(false)}>Hospitality</Link></li>
-                <li><Link href="/our-business/technology" onClick={() => setDrawerOpen(false)}>Technology & Innovations</Link></li>
+                <li><Link href="/diamatrics" onClick={() => setDrawerOpen(false)}>Technology & Innovations</Link></li>
               </ul>
             )}
           </div>
