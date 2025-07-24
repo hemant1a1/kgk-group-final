@@ -25,11 +25,11 @@ export default function Header() {
   
   const isBusinessActive = () =>
     [
-      "/business/gems",
-      "/business/real-estate",
-      "/business/marble",
-      "/business/hospitality",
-      "/business/technology",
+      "/our-business/gemstones",
+      "/our-business/real-estate",
+      "/our-business/stones",
+      "/our-business/hospitality",
+      "/diamatrics"
     ].some((path) => pathname.startsWith(path));
 
   const headerClasses = isBlogDetailPage
