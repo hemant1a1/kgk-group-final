@@ -32,11 +32,11 @@ export default function Footer() {
   }, []);
 
   const socialIcons = [
-    { src: FacebookIcon, alt: "Facebook", link: "#" },
-    { src: TwitterIcon, alt: "Twitter", link: "#" },
-    { src: InstagramIcon, alt: "Instagram", link: "#" },
-    { src: LinkedinIcon, alt: "LinkedIn", link: "#" },
-    { src: YoutubeIcon, alt: "YouTube", link: "#" },
+    { src: FacebookIcon, alt: "Facebook", link: "https://www.facebook.com/KGKgroup.officialpage/" },
+    { src: TwitterIcon, alt: "Twitter", link: "https://x.com/kgk_group" },
+    { src: InstagramIcon, alt: "Instagram", link: "https://www.instagram.com/kgk_group" },
+    { src: LinkedinIcon, alt: "LinkedIn", link: "https://www.linkedin.com/company/kgk-group?originalSubdomain=in" },
+    { src: YoutubeIcon, alt: "YouTube", link: "https://www.youtube.com/channel/UCnkP8zsk7XYZDLC3O-rvZcQ" },
   ];
   
 
