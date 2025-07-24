@@ -17,11 +17,11 @@ export default function Footer() {
   const menuItems = [
     { label: "ABOUT", href: "/about-us" },
     { label: "NEWS", href: "/events-&-media" },
-    { label: "CSR", href: "/csr-initiatives" },
+    { label: "CSR", href: "/kgk-foundation" },
     { label: "CAREERS", href: "/careers" },
-    { label: "CONTACT", href: "/contact" },
+    { label: "CONTACT", href: "/contact-us" },
     { label: "BLOGS", href: "/blogs" },
-    { label: "ENGLISH", href: "/en" }, // or maybe just "#"
+    { label: "ENGLISH", href: "#" },
   ];
   
   useEffect(() => {
