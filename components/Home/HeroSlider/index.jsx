@@ -16,7 +16,7 @@ export default function HeroSlider({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full h-[93vh] relative bg-black">
+    <section className="w-full h-[600px] relative bg-black">
       <Swiper
         spaceBetween={0}
         grabCursor={true}
@@ -67,7 +67,7 @@ export default function HeroSlider({ data }) {
                         {slide.title}
                       </div>
                       <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-4 pb-2">
-                        {slide.subtitle}
+                        {slide.short_description}
                       </h2>
                     </motion.div>
                   ) : (
@@ -77,7 +77,7 @@ export default function HeroSlider({ data }) {
                         {slide.title}
                       </div>
                       <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-4 pb-2">
-                        {slide.subtitle}
+                        {slide.short_description}
                       </h2>
                     </div>
                   )}
