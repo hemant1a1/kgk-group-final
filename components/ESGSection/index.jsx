@@ -15,7 +15,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-const ESGSection = () => {
+const ESGSection = ({ data = [] }) => {
   return (
     <section className="relative pt-10 pb-8 lg:bg-[linear-gradient(180deg,_#fff5e7_60%,_#ffffff_40%)]">
       <div>
@@ -66,27 +66,20 @@ const ESGSection = () => {
               viewport={{ once: true }}
               transition={{ staggerChildren: 0.2 }}
             >
-              {[ // Repeating cards in a loop to apply animation cleanly
-                {
-                  img: esg1,
-                  desc: 'At the heart of the gems and jewellery industry lies a responsibility to operate with integrity, transparency, and a long-term perspective. From responsible sourcing and ethical production to reducing our environmental footprint, we uphold the highest standards across every stage of our value chain.'
-                },
-                {
-                  img: esg2,
-                  desc: 'We believe in creating lasting value, not only for our customers, but also for our communities, partners, and the planet. Whether it’s adopting renewable energy, minimising waste, or empowering local communities, our actions are driven by a deep-rooted commitment to sustainability.'
-                },
-                {
-                  img: esg3,
-                  desc: 'Our continued progress reflects a belief in sustainable development as a core driver of how we work, grow, and contribute to a more responsible industry.'
-                },
-              ].map((card, i) => (
+              {data.length > 0 && data.map((card, i) => (
                 <motion.div
                   key={i}
                   className="custom-card1 relative bg-white rounded-[43px] overflow-hidden z-0 p-2.5"
                   variants={fadeInUp}
                 >
                   <div className="relative w-full h-40 rounded-t-[43px] overflow-hidden">
-                    <Image src={card.img} alt="esg" className="w-full h-full object-cover" />
+                     <Image
+                        src={card.image}
+                        alt="esg"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                   </div>
                   <div className="px-6 lg:pr-8 py-6">
                     <p className="text-[13px] lg:text-[15px] leading-[25px] tracking-[0px] text-heading font-myriad">

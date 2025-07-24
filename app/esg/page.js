@@ -1,10 +1,14 @@
+import { fetchFromAPI } from '@/lib/api';
+
 import Breadcrumb from '@/components/Breadcrumb4';
 import ESGSection from '@/components/ESGSection';
 import CommitmentSwiper from '@/components/CommitmentSwiper';
 
 import bgImage from '@/assets/images/banners/esg-banner.jpg';
 
-export default function ESG() {
+export default async function ESG() {
+  const data = await fetchFromAPI('esg');
+
   return (
     <>
       <Breadcrumb
@@ -19,8 +23,8 @@ export default function ESG() {
         }
         bgImage={bgImage}
       />
-      <ESGSection />
-      <CommitmentSwiper />
+      <ESGSection data={data.esg}  />
+      <CommitmentSwiper data={data.commitment}  />
     </>
   );
 }
