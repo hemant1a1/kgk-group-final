@@ -116,7 +116,7 @@ const linkClass = (href) => {
 
             <Link href="/kgk-foundation" className={linkClass("/kgk-foundation")}>Foundation</Link>
             <Link href="/careers" className={linkClass("/careers")}>Career</Link>
-            <Link href="/contact-us" className={linkClass("/contact")}>Contact Us</Link>
+            <Link href="/contact-us" className={linkClass("/contact-us")}>Contact Us</Link>
 
             <div className="flex items-center gap-x-6">
               <Image
