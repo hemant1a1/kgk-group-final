@@ -44,12 +44,8 @@ export default function UpcomingEvents() {
               <p className="font-cardo text-2xl font-normal italic mt-1">
                 “Long Service Appreciation Event”, 
               </p>
-              <p className="font-cardo text-2xl font-normal mt-1">KGK Namibia</p>
+              <p className="font-cardo text-2xl font-normal mt-1 mb-6 ">KGK Namibia</p>
 
-              <p className="mt-4 mb-6 max-w-lg font-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
-              </p>
               <button className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
                 DISCOVER MORE
               </button>

@@ -1,7 +1,7 @@
 'use client';
-
-import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from 'swiper/modules';
 import "swiper/css";
 
 import KGKGrid from "@/components/Home/KGKGrid";
@@ -40,7 +40,12 @@ export default function LifeSlider() {
 
   return (
     <Swiper
+      modules={[Autoplay]}
       slidesPerView={1}
+      autoplay={{
+        delay: 3000, 
+        disableOnInteraction: false, 
+      }}
       onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
     >
       <SwiperSlide>

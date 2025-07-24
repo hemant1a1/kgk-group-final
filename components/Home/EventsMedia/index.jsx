@@ -89,22 +89,20 @@ export default function EventsMedia({ data }) {
           className=""
         >
           {thumbnails.map((item, idx) => {
-            const isActive = item.src === mainImage.src;
+            const isActive = item.image === mainImage?.image;
             return (
               <SwiperSlide key={idx}>
                 <div
                   onClick={() => setMainImage(item)}
-                  className={`relative w-full h-32 rounded-lg overflow-hidden cursor-pointer border transition-all ${
-                    isActive
-                      ? "border-white grayscale-0"
-                      : "border-transparent grayscale hover:grayscale-0"
-                  }`}
+                  className="relative w-full h-32 rounded-lg overflow-hidden cursor-pointer border"
                 >
                   <Image
                     src={item.image}
                     alt={`Thumbnail ${idx + 1}`}
                     fill
-                    className="object-cover"
+                    className={`object-cover transition-all duration-300 ${
+                      isActive ? "grayscale-0" : "grayscale hover:grayscale-0"
+                    }`}
                   />
                 </div>
               </SwiperSlide>
