@@ -56,7 +56,7 @@ export default function Leadership({
   return (
     <>
       <div
-        className="hidden md:block w-full h-[89vh] min-h-[600px] sticky top-0"
+        className="hidden lg:block w-full h-[85vh] min-h-[380px] sticky top-0"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
@@ -82,7 +82,7 @@ export default function Leadership({
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden relative w-full">
+      <div className="lg:hidden relative w-full">
         {/* Background Image with Title + Subtitle Overlay */}
         <div
           className="w-full h-[300px] bg-cover relative"
