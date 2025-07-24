@@ -73,6 +73,8 @@ export default function Footer() {
             <a
               key={index}
               href={icon.link}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-[37px] h-[37px] flex items-center justify-center"
             >
               <Image src={icon.src} alt={icon.alt} width={37} height={37} className="w-full h-full" />
