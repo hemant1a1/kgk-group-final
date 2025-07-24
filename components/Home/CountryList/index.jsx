@@ -14,6 +14,7 @@ export default function CountryList({ selected, setSelected }) {
           <button
             key={key}
             onClick={() => setSelected(key)}
+            onMouseEnter={() => setSelected(key)}
             className={`transition duration-200 font-cardo font-normal text-base ${
               isActive ? ' text-primary' : 'hover:text-primary'
             }`}

@@ -129,10 +129,10 @@ export default function OurBusiness({ data }) {
 
 
 
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-3">
             {/* Large Preview */}
             <div
-            className="hidden md:block relative w-full h-[520px] overflow-hidden shadow-lg col-span-1 md:col-span-1"
+            className="hidden md:block relative w-full h-[500px] overflow-hidden shadow-lg col-span-1 md:col-span-1"
             
             >
             <AnimatePresence mode="wait">

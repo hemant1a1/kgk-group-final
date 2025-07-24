@@ -36,6 +36,7 @@ export default function WorldMap({ selected, setSelected }) {
             transform: 'translate(-50%, -100%)'
           }}
           onClick={() => setSelected(key)}
+          onMouseEnter={() => setSelected(key)}
         >
           <Image src={marker} alt="marker" width={24} height={24} />
           {selected === key && loc.label && (
