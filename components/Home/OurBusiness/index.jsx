@@ -154,7 +154,7 @@ export default function OurBusiness({ data }) {
                     <h3 className="text-[22px] tracking-[9px] uppercase font-normal px-11">
                     {displayImage.title.toUpperCase()}
                     </h3>
-                    <p className="mt-3 pl-11 pr-[60px] text-lg">{displayImage.description}</p>
+                    <p className="mt-3 pl-11 pr-[60px] text-lg">{displayImage.short_description}</p>
                     <button className="mx-11 mt-5 mb-2 px-5 py-2 bg-white text-black font-light text-sm uppercase tracking-widest rounded-full w-fit hover:bg-gray-200 transition">
                     Discover More
                     </button>
