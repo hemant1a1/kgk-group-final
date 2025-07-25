@@ -1,4 +1,4 @@
-import Breadcrumb from '@/components/Breadcrumb5';
+import Breadcrumb from '@/components/Breadcrumb';
 import DiamatricsSection from '@/components/DiamatricsSection';
 import VisionMission from '@/components/VisionMission';
 import TechnologicalCarousel from '@/components/TechnologicalCarousel';

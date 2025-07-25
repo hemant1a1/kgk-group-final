@@ -106,23 +106,39 @@ export default function JoinTeam({ data = [] }) {
             <div className="w-full lg:w-7/12">
               <motion.div
                 className="grid grid-cols-1 lg:grid-cols-2 gap-7"
-                variants={staggerContainer} initial="hidden" whileInView="visible"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true, amount: 0.6 }}
               >
-                {data.map((job, i) => (
-                  <motion.div key={job.slug}
-                    className="border border-dark-gray rounded-xl px-9 py-7 hover:shadow-md"
-                    variants={fadeInUp} custom={i}
-                  >
-                    <p className="text-xs font-medium text-dark-gray mb-1">{job.job_type}</p>
-                    <h3 className="text-xl font-semibold mb-3">{job.title}</h3>
-                    <p className="text-sm text-dark-gray mb-4">{truncateText(job.short_description, 100)}</p>
-                    <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
-                      Read More
-                    </button>
-                  </motion.div>
-                ))}
+                {data.map((job, i) => {
+                  const isLastSingleItem =
+                    data.length % 2 !== 0 && i === data.length - 1; // Check if it's the last and odd one
+
+                  return (
+                    <motion.div
+                      key={job.slug}
+                      className={`border border-dark-gray rounded-xl px-9 py-7 hover:shadow-md ${
+                        isLastSingleItem ? 'lg:col-span-2' : ''
+                      }`}
+                      variants={fadeInUp}
+                      custom={i}
+                    >
+                      <p className="text-xs font-medium text-dark-gray mb-1">
+                        {job.job_type}
+                      </p>
+                      <h3 className="text-xl font-semibold mb-3">{job.title}</h3>
+                      <p className="text-sm text-dark-gray mb-4">
+                        {truncateText(job.short_description, 100)}
+                      </p>
+                      <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
+                        Read More
+                      </button>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
+
             </div>
 
             {/* Right Column – Application Form */}

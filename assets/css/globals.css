@@ -140,3 +140,7 @@ body {
           transition: opacity 0.5s ease-in-out;
 }
 
+#distribution-map path[data-code="US-AK"],
+#distribution-map path[data-code="AK"] {
+  display: none !important;
+}

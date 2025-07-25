@@ -1,5 +1,5 @@
 "use client";
-
+import LanguageToggleButton from '@/components/LanguageToggleButton';
 import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,7 +21,6 @@ export default function Footer() {
     { label: "CAREERS", href: "/careers" },
     { label: "CONTACT", href: "/contact-us" },
     { label: "BLOGS", href: "/blogs" },
-    { label: "ENGLISH", href: "#" },
   ];
   
   useEffect(() => {
@@ -64,7 +63,7 @@ export default function Footer() {
               {item.label}
             </Link>
           ))}
-
+          <LanguageToggleButton />
         </div>
 
         {/* Social Media Icons */}

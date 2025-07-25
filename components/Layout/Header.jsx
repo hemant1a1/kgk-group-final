@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+import LanguageToggle from '@/components/LanguageToggle';
+
 import logo from "@/assets/images/kgk-logo.webp";
 import search from "@/assets/images/search.webp";
 
@@ -126,9 +128,7 @@ const linkClass = (href) => {
                 height={24}
                 className={`cursor-pointer w-[24px] h-[24px] ${searchIconStyle}`}
               />
-              <button className="bg-primary text-white w-10 h-10 text-xs flex items-center justify-center">
-                EN
-              </button>
+              <LanguageToggle />
             </div>
           </nav>
 

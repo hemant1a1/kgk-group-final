@@ -24,10 +24,9 @@ const countries = [
   { name: 'JAPAN', code: 'JP' },
 ];
 
+
 export default function DistributionMapClient() {
   const [hovered, setHovered] = useState(null);
-
-  console.log('aaa:', mergedWorldWithHK);
 
   const regionValues = countries.reduce((acc, country) => {
     const isHovered = hovered === country.name || hovered === country.code;
