@@ -58,39 +58,53 @@ export default function Transcending() {
               custom={1}
             >
               <p className="lg:pl-9 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor laborum.
+                Our legacy is built on a foundation of innovation, trust, and excellence. Over the years, we’ve continuously pushed the limits—transforming challenges into opportunities and redefining standards across the gemstone and jewelry industry. Here’s a glimpse of what sets us apart:
               </p>
             </motion.div>
           </motion.div>
 
           {/* Achievement Cards */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9"
-            initial="hidden"
-            whileInView="visible"
-            variants={staggerContainer}
-            viewport={{ once: true, amount: 0.5 }}
-          >
-            {[
-              { title: 'Achievement one' },
-              { title: 'Achievement two' },
-              { title: 'Achievement three' },
-              { title: 'Achievement four' },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-neutral-100 rounded-xl px-8 py-7"
-                variants={fadeInUp}
-                custom={index + 2}
-              >
-                <h4 className="font-bold text-sm text-heading mb-3">{item.title}</h4>
-                <p className="text-sm text-heading leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-9"
+  initial="hidden"
+  whileInView="visible"
+  variants={staggerContainer}
+  viewport={{ once: true, amount: 0.5 }}
+>
+  {[
+    {
+      title: 'Vertical Integration',
+      description:
+        'We pioneered vertically integrated operations, managing every step of the gemstone and jewelry value chain. This ensures consistent quality, transparency, and ethical sourcing from mine to market.',
+    },
+    {
+      title: 'Global Expansion',
+      description:
+        'With a presence in over 20 countries, KGK Group has established a truly global footprint—connecting diverse markets while staying rooted in craftsmanship and authenticity.',
+    },
+    {
+      title: 'Sustainable Innovation',
+      description:
+        'We embrace advanced technology and eco-friendly practices to drive innovation. From precision cutting to energy-efficient manufacturing, we are committed to sustainability and long-term impact.',
+    },
+    {
+      title: 'People Empowerment',
+      description:
+        'Our strength lies in our people. With over 12,000 professionals worldwide, we invest in inclusive growth, skill development, and a culture that nurtures talent at every level.',
+    },
+  ].map((item, index) => (
+    <motion.div
+      key={index}
+      className="bg-neutral-100 rounded-xl px-8 py-7"
+      variants={fadeInUp}
+      custom={index + 2}
+    >
+      <h4 className="font-bold text-sm text-heading mb-3">{item.title}</h4>
+      <p className="text-sm text-heading leading-relaxed">{item.description}</p>
+    </motion.div>
+  ))}
+</motion.div>
+
         </div>
       </div>
     </section>
