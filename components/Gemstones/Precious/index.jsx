@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import Image from 'next/image';
 
 import { motion } from "framer-motion";
@@ -38,6 +38,15 @@ const gemstones = [
 
 export default function Precious() {
   const [hovered, setHovered] = useState('Ruby'); 
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
   return (
     <div id="precious" className="py-20 bg-white">
@@ -70,7 +79,7 @@ export default function Precious() {
                 <div className="lg:w-6/12 lg:px-6 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
                     {gemstones.map((gem) => {
                         const isActive = hovered === gem.name;
-                        const imgSrc = isActive ? gem.filled : gem.outlined;
+                        const imgSrc = isMobile ? gem.filled : isActive ? gem.filled : gem.outlined;
 
                         return (
                         <div
