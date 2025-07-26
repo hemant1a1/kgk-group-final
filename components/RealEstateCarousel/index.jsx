@@ -57,7 +57,7 @@ export default function RealEstateCarousel({ data = [] }) {
           speed={600}
           slidesPerView={1.5}
           spaceBetween={56}
-          className="real-swiper px-4 overflow-visible h-[510px] pointer-events-auto"
+          className="real-swiper px-4 overflow-visible h-[260px] md:h-[510px] pointer-events-auto"
         >
           {extendedData.map((slide, index) => (
             <SwiperSlide key={index} className="relative">
@@ -86,14 +86,14 @@ export default function RealEstateCarousel({ data = [] }) {
         {/* Arrows */}
         <button
           onClick={() => document.querySelector('.real-swiper')?.swiper?.slidePrev()}
-          className="pointer-events-auto absolute top-1/2 left-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
+          className="pointer-events-auto absolute top-[60%] md:top-1/2 left-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         </button>
 
         <button
           onClick={() => document.querySelector('.real-swiper')?.swiper?.slideNext()}
-          className="pointer-events-auto absolute top-1/2 right-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
+          className="pointer-events-auto absolute top-[60%] md:top-1/2 right-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </button>
