@@ -98,9 +98,9 @@ export default function EventsSection({ data = [] }) {
                       />
                     </Link>
                   </div>
-                  <p className="text-base text-third max-w-xs">
+                  <Link href={event.slug || '#'} className="text-base text-third max-w-xs">
                     {event.title.length > 90 ? event.title.slice(0, 90) + '...' : event.title}
-                  </p>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
