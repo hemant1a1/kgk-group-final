@@ -25,7 +25,7 @@ export default function SemiPrecious({ data }) {
 
   return (
     <>
-      <div id="semi-precious" className="py-14 bg-light-primary">
+      <div id="semi-precious" className="py-14 bg-light-primary overflow-hidden">
         <div className="container">
           <div className="px-0 lg:px-[50px]">
             <div className="flex flex-col lg:flex-row items-center gap-14">

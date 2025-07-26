@@ -102,7 +102,7 @@ export default function DistributionMapClient() {
               </div>
             </div>
 
-            <div className="lg:w-8/12">
+            <div className="w-full lg:w-8/12">
               <div className="w-full h-[400px]">
                 <VectorMap
                   map={mergedWorldWithHK}
