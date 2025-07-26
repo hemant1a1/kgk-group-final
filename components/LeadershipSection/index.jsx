@@ -27,10 +27,10 @@ export default function LeadershipSection() {
       paragraph: (
         <>
           <p className="text-white lg:text-black">
-            Since 1962, Mr. Navrattan Kothari has been the guiding force behind KGK Group, transforming it into a modern multinational with world-class infrastructure and operations.
+            Since 1962, Mr. Navrattan Kothari has been the guiding force behind KGK Group, transforming it into a modern multinational with world-class infrastructure and operations. Under his visionary leadership, KGK has continually innovated, expanded into new markets, and earned global recognition.
           </p>
           <p className="text-white lg:text-black">
-            More than just building a business, Mr. Kothari has shaped a company driven by values, placing trust, integrity, ethics, and corporate responsibility at its core.
+            More than just building a business, Mr. Kothari has shaped a company driven by values, placing trust, integrity, ethics, and corporate responsibility at its core. As the Patriarch, he continues to steer KGK with wisdom and foresight, inspiring teams worldwide with his experience and strategic acumen.
           </p>
         </>
       ),
@@ -45,10 +45,10 @@ export default function LeadershipSection() {
       paragraph: (
         <>
           <p className="text-white lg:text-black">
-            Based in Hong Kong, Sanjay Kothari is driving KGK Group’s expansion into new markets...
+            Based in Hong Kong, Sanjay Kothari is driving KGK Group’s expansion into new markets, steering the business to new heights. Overseeing the entire gems and jewellery value chain, from mining to retail, he plays a pivotal role in the group’s continued success.
           </p>
           <p className="text-white lg:text-black">
-            He oversees the entire gems and jewelry value chain, ensuring a strong, cohesive global presence.
+            His journey with KGK began with establishing diamond manufacturing in Mumbai. Since then, he has spearheaded the development of multiple verticals, including international sales and marketing, jewellery manufacturing, gemstone mining, jewellery retail, and real estate. Additionally, he leads the group’s IT and corporate identity initiatives, ensuring a strong, cohesive global presence.
           </p>
         </>
       ),
@@ -62,10 +62,10 @@ export default function LeadershipSection() {
       paragraph: (
         <>
           <p className="text-white lg:text-black">
-            Since joining KGK Group in 1990, Sandeep Kothari has played a pivotal role in the growth of the diamond procurement and processing business.
+            Since joining KGK Group in 1990, Sandeep Kothari has played a pivotal role in the growth of the diamond procurement and processing business on a global scale. His strategic leadership has significantly expanded the group’s footprint in the industry.
           </p>
           <p className="text-white lg:text-black">
-            He has been instrumental in driving polished diamond sales across Europe.
+            Now based in Antwerp, the world’s leading diamond hub, he has been instrumental in driving polished diamond sales across Europe. His expertise in fostering strong, long-term partnerships with renowned mining companies has further solidified KGK’s reputation as a trusted leader in the global diamond trade.
           </p>
         </>
       ),
