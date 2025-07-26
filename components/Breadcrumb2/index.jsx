@@ -22,7 +22,7 @@ export default function Breadcrumb({ heading, subheading, bgImage }) {
         {/* Centered Content */}
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl leading-tight font-normal mb-3"
+            className="text-3xl md:text-5xl lg:text-6xl leading-tight font-normal mb-3"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -30,7 +30,7 @@ export default function Breadcrumb({ heading, subheading, bgImage }) {
           >{heading}</motion.h1>
           {subheading && (
             <motion.p 
-              className="text-base leading-[32px] tracking-[2px] uppercase font-semibold lg:text-[20px] lg:leading-[39px]"
+              className="text-xs leading-[24px] tracking-[2px] uppercase font-semibold lg:text-[20px] lg:leading-[39px]"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}

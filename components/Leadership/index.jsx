@@ -95,7 +95,7 @@ export default function Leadership({
           {/* Overlay */}
           <div
             className={`absolute inset-0 bg-black/40 flex flex-col justify-center px-4 ${
-              imagePosition === 'right' ? 'items-start text-left' : 'items-end text-right'
+              imagePosition === 'right' ? 'md:items-start md:text-left' : 'md:items-end md:text-right'
             }`}
           >
             <motion.h2
@@ -122,7 +122,7 @@ export default function Leadership({
 
         {/* Paragraph (always below) */}
         <motion.div
-          className="text-black space-y-6 px-4 py-8"
+          className="text-[14px] lg:text-base text-black space-y-6 px-4 py-8  text-justify lg:text-left"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
