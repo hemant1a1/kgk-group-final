@@ -66,8 +66,8 @@ export default function MilestoneTimeline({ data = [] }) {
                         Milestones
                     </motion.h2>
 
-                    <p className="md:text-lg lg:text-xl leading-relaxed text-black max-w-2xl">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                    <p className="md:text-lg lg:text-xl leading-relaxed text-black max-w-3xl">
+                        From a gemstone trader to a global enterprise in gems, jewellery & real estate — a legacy of innovation, trust & excellence spanning over a century.
                     </p>
 
                 </div>
