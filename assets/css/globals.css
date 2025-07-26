@@ -144,3 +144,19 @@ body {
 #distribution-map path[data-code="AK"] {
   display: none !important;
 }
+
+.pulse-dot {
+  animation: pulse 1.5s infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0% {
+    r: 3;
+    opacity: 1;
+  }
+  100% {
+    r: 8;
+    opacity: 0;
+  }
+}

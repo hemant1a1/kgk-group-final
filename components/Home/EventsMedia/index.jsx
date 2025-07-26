@@ -17,10 +17,10 @@ export default function EventsMedia({ data }) {
   const thumbnails = allImages.filter((img) => img.image !== mainImage?.image);
 
   return (
-    <div className="relative bg-[#2F312E] text-white py-16">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-16">
+    <div className="relative bg-[#2F312E] text-white py-10 md:py-16">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-16">
         {/* Left Side - Image */}
-        <div className="order-2 md:order-1 space-y-4">
+        <div className="order-2 md:order-1 space-y-2 md:space-y-4">
           <div className="relative w-full md:min-h-[300px] h-[240px]  md:h-[60vh] rounded-lg overflow-hidden">
             {mainImage?.image && (
               <Image
@@ -35,12 +35,12 @@ export default function EventsMedia({ data }) {
         </div>
 
         {/* Right Side - Text */}
-        <div className="order-1 md:order-2 text-left space-y-6 flex flex-col justify-between">
+        <div className="order-1 md:order-2 text-left space-y-3 md:space-y-6 flex flex-col md:justify-between">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white">
             Events & Media
           </h2>
           <div>
-            <h3 className="text-3xl font-cardo max-w-md mb-6">
+            <h3 className="text-3xl font-cardo max-w-md mb-2 md:mb-6">
               {mainImage?.title}
             </h3>
             <p className="text-gray-300 max-w-xl">
@@ -56,7 +56,7 @@ export default function EventsMedia({ data }) {
       </div>
 
       {/* Swiper Thumbnails */}
-      <div className="container mt-16">
+      <div className="container pt-10 md:mt-16">
         <Swiper
           grabCursor={true}
           loop={false}
@@ -73,16 +73,20 @@ export default function EventsMedia({ data }) {
           }}
           breakpoints={{
             0: {
-              slidesPerView: 2.5, // Mobile
+              slidesPerView: 2.5,
+              spaceBetween: 10, 
             },
             640: {
-              slidesPerView: 3.5, // Small tablets
+              slidesPerView: 3.5,
+              spaceBetween: 20, 
             },
             768: {
-              slidesPerView: 4, // Medium tablets
+              slidesPerView: 4,
+              spaceBetween: 30,
             },
             1024: {
-              slidesPerView: 4.5, // Desktop
+              slidesPerView: 4.5,
+              spaceBetween: 40,
             },
           }}
           modules={[Navigation, Scrollbar]}
@@ -111,7 +115,7 @@ export default function EventsMedia({ data }) {
         </Swiper>
 
         {/* Scrollbar + Navigation Buttons in one row */}
-        <div className="flex items-center gap-12 mt-14 pr-32">
+        <div className="flex items-center gap-12 mt-10 md:mt-14 pr-32">
             <div className="flex-1 h-[5px] pt-[1px] relative overflow-hidden">
               <div className="custom-swiper-scrollbar h-[2px] bg-white/30 rounded-full" />
             </div>

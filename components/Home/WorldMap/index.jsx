@@ -38,7 +38,17 @@ export default function WorldMap({ selected, setSelected }) {
           onClick={() => setSelected(key)}
           onMouseEnter={() => setSelected(key)}
         >
-          <Image src={marker} alt="marker" width={24} height={24} />
+          <div className="block sm:hidden">
+            {/* Mobile SVG pulse-dot */}
+            <svg width="10" height="10">
+              <circle r="3" cx="5" cy="5" fill="#F53" stroke="#FFF" strokeWidth="1" className="pulse-dot" />
+            </svg>
+          </div>
+
+          <div className="hidden sm:block">
+            {/* Desktop image marker */}
+            <Image src={marker} alt="marker" width={24} height={24} className="w-4 h-4 sm:w-6 sm:h-6" />
+          </div>
           {selected === key && loc.label && (
             <div className="absolute bottom-7 left-full -translate-x-1/2 bg-white text-black font-cardo font-normal text-xs  px-2 py-1 rounded shadow whitespace-pre text-left">
               {loc.label}

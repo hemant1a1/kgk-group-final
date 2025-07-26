@@ -139,13 +139,13 @@ const linkClass = (href) => {
       <header className={`top-0 left-0 w-full z-[30] ${headerClasses}`}>
         <div className="container flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="pl-0 lg:pl-[40px] pt-[22px]">
+          <Link href="/" className="pl-2 lg:pl-[40px] pt-[22px]">
             <Image
               src={logo}
               alt="KGK Group"
               width={120}
               height={40}
-              className={`h-[80px] lg:h-[100px] object-contain ${logoStyle}`}
+              className={`h-[68px] lg:h-[100px] object-contain object-left lg:object-center ${logoStyle}`}
             />
           </Link>
 
