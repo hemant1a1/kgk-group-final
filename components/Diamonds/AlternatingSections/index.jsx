@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const AlternatingSections = ({ sections }) => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 bg-white">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
                 {sections.map(({ title, description, image, reverse }, idx) => (

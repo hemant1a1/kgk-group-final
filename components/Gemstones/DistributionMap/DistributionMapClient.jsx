@@ -103,7 +103,7 @@ export default function DistributionMapClient() {
             </div>
 
             <div className="w-full lg:w-8/12">
-              <div className="w-full h-[400px]">
+              <div className="w-full h-[200px] md:h-[400px]">
                 <VectorMap
                   map={mergedWorldWithHK}
                   backgroundColor="transparent"
@@ -172,7 +172,7 @@ export default function DistributionMapClient() {
           </div>
 
           <motion.div 
-            className="mt-10 text-[14px] md:text-[15px] leading-[25px] tracking-[0px] text-[#010101] font-normal text-center"
+            className="md:mt-10 text-[14px] md:text-[15px] leading-[25px] tracking-[0px] text-[#010101] font-normal text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}

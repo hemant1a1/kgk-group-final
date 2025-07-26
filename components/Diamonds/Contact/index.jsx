@@ -21,7 +21,7 @@ export default function Contact({ backgroundImage }) {
       </div>
 
       {/* Right side - Image */}
-      <div className="w-full md:w-1/2 h-[360px]">
+      <div className="hidden md:block w-full md:w-1/2 h-[360px]">
         <Image
           src={backgroundImage}
           alt="Contact KGK about Gemstones"

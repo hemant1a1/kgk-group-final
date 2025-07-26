@@ -26,7 +26,7 @@ export default function GemstoneManufacturing({
   return (
     <div
       id="gemstone-manufacturing"
-      className="relative z-10 bg-cover bg-left bg-no-repeat"
+      className="relative z-10 bg-cover bg-bottom md:bg-left bg-no-repeat"
       style={{
         backgroundImage: `url(${typeof backgroundImage === 'string' ? backgroundImage : backgroundImage.src})`,
       }}

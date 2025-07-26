@@ -2,12 +2,12 @@
 
 export default function Intro({ heading, paragraphs, pProps }) {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-8">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
-                <div className="max-w-5xl mx-auto text-center space-y-6">
+                <div className="max-w-5xl mx-auto md:text-center space-y-6">
                     {heading && (
-                    <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                    <h2 className="text-base font-bold leading-tight">
                         {heading}
                     </h2>
                     )}
