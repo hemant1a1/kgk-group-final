@@ -148,7 +148,7 @@ export default function OurBusiness({ data }) {
                     src={displayImage.image}
                     alt={displayImage.title}
                     fill
-                    className="object-cover grayscale opacity-80 scale-[1.1] object-[-20px] transition-transform"
+                    className="object-cover scale-[1.1] object-[-20px] transition-transform"
                 />
                 <div className="absolute inset-0 pb-6 flex flex-col justify-end text-white bg-gradient-to-t from-black to-black/30">
                     <h3 className="text-[22px] tracking-[9px] uppercase font-normal px-6 lg:px-11">
