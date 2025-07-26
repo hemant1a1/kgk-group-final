@@ -98,7 +98,7 @@ const FoundationSection = () => {
           </div>
           
           {!selectedSection && (
-            <div className="mt-10 flex">
+            <div className="mt-10 flex flex-col md:flex-row">
               {sections.map((section, index) => {
                 const isActive = index === activeIndex;
                 const baseOpacity = index === 0 ? 'opacity-[0.32]' : 'opacity-30';
@@ -113,19 +113,19 @@ const FoundationSection = () => {
                       setSelectedIndex(index);
                     }}
                     className={`
-                      relative cursor-pointer overflow-hidden h-[654px]
-                      transition-all duration-500 ease-in-out
+                      relative cursor-pointer overflow-hidden h-[240px] md:h-[654px]
+                      transition-all duration-500 ease-in-out mt-3
                       ${isActive ? 'flex-[1.5]' : activeIndex !== null ? 'flex-[1]' : 'flex-1'}
                       ${isActive ? 'mx-[10px]' : 'mx-[4.5px]'}
                       ${
                         index === 1
-                          ? 'mt-[54px]'
+                          ? 'md:mt-[54px]'
                           : index === 2
-                          ? 'mt-[14px]'
+                          ? 'md:mt-[14px]'
                           : index === 3
-                          ? 'mt-[40px]'
+                          ? 'md:mt-[40px]'
                           : index === 4
-                          ? 'mt-[6px]'
+                          ? 'md:mt-[6px]'
                           : ''
                       }
                     `}
@@ -135,7 +135,7 @@ const FoundationSection = () => {
                         isActive ? 'opacity-0' : 'opacity-100'
                       }`}
                     />
-                    <div className="absolute inset-0 z-10 transition-all duration-500">
+                    <div className="relative md:absolute h-[190px] md:h-auto inset-0 z-10 transition-all duration-500">
                       <Image
                         src={section.img}
                         alt={section.title}
@@ -147,25 +147,25 @@ const FoundationSection = () => {
                       />
                     </div>
                     <div
-                      className={`absolute inset-0 z-20 flex items-start justify-center px-4 text-center transition-opacity duration-500 ${
+                      className={`absolute inset-0 z-20 flex items-center lg:items-start justify-center px-4 text-center transition-opacity duration-500 ${
                         isActive ? 'opacity-0' : 'opacity-100'
                       }`}
                     >
                       <h3
                         className={`
                           text-white font-semibold font-cardo
-                          text-[9px] sm:text-base md:text-lg lg:text-[22px]
+                          text-2xl md:text-lg lg:text-[22px] 
                           ${
                             index === 0
-                              ? 'pt-[96px]'
+                              ? 'md:pt-[96px]'
                               : index === 1
-                              ? 'pt-[42px]'
+                              ? 'md:pt-[42px]'
                               : index === 2
-                              ? 'pt-[82px]'
+                              ? 'md:pt-[82px]'
                               : index === 3
-                              ? 'pt-[56px]'
+                              ? 'md:pt-[56px]'
                               : index === 4
-                              ? 'pt-[90px]'
+                              ? 'md:pt-[90px]'
                               : ''
                           }
                         `}

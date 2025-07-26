@@ -37,8 +37,9 @@ export default function WorldOfficeMap() {
 
   const regions = officeLocations.map(r => r.region);
   const countries = officeLocations
-    .flatMap(r => r.offices.map(o => o.country))
-    .filter((v, i, a) => a.indexOf(v) === i);
+  .filter(r => (selectedRegion ? r.region === selectedRegion : true)) // Filter by region first
+  .flatMap(r => r.offices.map(o => o.country)) // Get countries in those regions
+  .filter((v, i, a) => a.indexOf(v) === i); 
 
   const filteredLocations = officeLocations
     .filter(r => (selectedRegion ? r.region === selectedRegion : true))
@@ -68,9 +69,9 @@ export default function WorldOfficeMap() {
 }, []);   
 
   return (
-    <div className="relative w-full bg-forth pt-32 overflow-hidden">
-      <div className="container">
-        <div className="px-0 lg:px-[50px]">
+    <div className="relative w-full bg-forth pt-32 overflow-hidden h-[600px] md:h-auto">
+      <div className="container h-full ">
+        <div className="px-0 lg:px-[50px] h-full md:block flex flex-col justify-center items-center">
           <motion.h2 
             className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white font-myriad mb-6"
             initial={{ opacity: 0, y: 40 }}
