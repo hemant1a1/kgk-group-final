@@ -25,7 +25,7 @@ export default function LanguageToggle() {
         className="bg-primary text-white w-10 h-10 text-xs flex items-center justify-center"
         onClick={() => setModalOpen(true)}
       >
-        {langCode}
+        EN
       </button>
       <LanguageModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </>
