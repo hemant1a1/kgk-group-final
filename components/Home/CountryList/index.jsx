@@ -42,7 +42,7 @@ export default function CountryList({ selected, setSelected }) {
       </div>
 
       {/* Desktop Button List */}
-      <div className="hidden sm:grid grid-cols-3 gap-x-3 gap-y-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-y-5 sm:gap-x-16 text-center">
+      <div className="hidden sm:flex sm:flex-wrap sm:justify-center sm:gap-y-5 sm:gap-x-16 text-center">
         {countries.map((name) => {
           const key = name.toLowerCase().replace(/\s/g, '')
           const isActive = selected === key
