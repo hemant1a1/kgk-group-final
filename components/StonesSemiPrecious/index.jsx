@@ -19,7 +19,7 @@ const StonesSemiPrecious = () => {
           viewport={{ once: true }}
         >
           {/* Top Text */}
-          <div className="px-[50px] lg:px-0">
+          <div className="px-0">
             <motion.h2 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-6"
               initial={{ opacity: 0, y: 40 }}
@@ -85,7 +85,7 @@ const StonesSemiPrecious = () => {
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-black max-w-xl px-[50px] lg:px-24">
+          <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-black max-w-xl lg:px-24">
             Rooted in a legacy of trust and excellence, KGK Stones continues to uphold the Group’s standards, offering materials that elevate spaces with timeless durability, refined elegance, and unmatched sophistication.
           </p>
         </motion.div>

@@ -36,7 +36,7 @@ export default function Newsletter({
 
       {/* Right side - Image */}
       {img && (
-        <div className="w-full md:w-1/2 h-[360px]">
+        <div className="hidden md:block w-full md:w-1/2 h-[360px]">
           <Image
             src={img}
             alt="Newsletter"
