@@ -107,9 +107,9 @@ const AwardsSwiper = ({ data }) => {
                         {/* Text Box inside dark background */}
                         <div className="px-4 pt-2 pb-2 text-black text-center flex flex-col items-center justify-center">
                           <p className="font-cardo font-bold text-sm md:text-base lg:text-lg">{item.title}</p>
-                          {item.subtitle && index === activeIndex && (
+                          {item.short_description && index === activeIndex && (
                             <>
-                              <p className="font-light text-[15px] mt-1 px-16 mb-2">{item.subtitle}</p>
+                              <p className="font-light text-[15px] mt-1 px-16 mb-2">{item.short_description}</p>
                               <ChevronRight size={42} strokeWidth={0.5} />
                             </>
                           )}
