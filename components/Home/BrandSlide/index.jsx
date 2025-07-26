@@ -49,7 +49,7 @@ export default function BrandSlide() {
     <div className="w-full flex items-center justify-center py-12">
       <div className="flex flex-col md:flex-row w-full md:min-h-[390px] md:h-[60vh] bg-light-gray overflow-hidden">
         {/* Left: Title Section */}
-        <div className="w-full md:w-[33%] p-[50px] flex items-center justify-start text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading">
+        <div className="w-full md:w-[33%] p-[30px] md:p-[50px] flex items-center justify-start text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading">
           KGK Brands
         </div>
 
@@ -103,14 +103,14 @@ export default function BrandSlide() {
         </div>
 
         {/* Mobile View */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:hidden px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:hidden px-4">
           {brands.map((brand, index) => (
             <Link 
               key={index}
               href={brand.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-full h-[280px] rounded overflow-hidden"
+              className="relative w-full h-[200px] rounded overflow-hidden"
             >
               {/* Background Image */}
               <Image

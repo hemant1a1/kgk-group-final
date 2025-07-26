@@ -15,11 +15,11 @@ const Legacy = () => {
         <div className="container flex flex-col lg:flex-row items-center gap-y-4 lg:gap-y-0">
           <div className="relative w-full lg:w-1/2">
             {/* Background Box */}
-            <div className="absolute -left-14 bottom-0 w-2/3 h-[124px] bg-gray-100 rounded-tr-lg rounded-br-lg z-0"></div>
+            <div className="absolute -left-14 bottom-0 w-2/3 h-[80px] md:h-[124px] bg-gray-100 rounded-tr-lg rounded-br-lg z-0"></div>
 
             {/* Main Image */}
-            <div className="relative pb-[76px] pt-12">
-                <div className="relative w-full max-h-[600px] min-h-[400px] h-[70vh] rounded-lg overflow-hidden flex items-center justify-center cursor-pointer group" onClick={() => setModalOpen(true)}>
+            <div className="relative pb-[30px] md:pb-[76px] pt-12">
+                <div className="relative w-full max-h-[320px] min-h-[320px] h-[320] md:max-h-[600px] md:min-h-[400px] md:h-[70vh] rounded-lg overflow-hidden flex items-center justify-center cursor-pointer group" onClick={() => setModalOpen(true)}>
                   <div className="absolute inset-0 legacy-bg bg-cover bg-left-center grayscale"></div>
                     <div className="absolute overflow-hidden w-[55%] h-[68%] hidden group-hover:block transition-all duration-300">
                       <video
@@ -44,7 +44,7 @@ const Legacy = () => {
           {/* Right: Content */}
           <div className="w-full lg:w-1/2 text-center lg:text-left lg:pl-24 lg:pr-12">
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-14"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-6 md:mb-14"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
