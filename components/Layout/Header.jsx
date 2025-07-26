@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
 
+import SearchModal from '@/components/SearchModal';
 import LanguageToggle from '@/components/LanguageToggle';
 
 import logo from "@/assets/images/kgk-logo.webp";
@@ -13,6 +14,8 @@ import search from "@/assets/images/search.webp";
 
 export default function Header() {
   const pathname = usePathname();
+
+  const [isSearchOpen, setSearchOpen] = useState(false);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(false);
@@ -221,6 +224,7 @@ const linkClass = (href) => {
                 width={24}
                 height={24}
                 className={`cursor-pointer w-[24px] h-[24px] ${searchIconStyle}`}
+                onClick={() => setSearchOpen(true)}
               />
               <LanguageToggle />
             </div>
@@ -345,6 +349,7 @@ const linkClass = (href) => {
               width={20}
               height={20}
               className="cursor-pointer"
+              onClick={() => setSearchOpen(true)}
             />
             <button className="bg-darkGray text-white w-10 h-10 text-xs flex items-center justify-center">
               EN
@@ -353,6 +358,7 @@ const linkClass = (href) => {
         </div>
       </div>
 
+      <SearchModal isOpen={isSearchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }
