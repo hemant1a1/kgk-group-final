@@ -25,7 +25,7 @@ export default function UpcomingEvents() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-7">
                 Upcoming Events
             </h2>
-             <p className="max-w-2xl text-xl mb-5  leading-relaxed">
+             <p className="max-w-2xl md:text-lg lg:text-xl mb-5  leading-relaxed">
               Showcasing at global jewellery exhibitions, connecting with trade professionals and consumers alike.
             </p>
             <div className="flex items-center">
@@ -38,13 +38,13 @@ export default function UpcomingEvents() {
            
            
             <div className="mt-14">
-              <h3 className="font-cardo text-2xl font-normal">
+              <h3 className="font-cardo text-xl lg:text-2xl font-normal">
                 Celebrating Years of Commitment at <span></span>
               </h3>
-              <p className="font-cardo text-2xl font-normal italic mt-1">
+              <p className="font-cardo text-xl lg:text-2xl font-normal italic mt-1">
                 “Long Service Appreciation Event”, 
               </p>
-              <p className="font-cardo text-2xl font-normal mt-1 mb-6 ">KGK Namibia</p>
+              <p className="font-cardo text-xl lg:text-2xl font-normal mt-1 mb-6 ">KGK Namibia</p>
 
               <button className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
                 DISCOVER MORE
