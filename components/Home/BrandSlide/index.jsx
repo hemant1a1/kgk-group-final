@@ -110,7 +110,7 @@ export default function BrandSlide() {
               href={brand.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-full h-[200px] rounded overflow-hidden"
+              className="relative w-full h-[160px] rounded overflow-hidden"
             >
               {/* Background Image */}
               <Image

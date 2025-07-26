@@ -115,7 +115,7 @@ export default function EventsMedia({ data }) {
         </Swiper>
 
         {/* Scrollbar + Navigation Buttons in one row */}
-        <div className="flex items-center gap-12 mt-10 md:mt-14 pr-32">
+        <div className="flex items-center gap-12 mt-10 md:mt-14 md:pr-32">
             <div className="flex-1 h-[5px] pt-[1px] relative overflow-hidden">
               <div className="custom-swiper-scrollbar h-[2px] bg-white/30 rounded-full" />
             </div>
