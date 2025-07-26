@@ -35,11 +35,11 @@ export default function MilestoneTimeline({ data = [] }) {
     const distance = Math.abs(index - activeIndex);
     switch (distance) {
       case 0:
-        return 'text-xl lg:text-3xl opacity-100 z-30';
+        return 'text-xl lg:text-4xl mt-2 opacity-100 z-30';
       case 1:
-        return 'text-lg lg:text-2xl opacity-80 z-20';
+        return 'text-lg lg:text-3xl mt-2 opacity-80 z-20';
       case 2:
-        return 'text-base lg:text-xl opacity-50 z-10';
+        return 'text-base lg:text-2xl mt-3 opacity-50 z-10';
       default:
         return 'text-sm lg:text-lg opacity-30';
     }
@@ -48,14 +48,14 @@ export default function MilestoneTimeline({ data = [] }) {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="relative w-full bg-white overflow-hidden py-20">
+    <div className="relative w-full bg-white overflow-hidden pt-16 md:py-20">
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
 
         <div className="container">
             <div className=" px-0 lg:px-[50px]">
 
-                <div className="flex flex-col lg:flex-row items-start gap-x-20 w-full mb-12">
+                <div className="flex flex-col lg:flex-row items-start gap-x-20 w-full mb-4 md:mb-12">
                     {/* Heading */}
                     <motion.h2
                         initial={{ opacity: 0, y: -30 }}
@@ -103,14 +103,14 @@ export default function MilestoneTimeline({ data = [] }) {
                                     <div className="w-full flex items-center justify-center">
                                         <div
                                             className={clsx(
-                                            'relative w-[376px] flex items-center justify-start gap-16 transition-all duration-300 transform cursor-pointer',
+                                            'relative w-[376px] flex items-center justify-start gap-16 transition-all duration-300 transform cursor-pointer ml-4',
                                             
                                             )}
                                         >
                                             <div>
                                                 <div
                                                     className={clsx(
-                                                        'w-16 h-16 flex items-center justify-center rounded-full transition-all duration-300',
+                                                        'w-12 h-12 overflow-hidden flex items-center justify-center rounded-full transition-all duration-300',
                                                         getScale(index)
                                                     )}
                                                     >
@@ -119,7 +119,7 @@ export default function MilestoneTimeline({ data = [] }) {
                                                         alt={item.year}
                                                         width={40}
                                                         height={40}
-                                                        className="object-contain"
+                                                        className="w-full h-full object-cover"
                                                     />
                                                 </div>
                                             </div>
@@ -172,34 +172,34 @@ export default function MilestoneTimeline({ data = [] }) {
 
                 {/* Mobile View */}
                 <div className="md:hidden">
-                    <Swiper
-                    slidesPerView={1}
-                    spaceBetween={20}
-                    loop={true}
-                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-                    modules={[Navigation, Mousewheel]}
-                    className="w-full"
-                    >
-                    {data.map((item, index) => (
-                        <SwiperSlide key={item.year}>
-                        <div className="flex flex-col items-center text-center px-6">
-                            <div className="w-24 h-24 mb-4">
-                            <Image
-                                src={item.image}
-                                alt={item.year}
-                                width={96}
-                                height={96}
-                                className="object-contain mx-auto"
-                            />
-                            </div>
-                            <h3 className="text-lg font-bold italic text-[#1f355e]">{item.year}</h3>
-                            <h4 className="text-xl mt-2 font-semibold">{item.title}</h4>
-                            <p className="text-gray-600 mt-2">{item.short_description}</p>
-                        </div>
-                        </SwiperSlide>
-                    ))}
-                    </Swiper>
-                </div>
+  <Swiper
+    slidesPerView={1.3}
+    spaceBetween={20}
+    loop={true}
+    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+    modules={[Navigation, Mousewheel]}
+    className="w-full"
+  >
+    {data.map((item, index) => (
+      <SwiperSlide key={item.year}>
+        <div className="text-center">
+          <div className="relative w-full h-56 mb-4">
+            <Image
+              src={item.image}
+              alt={item.year}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw"
+            />
+          </div>
+          <h3 className="text-lg font-bold italic text-[#1f355e]">{item.year}</h3>
+          <h4 className="text-xl mt-2 font-semibold">{item.title}</h4>
+          <p className="text-gray-600 mt-2">{item.short_description}</p>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
             </div>
         </div>

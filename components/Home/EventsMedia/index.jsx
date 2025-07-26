@@ -21,13 +21,13 @@ export default function EventsMedia({ data }) {
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-16">
         {/* Left Side - Image */}
         <div className="order-2 md:order-1 space-y-4">
-          <div className="relative w-full min-h-[300px] h-[60vh] rounded-lg overflow-hidden">
+          <div className="relative w-full md:min-h-[300px] h-[240px]  md:h-[60vh] rounded-lg overflow-hidden">
             {mainImage?.image && (
               <Image
                 src={mainImage.image}
                 alt={mainImage?.title || "Main Event"}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             )}

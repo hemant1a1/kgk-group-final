@@ -3,14 +3,14 @@ import thumb1 from "@/assets/images/u-event.png";
 
 export default function UpcomingEvents() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white py-16">
+    <div className="min-h-screen flex items-center justify-center bg-white py-10 md:py-16">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-y-4 lg:gap-y-0 items-start">
           {/* Left: Event Image */}
           <div className="relative pt-[48px]">
             <div className="absolute -left-14 top-0 w-2/3 h-[124px] bg-gray-100 rounded-tr-lg rounded-br-lg z-0"></div>
 
-            <div className="relative w-full h-[450px] md:h-[550px] lg:h-[587px] rounded-xl overflow-hidden">
+            <div className="relative w-full h-[350px] md:h-[550px] lg:h-[587px] rounded-xl overflow-hidden">
               <Image
                 src={thumb1}
                 alt="Event Group"

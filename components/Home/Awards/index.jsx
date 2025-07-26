@@ -29,7 +29,7 @@ const AwardsSwiper = ({ data }) => {
         "
        >
         <div className="text-center relative z-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white my-12">Awards</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white my-6 md:my-12">Awards</h2>
           <Swiper
             modules={[Navigation]}
             loop={true}
@@ -43,7 +43,8 @@ const AwardsSwiper = ({ data }) => {
             }}
             breakpoints={{
               0: {
-                slidesPerView: 1.2,
+                slidesPerView: 1,
+                spaceBetween:30
               },
               640: {
                 slidesPerView: 3,
@@ -61,14 +62,14 @@ const AwardsSwiper = ({ data }) => {
                 <SwiperSlide
                     key={index}
                     className={clsx(
-                      'flex justify-center transition-all duration-300 ease-in-out',
-                      isActive ? 'w-[320px] z-20 mx-[10px]' : 'w-[300px] z-10 px-[10px]'
+                      'flex justify-center transition-all duration-300 ease-in-out px-4',
+                      isActive ? 'md:w-[320px] z-20 md:mx-[10px]' : 'md:w-[300px] z-10 md:px-[10px]'
                     )}
                   >
                   <div
                     className={clsx(
                       'transition-all duration-300 ease-in-out rounded-xl overflow-hidden',
-                      isActive ? 'scale-100 z-20' : 'scale-100 z-10'
+                      isActive ? 'md:scale-100 z-20' : 'md:scale-100 z-10'
                     )}
                   >
                     <div
