@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import visit1 from '@/assets/images/visit1.jpg'; // w: 313, h: 259
-import visit2 from '@/assets/images/visit2.jpg'; // w: 215, h: 289
-import visit3 from '@/assets/images/visit3.jpg'; // w: 383, h: 448
+import Link from 'next/link';
 
-export default function VisitSection() {
+export default function VisitSection({ data }) {
+  const { heading, description, slug, images } = data || {};
+
   return (
     <div className="relative py-16 lg:px-0 lg:pr-[100px] px-4 sm:px-6">
       {/* Connecting Lines only on large screens */}
@@ -22,18 +22,18 @@ export default function VisitSection() {
             </span>
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[42px] font-normal text-heading lg:pr-3">
-            Vietnam delegation
-            visit at Jaipur factory
-            in Sitapura
+            {heading?.length > 90 ? heading.slice(0, 90) + '...' : heading}
           </h2>
           <div className="lg:ml-[97px] lg:pl-6 px-2">
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 lg:mb-11">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              {description?.length > 260 ? description.slice(0, 260) + '...' : description || ''}
             </p>
             <div className="text-center lg:text-left">
-              <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
-                Read More
-              </button>
+              <Link href={`/events-&-media/${slug || '#'}`}>
+                <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
+                  Read More
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -41,34 +41,40 @@ export default function VisitSection() {
         {/* Left Side Images */}
         <div className="space-y-8 w-full lg:w-[31.25%] order-2 lg:order-1">
           <div className="w-full max-w-[383px] h-[240px] sm:h-[260px] md:h-[280px] lg:w-[313px] lg:h-[272px] rounded-2xl  lg:rounded-r-2xl lg:rounded-l-none overflow-hidden mx-auto lg:ml-0">
-            <Image
-              src={visit1}
-              alt="Group"
-              width={313}
-              height={272}
-              className="w-full h-full object-cover object-top"
-            />
+            {images?.[0] && (
+              <Image
+                src={images[0]}
+                alt="Feature Image 1"
+                width={313}
+                height={272}
+                className="w-full h-full object-cover object-top"
+              />
+            )}
           </div>
           <div className="w-full max-w-[383px] h-[240px] sm:h-[260px] md:h-[280px] lg:w-[232px] lg:h-[306px] rounded-2xl overflow-hidden mx-auto lg:ml-auto lg:mr-[-97px]">
-            <Image
-              src={visit2}
-              alt="Reviewing Stones"
-              width={232}
-              height={306}
-              className="w-full h-full object-cover object-top"
-            />
+            {images?.[1] && (
+              <Image
+                src={images[1]}
+                alt="Feature Image 2"
+                width={232}
+                height={306}
+                className="w-full h-full object-cover object-top"
+              />
+            )}
           </div>
         </div>
 
         {/* Right Side Image */}
         <div className="w-full max-w-[383px] h-[240px] sm:h-[260px] md:h-[280px] lg:w-[32.05%] lg:h-[448px] rounded-xl overflow-hidden mx-auto order-3">
-          <Image
-            src={visit3}
-            alt="Microscope"
-            width={383}
-            height={448}
-            className="w-full h-full object-cover object-left-top"
-          />
+          {images?.[2] && (
+            <Image
+              src={images[2]}
+              alt="Feature Image 3"
+              width={383}
+              height={448}
+              className="w-full h-full object-cover object-left-top"
+            />
+          )}
         </div>
       </div>
     </div>

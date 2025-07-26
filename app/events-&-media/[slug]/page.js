@@ -1,13 +1,35 @@
 'use client';
-
+import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { fetchFromAPI } from '@/lib/api';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-import award1 from '@/assets/images/award1.jpg';
-import award2 from '@/assets/images/award2.jpg';
-import award3 from '@/assets/images/award3.jpg';
-
 export default function EventsDetailPage() {
+  const { slug } = useParams();
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getEvent = async () => {
+      try {
+        const data = await fetchFromAPI(`events/${slug}`);
+        setEvent(data);
+      } catch (error) {
+        console.error('Failed to load event:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (slug) {
+      getEvent();
+    }
+  }, [slug]);
+
+  if (loading) return <div className="text-center py-10">Loading...</div>;
+  if (!event) return <div className="text-center py-10">No data found</div>;
+
   return (
     <>
       <div className="w-full bg-primary py-10 text-center text-white">
@@ -18,7 +40,7 @@ export default function EventsDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            21st February, 2022
+            {event.date}
           </motion.p>
           <motion.h1
             className="text-2xl md:text-4xl mb-1"
@@ -26,7 +48,7 @@ export default function EventsDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Lifetime Achievement Award
+            {event.title}
           </motion.h1>
           <motion.p
             className="text-sm md:text-base"
@@ -34,7 +56,7 @@ export default function EventsDetailPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            JWA Awards 2022
+            {event.subtitle}
           </motion.p>
         </div>
       </div>
@@ -42,24 +64,28 @@ export default function EventsDetailPage() {
       <div className="bg-white py-12">
         <div className="container">
           <div className="px-0 lg:px-[100px]">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
-              {[award1, award2, award3].map((img, i) => (
-                <motion.div
-                  key={i}
-                  className="rounded-xl overflow-hidden shadow-md"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <Image
-                    src={img}
-                    alt={`Award ${i + 1}`}
-                    className="w-full h-60 object-cover object-[center_25%]"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            {event.images && event.images.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+                {event.images.map((img, i) => (
+                  <motion.div
+                    key={i}
+                    className="rounded-xl overflow-hidden shadow-md"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Gallery Image ${i + 1}`}
+                      width={600}
+                      height={300}
+                      className="w-full h-60 object-cover object-[center_25%]"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            )}
 
             <motion.h2
               className="text-base md:text-lg lg:text-xl text-center mb-4 max-w-xl mx-auto"
@@ -68,7 +94,7 @@ export default function EventsDetailPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              A lifetime of persistence and commitment gets recognized with the highest accolade.
+              {event.highlight}
             </motion.h2>
             <motion.p
               className="text-xs md:text-sm lg:text-base text-third text-center max-w-2xl mx-auto"
@@ -77,7 +103,7 @@ export default function EventsDetailPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              JWA felicitated Mr. Navrattan Kothari, Patriarch, KGK Group with Life Time Achievement Award on 21st February 2022 at an award ceremony held in Dubai.
+              {event.description}
             </motion.p>
           </div>
         </div>

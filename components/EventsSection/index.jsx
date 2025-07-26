@@ -1,48 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import Link from 'next/link';
+import { useState, useMemo } from 'react';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-
-import event1 from '@/assets/images/event1.jpg';
-import event2 from '@/assets/images/event2.jpg';
-import event3 from '@/assets/images/event3.jpg';
-
-const categories = ['All', 'Healthcare', 'Gemstone', 'Mining', 'Jewelry', 'Retail', 'Realty'];
-
-const events = [
-  {
-    image: event1,
-    title: 'Kgk Group opens diamond factory Botswana',
-    category: 'Healthcare',
-  },
-  {
-    image: event2,
-    title: "''The Pride of Rajasthan'' awards by Dainik Bhaskar, Jaipur",
-    category: 'Gemstone',
-  },
-  {
-    image: event3,
-    title: 'Diamond Manufacturer of the year Award',
-    category: 'Mining',
-  },
-  {
-    image: event1,
-    title: 'Kgk Group opens diamond factory Botswana',
-    category: 'Jewelry',
-  },
-  {
-    image: event2,
-    title: "''The Pride of Rajasthan'' awards by Dainik Bhaskar, Jaipur",
-    category: 'Retail',
-  },
-  {
-    image: event3,
-    title: 'Diamond Manufacturer of the year Award',
-    category: 'Realty',
-  },
-];
 
 // Animation variants
 const containerVariants = {
@@ -59,13 +21,20 @@ const cardVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-export default function EventsSection() {
+export default function EventsSection({ data = [] }) {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  const filteredEvents =
-    activeCategory === 'All'
-      ? events
-      : events.filter((event) => event.category === activeCategory);
+  // Generate unique categories dynamically
+  const categories = useMemo(() => {
+    return ['All', ...Array.from(new Set(data.map((item) => item.category).filter(Boolean)))];
+  }, [data]);
+
+  // Filter data based on selected category
+  const filteredEvents = useMemo(() => {
+    return activeCategory === 'All'
+      ? data
+      : data.filter((event) => event.category === activeCategory);
+  }, [activeCategory, data]);
 
   return (
     <div className="py-12 bg-light-primary">
@@ -114,36 +83,42 @@ export default function EventsSection() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
-              key={activeCategory} 
+              key={activeCategory}
             >
               {filteredEvents.map((event, index) => (
                 <motion.div key={index} variants={cardVariants} className="space-y-2">
                   <div className="overflow-hidden rounded-md">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      width={280}
-                      height={300}
-                      className="rounded-lg w-full h-60 lg:h-44 object-cover object-top"
-                    />
+                    <Link href={event.slug || '#'}>
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        width={280}
+                        height={300}
+                        className="rounded-lg w-full h-60 lg:h-44 object-cover object-top"
+                      />
+                    </Link>
                   </div>
-                  <p className="text-base text-third max-w-xs">{event.title}</p>
+                  <p className="text-base text-third max-w-xs">
+                    {event.title.length > 90 ? event.title.slice(0, 90) + '...' : event.title}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>
 
-            {/* Load More */}
-            <motion.div
-              className="text-center mt-10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
-                LOAD MORE
-              </button>
-            </motion.div>
+            {/* Load More (shown only if more than 6 items) */}
+            {filteredEvents.length > 6 && (
+              <motion.div
+                className="text-center mt-10"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
+                  LOAD MORE
+                </button>
+              </motion.div>
+            )}
           </div>
         </div>
       </div>
