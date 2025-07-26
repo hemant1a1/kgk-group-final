@@ -23,22 +23,22 @@ export default function CollaborationSection() {
                     </div>
 
                     {/* Logos Block */}
-                    <div className="flex items-center justify-center gap-6 lg:gap-12 flex-wrap lg:flex-nowrap">
-                    <Image
-                        src={kgk}
-                        alt="KGK Logo"
-                        className="object-contain w-[154px]"
-                    />
-                    <Image
-                        src={intersect}
-                        alt="intersect"
-                        className="object-contain w-[70px]"
-                    />
-                    <Image
-                        src={devangi}
-                        alt="Devangi"
-                        className="object-contain w-[200px]"
-                    />
+                    <div className="flex items-center justify-center gap-6 lg:gap-12 flex-nowrap">
+                        <Image
+                            src={kgk}
+                            alt="KGK Logo"
+                            className="object-contain w-[80px] md:w-[154px]"
+                        />
+                        <Image
+                            src={intersect}
+                            alt="intersect"
+                            className="object-contain w-[80px] md:w-[70px]"
+                        />
+                        <Image
+                            src={devangi}
+                            alt="Devangi"
+                            className="object-contain w-[80px] md:w-[200px]"
+                        />
                     </div>
                 </div>
             </div>

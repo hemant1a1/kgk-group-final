@@ -56,7 +56,7 @@ export default function FocusAreasSection() {
   const activeRightIndex = (activeIndex + 2) % totalSlides; // Right-most full image
 
   return (
-    <section className="py-16 bg-white">
+    <section className="pt-6 pb-16 md:py-16 bg-white">
       <div className="px-[50px] lg:pl-0 lg:pr-[100px] flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
         {/* Swiper Side */}
         <div className="relative w-full lg:w-[70%]">
@@ -67,13 +67,22 @@ export default function FocusAreasSection() {
             slidesPerView="auto"
             loop
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            breakpoints={{
+              0: {
+                slidesPerView: 1, 
+                spaceBetween: 0
+              },
+              768: {
+                slidesPerView: 'auto', 
+              },
+            }}
             className="focus-swiper"
           >
             {focusItems.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className={`transition-all duration-300 ${
-                  index === activeRightIndex ? 'w-[90vw] lg:!w-[430px]' : 'w-[70vw] lg:!w-[230px]'
+                  index === activeRightIndex ? 'lg:!w-[430px]' : 'lg:!w-[230px]'
                 }`}
               >
                 <div

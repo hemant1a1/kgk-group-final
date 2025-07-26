@@ -16,7 +16,7 @@ export default function ApplicationsSection() {
             <div className="px-0 lg:px-[50px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left Column */}
-                    <div className="max-w-md flex flex-col justify-end h-full pb-14">
+                    <div className="max-w-md flex flex-col justify-end h-full md:pb-14">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white mb-8">
                             Applications <br /> Across Industries
                         </h2>
@@ -30,7 +30,7 @@ export default function ApplicationsSection() {
                     </div>
 
                     {/* Right Columns */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-14 gap-y-10">
+                    <div className="grid grid-cols-2 gap-x-8 md:gap-x-14 gap-y-10">
                         <ApplicationItem
                         icon={quantum}
                         title="Quantum Computing & Sensing"
@@ -66,10 +66,10 @@ export default function ApplicationsSection() {
 function ApplicationItem({ icon, title }) {
   return (
     <div className="md:max-w-52 flex flex-col items-start gap-4">
-      <div className="w-14 h-14 flex-shrink-0 relative">
+      <div className="w-12 h-12 md:w-14 md:h-14 flex-shrink-0 relative">
         <Image src={icon} alt={title} fill className="object-contain invert" />
       </div>
-      <h4 className="text-lg font-bold italic leading-snug">{title}</h4>
+      <h4 className="text-md md:text-lg font-medium md:font-bold italic leading-snug">{title}</h4>
     </div>
   );
 }

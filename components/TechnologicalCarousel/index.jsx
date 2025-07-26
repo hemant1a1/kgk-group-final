@@ -90,7 +90,7 @@ export default function TechnologicalCarousel() {
       </div>
 
       {/* Carousel */}
-      <div className="relative">
+      <div className="relative px-6 md:px-6">
 
         {/* Swiper */}
         <Swiper
@@ -103,7 +103,15 @@ export default function TechnologicalCarousel() {
           slidesPerView={1.5}
           spaceBetween={56}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-          className="real-swiper px-4 overflow-visible h-[450px] pointer-events-auto"
+          breakpoints={{
+            0: {
+              slidesPerView: 1, // mobile
+            },
+            768: {
+              slidesPerView: 1.5, // tablet and up
+            },
+          }}
+          className="real-swiper px-4 overflow-visible h-[300px] md:h-[450px] pointer-events-auto"
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index} className="relative group">
@@ -139,7 +147,7 @@ export default function TechnologicalCarousel() {
             onClick={() => {
             document.querySelector('.real-swiper')?.swiper?.slidePrev();
             }}
-            className="pointer-events-auto absolute top-1/2 left-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
+            className="pointer-events-auto absolute top-1/2 left-[2%] md:left-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
         </button>
@@ -148,7 +156,7 @@ export default function TechnologicalCarousel() {
             onClick={() => {
             document.querySelector('.real-swiper')?.swiper?.slideNext();
             }}
-            className="pointer-events-auto absolute top-1/2 right-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
+            className="pointer-events-auto absolute top-1/2 right-[2%] md:right-[15.5%] -translate-y-1/2 z-10 bg-white md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full shadow hover:bg-white flex items-center justify-center"
         >
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
         </button>

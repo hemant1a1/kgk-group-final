@@ -6,7 +6,7 @@ import diamondPartner from '@/assets/images/diamond-partner.png';
 
 export default function PartnerSection() {
   return (
-    <section className="bg-[#8b7359] text-white pt-12">
+    <section className="bg-[#8b7359] text-white py-12 md:pt-12 md:pb-0">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
