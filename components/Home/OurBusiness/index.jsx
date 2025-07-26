@@ -192,13 +192,19 @@ export default function OurBusiness({ data }) {
                     )}
                 >
                     <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={100}
+                      height={100}
+                      className="block lg:hidden w-full h-full object-cover"
+                    />
+                    <Image
                     src={item.image}
                     alt={item.title}
-                    width={100}
-                    height={100}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="hidden lg:block w-full h-full object-cover"
                     />
-                    <div className="relative lg:absolute inset-0 flex items-end justify-center">
+                    <div className="absolute inset-0 flex items-end justify-center">
                     <span className="text-white font-normal text-base tracking-widest text-center px-2 pb-6">
                         {item.title.toUpperCase()}
                     </span>
