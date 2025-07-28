@@ -33,7 +33,7 @@ export default async function BlogDetailPage({ params }) {
       <Image
         src={data.blog.image || blog1}
         alt={data.blog.title}
-        className="w-full min-h-96 h-[58vh] object-cover object-top mb-8"
+        className="w-full min-h-96 h-[70vh] object-cover object-top mb-8"
         width={1200}
         height={500}
       />

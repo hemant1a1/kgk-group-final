@@ -2,9 +2,13 @@
 
 import { motion } from 'framer-motion';
 import parse, { domToReact } from 'html-react-parser';
+import he from 'he'; // ✅ HTML entities decoder
 
 export default function BlogDetailContent({ blog }) {
   if (!blog) return null;
+
+  const decodedDescription = he.decode(blog.description || '');
+  const decodedContent = he.decode(blog.content || '');
 
   const options = {
     replace: (domNode) => {
@@ -17,7 +21,7 @@ export default function BlogDetailContent({ blog }) {
           delete attribs.class;
         }
 
-        // Convert style string to object (for React compatibility)
+        // Convert style string to object
         let styleObj = {};
         if (attribs.style) {
           styleObj = attribs.style
@@ -28,7 +32,7 @@ export default function BlogDetailContent({ blog }) {
               if (prop && value) {
                 const jsProp = prop
                   .trim()
-                  .replace(/-([a-z])/g, (_, char) => char.toUpperCase()); // CSS to camelCase
+                  .replace(/-([a-z])/g, (_, char) => char.toUpperCase());
                 acc[jsProp] = value.trim();
               }
               return acc;
@@ -45,14 +49,12 @@ export default function BlogDetailContent({ blog }) {
                 className={`my-6 mx-auto w-full max-w-full h-auto rounded-md ${attribs.className || ''}`}
               />
             );
-
           case 'p':
             return (
               <p className="text-base leading-7 tracking-normal text-gray-800 mb-6">
                 {domToReact(domNode.children, options)}
               </p>
             );
-
           case 'table':
             return (
               <div className="overflow-auto my-6">
@@ -61,42 +63,36 @@ export default function BlogDetailContent({ blog }) {
                 </table>
               </div>
             );
-
           case 'thead':
             return (
               <thead className="bg-gray-100">
                 {domToReact(domNode.children, options)}
               </thead>
             );
-
           case 'tbody':
             return (
               <tbody>
                 {domToReact(domNode.children, options)}
               </tbody>
             );
-
           case 'tr':
             return (
               <tr>
                 {domToReact(domNode.children, options)}
               </tr>
             );
-
           case 'th':
             return (
               <th className="border border-gray-300 px-4 py-2 font-semibold bg-gray-50">
                 {domToReact(domNode.children, options)}
               </th>
             );
-
           case 'td':
             return (
               <td className="border border-gray-300 px-4 py-2">
                 {domToReact(domNode.children, options)}
               </td>
             );
-
           default:
             return undefined;
         }
@@ -113,20 +109,20 @@ export default function BlogDetailContent({ blog }) {
     >
       {/* Title */}
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug md:leading-tight lg:leading-[1.4] text-heading mb-6">
-        {blog.title}
+        {he.decode(blog.title)}
       </h1>
 
       {/* Description */}
-      {blog.description && (
+      {decodedDescription && (
         <p className="text-sm lg:text-[15px] leading-[25px] tracking-[0px] text-heading mb-6">
-          {blog.description}
+          {decodedDescription}
         </p>
       )}
 
       {/* Content */}
-      {blog.content && (
+      {decodedContent && (
         <div className="[&>p]:mb-6 [&>img]:rounded-md [&>table]:w-full [&>table]:text-sm">
-          {parse(blog.content, options)}
+          {parse(decodedContent, options)}
         </div>
       )}
     </motion.article>
