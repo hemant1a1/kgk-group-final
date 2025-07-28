@@ -17,7 +17,11 @@ export async function generateStaticParams() {
 export default async function BlogDetailPage({ params }) {
   const { slug } = params;
 
+  console.log("aaa ", slug);
+
   const data = await fetchFromAPI(`blogs/${slug}`);
+
+   console.log("bbb ", data);
 
   // ✅ 404 fallback if data not found
   if (!data || !data.blog) {

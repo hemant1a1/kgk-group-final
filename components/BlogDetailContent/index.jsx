@@ -10,9 +10,30 @@ export default function BlogDetailContent({ blog }) {
     replace: (domNode) => {
       if (domNode.type === 'tag') {
         const attribs = { ...domNode.attribs };
+
+        // Convert class to className
         if (attribs.class) {
           attribs.className = attribs.class;
           delete attribs.class;
+        }
+
+        // Convert style string to object (for React compatibility)
+        let styleObj = {};
+        if (attribs.style) {
+          styleObj = attribs.style
+            .split(';')
+            .filter(Boolean)
+            .reduce((acc, style) => {
+              const [prop, value] = style.split(':');
+              if (prop && value) {
+                const jsProp = prop
+                  .trim()
+                  .replace(/-([a-z])/g, (_, char) => char.toUpperCase()); // CSS to camelCase
+                acc[jsProp] = value.trim();
+              }
+              return acc;
+            }, {});
+          delete attribs.style;
         }
 
         switch (domNode.name) {
@@ -20,6 +41,7 @@ export default function BlogDetailContent({ blog }) {
             return (
               <img
                 {...attribs}
+                style={styleObj}
                 className={`my-6 mx-auto w-full max-w-full h-auto rounded-md ${attribs.className || ''}`}
               />
             );
