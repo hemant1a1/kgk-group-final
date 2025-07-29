@@ -109,7 +109,7 @@ const AwardsSwiper = ({ data }) => {
                           <p className="font-cardo font-bold text-sm md:text-base lg:text-lg">{item.title}</p>
                           {item.short_description && index === activeIndex && (
                             <>
-                              <p className="font-light text-[15px] mt-1 px-16 mb-2">{item.short_description}</p>
+                              <p className="font-light text-[15px] mt-1 mb-2">{item.short_description}</p>
                               <ChevronRight size={42} strokeWidth={0.5} />
                             </>
                           )}
