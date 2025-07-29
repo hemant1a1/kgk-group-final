@@ -74,7 +74,7 @@ export default function LatestBlogs({ data }) {
                     src={selectedBlog.image}
                     alt={selectedBlog.title}
                     fill
-                    className="object-cover rounded-lg"
+                    className="object-cover object-top rounded-lg"
                   />
                 </div>
                 <div className="mt-7 max-w-xl">
