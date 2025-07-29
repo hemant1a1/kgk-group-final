@@ -17,11 +17,7 @@ export async function generateStaticParams() {
 export default async function BlogDetailPage({ params }) {
   const { slug } = params;
 
-  console.log("aaa ", slug);
-
   const data = await fetchFromAPI(`blogs/${slug}`);
-
-   console.log("bbb ", data);
 
   // ✅ 404 fallback if data not found
   if (!data || !data.blog) {
@@ -30,7 +26,7 @@ export default async function BlogDetailPage({ params }) {
 
   return (
     <>
-      <Image
+      <img
         src={data.blog.image || blog1}
         alt={data.blog.title}
         className="w-full min-h-96 h-auto object-cover object-top mb-8"
