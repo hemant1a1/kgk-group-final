@@ -167,3 +167,17 @@ body {
     opacity: 0;
   }
 }
+
+@keyframes slideInDownCustom {
+  0% {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+.animate-slide-in-down {
+  animation: slideInDownCustom 0.3s ease forwards;
+}

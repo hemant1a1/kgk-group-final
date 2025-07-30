@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 import SearchModal from '@/components/SearchModal';
 import LanguageToggle from '@/components/LanguageToggle';
@@ -15,12 +16,14 @@ import search from "@/assets/images/search.webp";
 export default function Header() {
   const pathname = usePathname();
 
+  const [hasScrolled, setHasScrolled] = useState(false);
+
   const [isSearchOpen, setSearchOpen] = useState(false);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
-const [activeSubIndex, setActiveSubIndex] = useState(null)
+  const [activeSubIndex, setActiveSubIndex] = useState(null)
 
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
   const toggleSubmenu = () => setSubmenuOpen(!submenuOpen);
@@ -135,20 +138,48 @@ const linkClass = (href) => {
         : "border-white"
       : "border-transparent hover:border-white"
   }`;
-};    
+};
+
+
+  useEffect(() => {
+  const handleScroll = () => {
+    setHasScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <>
-      <header className={`top-0 left-0 w-full z-[30] ${headerClasses}`}>
+      <header
+      className={clsx(
+        "w-full top-0 left-0 z-[30] transition-all duration-300 fixed",
+        isBlogDetailPage ? "relative" : hasScrolled ? " animate-slide-in-down" : "",
+        hasScrolled
+          ? "bg-black/80 text-white shadow-md backdrop-blur-lg"
+          : "bg-transparent text-white h-20"
+      )}
+    >
         <div className="container flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="pl-2 lg:pl-[40px] pt-[22px]">
+          <Link href="/"
+            className={clsx(
+              "pl-2 lg:pl-[40px] ",
+              hasScrolled ? "py-1.5" : "pt-[22px]",
+              logoStyle
+            )}
+          >
             <Image
               src={logo}
               alt="KGK Group"
               width={120}
               height={40}
-              className={`h-[68px] lg:h-[100px] object-contain object-left lg:object-center ${logoStyle}`}
+              className={clsx(
+                "transition-all duration-300 object-contain object-left lg:object-center",
+                hasScrolled ? "h-10 lg:h-14" : "h-[68px] lg:h-[100px]",
+                logoStyle
+              )}
             />
           </Link>
 

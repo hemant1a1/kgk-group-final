@@ -91,9 +91,9 @@ export default function OurBusiness({ data }) {
   const displayImage = hovered || active;
 
   return (
-    <div className="md:min-h-screen bg-white py-4">
+    <div className="bg-white pt-8 pb-12">
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-start lg:pl-10 gap-x-10 w-full mb-12">
+        <div className="flex flex-col lg:flex-row items-start lg:pl-10 gap-x-10 w-full mb-8">
             {/* Heading */}
             <motion.h2
             initial={{ opacity: 0, y: -30 }}
