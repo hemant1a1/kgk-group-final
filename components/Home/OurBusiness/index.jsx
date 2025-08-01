@@ -101,7 +101,7 @@ export default function OurBusiness({ data }) {
             transition={{ duration: 0.6 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading whitespace-nowrap mb-4 lg:mb-0 lg:mt-0"
           >
-            Business
+            Businesses
           </motion.h2>
 
             {/* Paragraph + Line */}

@@ -85,7 +85,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-[13px] tracking-widest text-white">
-          Copyright © 2024 by KGK Group |{" "}
+          Copyright © {new Date().getFullYear()} by KGK Group |{" "}
           <a href="#" className="text-white">Legal and Privacy</a>
         </p>
       </div>

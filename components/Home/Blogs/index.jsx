@@ -27,9 +27,9 @@ export default function Blogs({ data = [] }) {
               Discover trends, styling tips, and insights from the world of fine jewellery.
             </p>
           </div>
-          <button className="bg-primary text-white px-5 py-2 rounded-full text-sm">
+          <Link href="/blogs" className="bg-primary text-white px-5 py-2 rounded-full text-sm">
             SEE ALL
-          </button>
+          </Link>
         </div>
 
         {/* Swiper Slider */}
