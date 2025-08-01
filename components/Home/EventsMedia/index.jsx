@@ -11,7 +11,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function EventsMedia({ data }) {
   const allImages = data ?? [];
-  console.log("EventsMedia Data:", allImages);
   const [mainImage, setMainImage] = useState(allImages[0]);
 
   const thumbnails = allImages.filter((img) => img.image !== mainImage?.image);
@@ -35,7 +34,7 @@ export default function EventsMedia({ data }) {
         </div>
 
         {/* Right Side - Text */}
-        <div className="order-1 md:order-2 text-left space-y-3 md:space-y-6 flex flex-col md:justify-between">
+        <div className="order-1 md:order-2 text-left space-y-3 md:space-y-6 flex flex-col">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-white">
             Events & Media
           </h2>
@@ -59,10 +58,10 @@ export default function EventsMedia({ data }) {
       <div className="container pt-10 md:mt-16">
         <Swiper
           grabCursor={true}
-          loop={false}
+          loop={true}
           speed={600}
-          slidesPerView={4.5}
-          spaceBetween={40}
+          slidesPerView={5}
+          spaceBetween={30}
           scrollbar={{
             el: ".custom-swiper-scrollbar",
             draggable: true,
@@ -85,14 +84,14 @@ export default function EventsMedia({ data }) {
               spaceBetween: 30,
             },
             1024: {
-              slidesPerView: 4.5,
-              spaceBetween: 40,
+              slidesPerView: 5,
+              spaceBetween: 30,
             },
           }}
           modules={[Navigation, Scrollbar]}
           className=""
         >
-          {thumbnails.map((item, idx) => {
+          {allImages.map((item, idx) => {
             const isActive = item.image === mainImage?.image;
             return (
               <SwiperSlide key={idx}>
