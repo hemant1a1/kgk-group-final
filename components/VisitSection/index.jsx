@@ -48,6 +48,7 @@ export default function VisitSection({ data }) {
                 width={313}
                 height={272}
                 className="w-full h-full object-cover object-top"
+                unoptimized
               />
             )}
           </div>
@@ -59,6 +60,7 @@ export default function VisitSection({ data }) {
                 width={232}
                 height={306}
                 className="w-full h-full object-cover object-top"
+                unoptimized
               />
             )}
           </div>
@@ -73,6 +75,7 @@ export default function VisitSection({ data }) {
               width={383}
               height={448}
               className="w-full h-full object-cover object-left-top"
+              unoptimized
             />
           )}
         </div>

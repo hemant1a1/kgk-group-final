@@ -101,6 +101,7 @@ export default function FeaturedBlogs({ data = [] }) {
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 768px) 90vw, 38vw"
+                          unoptimized
                         />
                         <div className="absolute bottom-0 left-0 w-full px-4 py-6 bg-gradient-to-t from-black/80 to-transparent">
                           <Link

@@ -95,6 +95,7 @@ export default function EventsSection({ data = [] }) {
                         width={280}
                         height={300}
                         className="rounded-lg w-full h-60 lg:h-44 object-cover object-top"
+                        unoptimized
                       />
                     </Link>
                   </div>

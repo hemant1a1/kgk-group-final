@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogDetailPage({ params }) {
-  const { slug } = params;
+  const slug = params.slug;
+
 
   const data = await fetchFromAPI(`blogs/${slug}`);
 
@@ -26,14 +27,15 @@ export default async function BlogDetailPage({ params }) {
 
   return (
     <>
-      <img
-        src={data.blog.image || blog1}
-        alt={data.blog.title}
-        className="w-full min-h-96 h-auto object-cover object-top mb-8"
-        width={1200}
-        height={500}
-      />
-      <div className="container">
+     <div className="container">
+        <Image
+          src={data.blog.image || blog1}
+          alt={data.blog.title}
+          width={1200}
+          height={700}
+          className="w-full min-h-96 h-[58vh] mb-8"
+          unoptimized
+        />
         <div className="px-0 lg:px-[50px] pt-8 pb-16">
           <div className="flex flex-col lg:flex-row gap-x-32 gap-y-10">
             <div className="md:w-9/12">

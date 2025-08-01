@@ -75,6 +75,7 @@ export default function LatestBlogs({ data }) {
                     alt={selectedBlog.title}
                     fill
                     className="object-cover object-top rounded-lg"
+                    unoptimized
                   />
                 </div>
                 <div className="mt-7 max-w-xl">

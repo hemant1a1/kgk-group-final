@@ -123,9 +123,9 @@ const mobileMenu = [
     ? "relative bg-white text-black mb-4"
     : "absolute bg-transparent text-white";
 
-  const logoStyle = isBlogDetailPage ? "invert" : "";
-  const searchIconStyle = isBlogDetailPage ? "invert" : "";
-  const textColor = isBlogDetailPage ? "text-black" : "text-white";
+  const logoStyle = !hasScrolled && isBlogDetailPage ? "invert" : "";
+  const searchIconStyle = !hasScrolled && isBlogDetailPage ? "invert" : "";
+  const textColor = !hasScrolled && isBlogDetailPage ? "text-black" : "text-white";
 
 
 const linkClass = (href) => {
@@ -154,11 +154,12 @@ const linkClass = (href) => {
     <>
       <header
       className={clsx(
-        "w-full top-0 left-0 z-[30] transition-all duration-300 fixed",
-        isBlogDetailPage ? "relative" : hasScrolled ? " animate-slide-in-down" : "",
+        "w-full top-0 left-0 z-[30] transition-all duration-300 ",
+        !hasScrolled && isBlogDetailPage ? "relative" : "",
+        hasScrolled ? "fixed animate-slide-in-down" : "fixed",
         hasScrolled
           ? "bg-black/80 text-white shadow-md backdrop-blur-lg"
-          : "bg-transparent text-white h-20"
+          : "bg-transparent text-white"
       )}
     >
         <div className="container flex items-center justify-between">
@@ -166,8 +167,7 @@ const linkClass = (href) => {
           <Link href="/"
             className={clsx(
               "pl-2 lg:pl-[40px] ",
-              hasScrolled ? "py-1.5" : "pt-[22px]",
-              logoStyle
+              hasScrolled ? "py-1.5" : "pt-[22px] pb-1",
             )}
           >
             <Image
