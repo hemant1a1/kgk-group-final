@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { officeLocations } from '@/lib/officeLocations';
+
+import { useRouter } from 'next/navigation';
 
 const DownArrowIcon = () => (
   <svg
@@ -30,6 +32,8 @@ const fadeUp = {
 };
 
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -39,14 +43,16 @@ const ContactForm = () => {
 
   const [successMessage, setSuccessMessage] = React.useState('');
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    setLoading(true); // Start loading
     console.log('Submitted Data:', data);
-    setSuccessMessage('Thank you! We have received your enquiry.');
-    reset();
 
-    setTimeout(() => {
-      setSuccessMessage('');
-    }, 4000);
+    // Simulate form submission
+    await new Promise((res) => setTimeout(res, 2000));
+
+    reset();
+    setLoading(false); // Stop loading
+    router.push('/thank-you');
   };
 
   return (
@@ -199,28 +205,17 @@ const ContactForm = () => {
                   {officeLocations.flatMap((region) =>
                     region.offices
                       .filter((office) => office.city)
-                      .reduce((acc, office) => {
-                        const key = office.country;
-                        if (!acc.some((group) => group.country === key)) {
-                          acc.push({ country: key, options: [] });
-                        }
-                        const group = acc.find((g) => g.country === key);
-                        group.options.push(
-                          <option
-                            key={`${office.city}-${office.country}`}
-                            value={`${office.city}, ${office.country}`}
-                          >
-                            {office.city}, {office.country}
-                          </option>
-                        );
-                        return acc;
-                      }, [])
-                      .map((group) => (
-                        <optgroup key={group.country} label={group.country}>
-                          {group.options}
-                        </optgroup>
+                      .map((office) => (
+                        <option
+                          key={`${office.city}-${office.country}`}
+                          value={`${office.city}, ${office.country}`}
+                        >
+                          {office.city}, {office.country}
+                        </option>
                       ))
                   )}
+
+
                 </select>
                 {errors.location && (
                   <p className="text-red-500 text-sm">{errors.location.message}</p>
@@ -232,9 +227,20 @@ const ContactForm = () => {
             <motion.div className="md:col-span-2 mt-4" variants={fadeUp}>
               <button
                 type="submit"
+                disabled={loading}
                 className="bg-[#8c7459] px-8 py-3 rounded-full font-bold text-white mx-auto block hover:opacity-90 transition"
               >
-                SUBMIT
+                {loading ? (
+                  <div className="flex items-center justify-center">
+                    <svg className="animate-spin h-5 w-5 text-white mr-2" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                    </svg>
+                    Submitting...
+                  </div>
+                ) : (
+                  'SUBMIT'
+                )}
               </button>
             </motion.div>
           </motion.form>
