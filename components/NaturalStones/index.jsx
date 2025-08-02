@@ -60,7 +60,7 @@ const NaturalStonesClient = ({ data }) => {
 const StoneCard = ({ img, title, desc }) => (
   <div className="custom-card1 relative bg-white rounded-[43px] overflow-hidden text-center z-0 p-2.5">
     <div className="relative w-full h-44 rounded-t-[43px] overflow-hidden">
-      <Image src={img} alt={title} fill className="w-full h-full object-cover" />
+      <Image src={img} alt={title} fill unoptimized className="w-full h-full object-cover" />
     </div>
     <div className="p-4">
       <h3 className="text-lg md:text-[24px] lg:text-[28px] text-heading mb-1">{title}</h3>
