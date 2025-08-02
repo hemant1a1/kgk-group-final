@@ -34,6 +34,7 @@ function truncateText(text, maxLength = 100) {
 }
 
 export default function JoinTeam({ data = [] }) {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -53,6 +54,7 @@ export default function JoinTeam({ data = [] }) {
     e.preventDefault();
     setError('');
     setSuccess('');
+    setLoading(true);
 
     const { name, email, mobile, job_title, about_yourself } = formData;
 
@@ -82,6 +84,8 @@ export default function JoinTeam({ data = [] }) {
       setSelectedFile(null);
     } catch (err) {
       setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -118,7 +122,7 @@ export default function JoinTeam({ data = [] }) {
                   return (
                     <motion.div
                       key={job.slug}
-                      className={`border border-dark-gray rounded-xl px-9 py-7 hover:shadow-md ${
+                      className={`border border-dark-gray rounded-xl px-4 py-7 hover:shadow-md ${
                         isLastSingleItem ? 'lg:col-span-2' : ''
                       }`}
                       variants={fadeInUp}
@@ -208,12 +212,24 @@ export default function JoinTeam({ data = [] }) {
 
               <motion.button
                 type="submit"
-                className="w-full py-2.5 bg-primary text-white text-lg font-medium rounded-full mt-4"
-                whileHover={{ scale: 1.03 }}
+                disabled={loading}
+                className="w-full py-2.5 bg-primary text-white text-lg font-medium rounded-full mt-4 flex items-center justify-center"
+                whileHover={{ scale: loading ? 1 : 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                custom={7} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                custom={7}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
               >
-                Send Application
+                {loading ? (
+                  <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                  </svg>
+                ) : (
+                  'Send Application'
+                )}
               </motion.button>
             </motion.form>
           </div>

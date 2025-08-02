@@ -46,8 +46,8 @@ export default function Transcending() {
               custom={0}
             >
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading lg:leading-[57px] max-w-2xl">
-                At KGK Group, we have been{' '}
-                <span className="font-bold text-primary">transcending boundaries</span>{' '}
+                At <span className="font-semibold text-primary">KGK Group</span>, we have been
+                transcending boundaries 
                 through our work and our quality.
               </h2>
             </motion.div>
