@@ -8,7 +8,7 @@ import devangi from '@/assets/images/devangi.png';
 
 export default function CollaborationSection() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-8 lg:py-16 bg-white">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

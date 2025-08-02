@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -24,7 +24,7 @@ const stagger = {
 
 const KGKHospitality = () => {
   return (
-    <section className="relative w-full pt-16 pb-6">
+    <section className="relative w-full py-8 lg:pt-16 lg:pb-6">
       {/* Background Split */}
       <div className="absolute inset-0 h-[52%] bg-white z-0" />
       <div className="absolute inset-0 top-[52%] bg-[#fcf5ec] z-0" />
@@ -33,7 +33,7 @@ const KGKHospitality = () => {
         <div className="px-0 lg:pl-[50px]">
 
           {/* Title Section */}
-          <motion.div
+          {/* <motion.div
             className="flex flex-col lg:flex-row items-start gap-x-8 w-full mb-11"
             initial="hidden"
             whileInView="show"
@@ -51,7 +51,7 @@ const KGKHospitality = () => {
                 Blending precision, innovation, and tradition to create exceptional dining experiences that redefine luxury and sophistication.
               </p>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
 
           <div className="relative z-10 space-y-8">
 
@@ -67,7 +67,7 @@ const KGKHospitality = () => {
                 <Image
                   src={img1}
                   alt="KGK Hospitality Entrance"
-                  className="rounded-[21px] w-full h-[300px] sm:h-[320px] md:h-[574px] object-cover"
+                  className="rounded-[21px] w-full h-[300px] sm:h-[320px] md:h-[610px] object-cover"
                 />
               </motion.div>
 
@@ -76,12 +76,20 @@ const KGKHospitality = () => {
                   <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-4 max-w-xl">
                     Crafting Exquisite Culinary Experiences
                   </h3>
-                  <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-black max-w-4xl lg:pr-24">
+                  <p className="text-sm lg:text-[15px] leading-[25px] tracking-wide text-black max-w-4xl lg:pr-24 mb-4">
                     With a legacy rooted in excellence, KGK Group continues its journey of innovation by expanding into the world of hospitality.
                     This evolution is led by Shivika Kothari, a fifth-generation member of the KGK family, who brings a fresh perspective and a
                     passion for creating distinguished culinary experiences. Drawing from the group’s long standing expertise in precision and
                     craftsmanship, KGK Hospitality blends fine dining with impeccable service to offer guests an extraordinary gastronomic journey.
                   </p>
+                  <Link
+                    href="https://meraakikitchen.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition"
+                  >
+                    VISIT MERAAKI KITCHEN
+                  </Link>
                 </motion.div>
 
                 <motion.div className="flex gap-8" variants={stagger}>

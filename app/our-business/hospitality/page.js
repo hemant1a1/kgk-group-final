@@ -26,7 +26,7 @@ export default function Hospitality() {
                 </>
             }
             buttonText="VISIT Meraaki kitchen"
-            buttonHref="#"
+            buttonHref="https://meraakikitchen.com/"
             buttonColor="bg-primary text-white hover:bg-primary"
             textColor="text-heading"
             headingCustomClass = "lg:pr-0"
