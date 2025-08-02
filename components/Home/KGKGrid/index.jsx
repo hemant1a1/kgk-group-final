@@ -76,37 +76,37 @@ export default function KGKGrid({
         <div className="grid grid-cols-3 min-h-[320px] mx-auto h-[55vh] relative">
           <div className={`flex flex-col relative z-10 ${getAnimateClass(animationDirections[1])}`}>
             <div className="relative h-[37%]">
-              <Image src={images[1]} alt="img2" fill className="object-cover" />
+              <Image src={images[1]} alt="img2" fill unoptimized className="object-cover" />
             </div>
             <div className="bg-white flex items-center justify-center h-[29%] p-3">
-              <Image src={logo} alt="logo" width={84} height={100} className="w-full h-full object-contain" />
+              <Image src={logo} alt="logo" width={84} height={100} unoptimized className="w-full h-full object-contain" />
             </div>
             <div className={`relative h-[34%] -mr-6 z-20 ${getAnimateClass(animationDirections[4])}`}>
               <div className="absolute inset-0 w-[120%]">
-                <Image src={images[4]} alt="img5" fill className="object-cover" />
+                <Image src={images[4]} alt="img5" fill unoptimized className="object-cover" />
               </div>
             </div>
           </div>
 
           <div className={`flex flex-col relative z-0 ${getAnimateClass(animationDirections[2])}`}>
             <div className="relative h-[66%]">
-              <Image src={images[2]} alt="img3" fill className="object-cover" />
+              <Image src={images[2]} alt="img3" fill unoptimized className="object-cover" />
             </div>
             <div className="relative h-[34%] px-3">
-              <Image src={images[0]} alt="img1" fill className="object-cover rounded-md" />
+              <Image src={images[0]} alt="img1" fill unoptimized className="object-cover rounded-md" />
             </div>
           </div>
 
           <div className="flex flex-col">
             <div className={`relative h-[22.33%] ${getAnimateClass(animationDirections[3])}`}>
-              <Image src={images[3]} alt="img4" fill className="object-cover" />
+              <Image src={images[3]} alt="img4" fill unoptimized className="object-cover" />
             </div>
             <div className="bg-primary text-white flex flex-col items-center justify-center h-[22.33%] text-center px-2">
               <div className="text-sm md:text-2xl lg:text-3xl">{title}</div>
               {subtitle && <div className="text-[11px] md:text-base">{subtitle}</div>}
             </div>
             <div className={`relative h-[55.34%] ${getAnimateClass(animationDirections[5])}`}>
-              <Image src={images[5]} alt="img6" fill className="object-cover" />
+              <Image src={images[5]} alt="img6" fill unoptimized className="object-cover" />
             </div>
           </div>
         </div>
