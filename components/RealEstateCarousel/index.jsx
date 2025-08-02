@@ -18,9 +18,9 @@ export default function RealEstateCarousel({ data = [] }) {
   }
 
   return (
-    <section className="bg-[#fdf3e5] py-16">
+    <section className="bg-[#fdf3e5] py-8 lg:py-16">
       {/* Heading */}
-      <div className="text-center mb-10">
+      <div className="px-[15px] text-center mb-10">
         <div className="flex items-center justify-center gap-6 mb-2">
           <div className="flex-grow border-t border-third"></div>
           <motion.h2 

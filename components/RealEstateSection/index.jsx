@@ -7,7 +7,7 @@ import realEstateImage from '@/assets/images/building-1.jpg';
 export default function RealEstateSection() {
   return (
     <div className="w-full bg-white">
-      <div className="px-[50px] lg:pl-[100px] lg:pr-0 py-16 lg:py-0 flex flex-col lg:flex-row items-center gap-0">
+      <div className="px-[15px] lg:px-[50px] lg:pl-[100px] lg:pr-0 py-8 lg:py-16 lg:py-0 flex flex-col lg:flex-row items-center gap-0">
         {/* Left Text Section */}
         <motion.div
           className="w-full lg:w-5/12 lg:pr-14"
