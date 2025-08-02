@@ -79,7 +79,7 @@ export default function KGKGrid({
               <Image src={images[1]} alt="img2" fill unoptimized className="object-cover" />
             </div>
             <div className="bg-white flex items-center justify-center h-[29%] p-3">
-              <Image src={logo} alt="logo" width={84} height={100} unoptimized className="w-full h-full object-contain" />
+              <Image src={logo} alt="logo" width={84} height={100} className="w-full h-full object-contain" />
             </div>
             <div className={`relative h-[34%] -mr-6 z-20 ${getAnimateClass(animationDirections[4])}`}>
               <div className="absolute inset-0 w-[120%]">

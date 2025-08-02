@@ -42,7 +42,7 @@ export default function CountryList({ selected, setSelected }) {
       </div>
 
       {/* Desktop Button List */}
-      <div className="hidden sm:flex sm:flex-wrap sm:justify-center sm:gap-y-7 sm:gap-x-8 text-center">
+      <div className="hidden sm:flex sm:flex-wrap sm:justify-center sm:gap-y-7 sm:gap-x-8 lg:gap-x-5 text-center">
         {countries.map((name) => {
           const key = name.toLowerCase().replace(/\s/g, '')
           const isActive = selected === key
@@ -51,7 +51,7 @@ export default function CountryList({ selected, setSelected }) {
               key={key}
               onClick={() => setSelected(key)}
               onMouseEnter={() => setSelected(key)}
-              className={`transition duration-200 font-cardo font-normal text-[13.5px] basis-1/4 lg:basis-[12%] lg:basis-[10%] ${
+              className={`transition duration-200 font-cardo font-normal text-[13.5px] basis-1/4 lg:basis-[12%] xl:basis-[10%] ${
                 isActive ? 'text-primary' : 'hover:text-primary'
               }`}
             >
