@@ -1,86 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { motion, AnimatePresence } from 'framer-motion';
-
-// Image imports
-import gemstonesImg from '@/assets/images/business/gemstones.jpg';
-import miningImg from '@/assets/images/business/mining.jpg';
-import diamondsImg from '@/assets/images/business/diamonds.jpg';
-import jewelleryImg from '@/assets/images/business/jewellery.jpg';
-import retailImg from '@/assets/images/business/retail.jpg';
-import realEstateImg from '@/assets/images/business/real-estate.jpg';
-import stonesImg from '@/assets/images/business/stones.jpg';
-import technologyImg from '@/assets/images/business/technology.jpg';
-import hospitalityImg from '@/assets/images/business/hospitality.jpg';
-
-const businessItems = [
-  {
-    key: 'diamonds',
-    title: 'Diamonds',
-    image: diamondsImg,
-    description:
-      'Natural, ethical, and exquisite—KGK diamonds reflect unmatched beauty, integrity, and transparency.',
-  },
-  {
-    key: 'gemstones',
-    title: 'Gemstones',
-    image: gemstonesImg,
-    description:
-      'Over 120 years of gemstone legacy—brilliant colors, flawless cuts, and global trust define KGK’s exceptional collection.',
-  },
-  {
-    key: 'mining',
-    title: 'Mining',
-    image: miningImg,
-    description:
-      'Ethically sourced from South America and Africa, KGK’s diamonds begin at the source—ensuring quality, authenticity, and sustainable practices.',
-  },
-  {
-    key: 'jewellery',
-    title: 'Jewellery',
-    image: jewelleryImg,
-    description:
-      'Timeless elegance meets craftsmanship. KGK jewellery blends innovation with style and sophistication.',
-  },
-  {
-    key: 'retail',
-    title: 'Retail',
-    image: retailImg,
-    description:
-      'From mine to boutique—Entice by KGK brings fine jewellery to life in Hong Kong SAR and India.',
-  },
-  {
-    key: 'real-estate',
-    title: 'Real Estate',
-    image: realEstateImg,
-    description:
-      'Craftsmanship meets concrete. KGK extends its legacy to premium real estate development since 2010.',
-  },
-  {
-    key: 'stones',
-    title: 'Stones',
-    image: stonesImg,
-    description:
-      'Nature’s finest marbles, granite, and quartzite—refined by KGK for timeless architectural beauty.',
-  },
-  {
-    key: 'technology',
-    title: 'Technology & Innovation',
-    image: technologyImg,
-    description:
-      'Pioneering innovation with advanced technologies like MPCVD, laser cutting, and diamond coatings for high-performance solutions.',
-  },
-  {
-    key: 'hospitality',
-    title: 'Hospitality',
-    image: hospitalityImg,
-    description:
-      'Blending tradition, innovation, and precision to offer luxurious dining experiences, redefining culinary excellence with impeccable service.',
-  },
-];
 
 
 export default function OurBusiness({ data }) {
@@ -89,6 +12,8 @@ export default function OurBusiness({ data }) {
   const [justClicked, setJustClicked] = useState(false);
 
   const displayImage = hovered || active;
+
+  const previewRef = useRef(null);
 
   return (
     <div className="bg-white pt-8 pb-12">
@@ -132,6 +57,7 @@ export default function OurBusiness({ data }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
             {/* Large Preview */}
             <div
+            ref={previewRef}
             className="block relative w-full h-[420px] lg:h-[500px] overflow-hidden shadow-lg lg:col-span-1"
             
             >
@@ -174,7 +100,9 @@ export default function OurBusiness({ data }) {
                       setActive(item);
                       setHovered(null);
                       setJustClicked(true);
-                      // ✅ Reset justClicked after a delay to avoid stuck state
+                      if (window.innerWidth < 1024 && previewRef.current) {
+                        previewRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }
                       setTimeout(() => {
                         setJustClicked(false);
                       }, 100);

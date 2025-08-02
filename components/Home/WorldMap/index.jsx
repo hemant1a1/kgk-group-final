@@ -38,12 +38,34 @@ export default function WorldMap({ selected, setSelected }) {
           onClick={() => setSelected(key)}
           onMouseEnter={() => setSelected(key)}
         >
-          <div className="block sm:hidden">
-            {/* Mobile SVG pulse-dot */}
-            <svg width="10" height="10">
-              <circle r="3" cx="5" cy="5" fill="#F53" stroke="#FFF" strokeWidth="1" className="pulse-dot" />
-            </svg>
-          </div>
+          {selected === key ? (
+            <div className="block sm:hidden">
+              <svg width="14" height="14">
+                <circle
+                  r="4"
+                  cx="7"
+                  cy="7"
+                  fill="#F53"
+                  stroke="#FFF"
+                  strokeWidth="1"
+                  className="pulse-dot"
+                />
+              </svg>
+            </div>
+          ) : (
+            <div className="block sm:hidden">
+              <svg width="10" height="10">
+                <circle
+                  r="3"
+                  cx="5"
+                  cy="5"
+                  fill="#999"
+                  stroke="#FFF"
+                  strokeWidth="1"
+                />
+              </svg>
+            </div>
+          )}
 
           <div className="hidden sm:block">
             {/* Desktop image marker */}

@@ -15,7 +15,7 @@ const Legacy = () => {
         <div className="container flex flex-col lg:flex-row items-center gap-y-4 lg:gap-y-0">
           <div className="relative w-full lg:w-1/2">
             {/* Background Box */}
-            <div className="absolute -left-14 -bottom-8 w-2/3 h-20 md:h-24 bg-gray-200 rounded-tr-lg rounded-br-lg z-0"></div>
+            <div className="hidden lg:block absolute -left-14 -bottom-8 w-2/3 h-20 md:h-24 bg-gray-200 rounded-tr-lg rounded-br-lg z-0"></div>
 
             {/* Main Image */}
             <div className="relative">
@@ -42,7 +42,7 @@ const Legacy = () => {
           </div>
 
           {/* Right: Content */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left lg:pl-24 lg:pr-12">
+          <div className="w-full lg:w-1/2 text-left lg:pl-24 lg:pr-12">
             <motion.h2
               className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-6"
               initial={{ opacity: 0, y: 40 }}
