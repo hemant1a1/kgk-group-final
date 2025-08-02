@@ -43,10 +43,10 @@ export default function LifeSlider() {
       modules={[Autoplay]}
       slidesPerView={1}
       loop={true}
-      autoplay={{
+      /*autoplay={{
         delay: 3000, 
         disableOnInteraction: false, 
-      }}
+      }}*/
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
     >
       <SwiperSlide>

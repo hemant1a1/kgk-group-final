@@ -78,8 +78,8 @@ export default function KGKGrid({
             <div className="relative h-[37%]">
               <Image src={images[1]} alt="img2" fill className="object-cover" />
             </div>
-            <div className="bg-white flex items-center justify-center h-[29%]">
-              <Image src={logo} alt="logo" width={84} height={100} />
+            <div className="bg-white flex items-center justify-center h-[29%] p-3">
+              <Image src={logo} alt="logo" width={84} height={100} className="w-full h-full object-contain" />
             </div>
             <div className={`relative h-[34%] -mr-6 z-20 ${getAnimateClass(animationDirections[4])}`}>
               <div className="absolute inset-0 w-[120%]">
@@ -102,8 +102,8 @@ export default function KGKGrid({
               <Image src={images[3]} alt="img4" fill className="object-cover" />
             </div>
             <div className="bg-primary text-white flex flex-col items-center justify-center h-[22.33%] text-center px-2">
-              <div className="text-xl sm:text-2xl md:text-2xl lg:text-3xl">{title}</div>
-              {subtitle && <div className="text-sm md:text-base">{subtitle}</div>}
+              <div className="text-sm md:text-2xl lg:text-3xl">{title}</div>
+              {subtitle && <div className="text-[11px] md:text-base">{subtitle}</div>}
             </div>
             <div className={`relative h-[55.34%] ${getAnimateClass(animationDirections[5])}`}>
               <Image src={images[5]} alt="img6" fill className="object-cover" />
