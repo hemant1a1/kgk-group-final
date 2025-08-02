@@ -87,6 +87,7 @@ export default function BrandSlide() {
                     src={brand.bgImage}
                     alt={`${brand.name} background`}
                     fill
+                    unoptimized
                     className="object-cover"
                   />
                   
@@ -99,7 +100,7 @@ export default function BrandSlide() {
                   width={400}
                   height={220}
                   priority
-                  quality={100}
+                  unoptimized
                   className={clsx(
                     'z-20 w-[280px] h-auto object-contain transition-[filter] duration-500 ease-in-out',
                     isActive && 'invert'
