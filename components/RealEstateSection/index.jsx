@@ -1,5 +1,5 @@
 'use client';
-
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import realEstateImage from '@/assets/images/building-1.jpg';
@@ -27,7 +27,7 @@ export default function RealEstateSection() {
             Built to Last
           </motion.h2>
           <motion.p
-            className="text-sm lg:text-[15px] leading-[25px] tracking-[0px] text-black text-justify"
+            className="text-sm lg:text-[15px] leading-[25px] tracking-[0px] text-black text-justify mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
@@ -38,6 +38,15 @@ export default function RealEstateSection() {
             of value and prosperity. Guided by the same principles that positioned the brand as a leader in the gems and jewellery
             industry, KGK brings dedication and precision to its real estate ventures.
           </motion.p>
+
+          <Link
+            href="https://staging.kgkrealty.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition"
+          >
+            VISIT KGK REALTY
+          </Link>
         </motion.div>
 
         {/* Right Image Section */}

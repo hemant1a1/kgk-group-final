@@ -16,14 +16,14 @@ export default async function Stones() {
   return (
     <>
       <Breadcrumb
-        heading="Stones"
+        heading="Natural Stones"
         subheading="A SYMPHONY OF ART & ARCHITECTURE "
         bgImage={bgImage}
       />
       <KGKStonesSection />
       <StonesSemiPrecious />
       <NaturalStones data={data.stones} />
-      <HalfIntro />
+      <HalfIntro buttonHref="https://kgkstones.com/" />
       <Newsletter
         img={newsletterImg}
         showHeading={

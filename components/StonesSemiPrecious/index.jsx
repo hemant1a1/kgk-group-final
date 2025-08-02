@@ -8,7 +8,7 @@ import livingImg from '@/assets/images/living.jpg';
 
 const StonesSemiPrecious = () => {
   return (
-    <section className="bg-[#fff5e7] py-16 px-4 lg:px-24 overflow-x-hidden">
+    <section className="bg-[#fff5e7] py-8 lg:py-16 px-4 lg:px-24 overflow-x-hidden">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-y-8">
         {/* LEFT 60% */}
         <motion.div

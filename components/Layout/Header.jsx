@@ -49,7 +49,7 @@ const businessMenu = [
     ],
   },
   {
-    label: "Marble Mining",
+    label: "Natural Stone Mining",
     children: [
       { label: "KGK Stones", href: "/our-business/stones" },
     ],
