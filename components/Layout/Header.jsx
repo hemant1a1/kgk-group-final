@@ -166,7 +166,7 @@ const linkClass = (href) => {
           {/* Logo */}
           <Link href="/"
             className={clsx(
-              "pl-2 lg:pl-[40px] ",
+              "pl-2 xl:pl-[40px] ",
               hasScrolled ? "py-1.5" : "pt-[22px] pb-1",
             )}
           >
@@ -176,8 +176,8 @@ const linkClass = (href) => {
               width={120}
               height={40}
               className={clsx(
-                "transition-all duration-300 object-contain object-left lg:object-center",
-                hasScrolled ? "h-10 lg:h-14" : "h-[68px] lg:h-[100px]",
+                "transition-all duration-300 object-contain object-left xl:object-center",
+                hasScrolled ? "h-10 xl:h-14" : "h-[68px] xl:h-[100px]",
                 logoStyle
               )}
             />
@@ -185,7 +185,7 @@ const linkClass = (href) => {
 
           {/* Desktop Nav */}
           <nav
-            className={`hidden lg:flex md:space-x-14 items-center font-light lg:text-sm uppercase tracking-widest ${textColor}`}
+            className={`hidden xl:flex lg:space-x-14 items-center font-light xl:text-sm uppercase tracking-widest ${textColor}`}
           >
             <Link href="/" className={linkClass("/")}>Home</Link>
             <Link href="/about-us" className={linkClass("/about-us")}>About Us</Link>
@@ -262,7 +262,7 @@ const linkClass = (href) => {
           </nav>
 
           {/* Hamburger Button */}
-          <button onClick={toggleDrawer} className={`${textColor} lg:hidden`}>
+          <button onClick={toggleDrawer} className={`${textColor} xl:hidden`}>
             {drawerOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

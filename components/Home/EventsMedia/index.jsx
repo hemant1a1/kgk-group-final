@@ -20,7 +20,7 @@ export default function EventsMedia({ data }) {
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-16">
         {/* Left Side - Image */}
         <div className="order-2 md:order-1 space-y-2 md:space-y-4">
-          <div className="relative w-full md:min-h-[300px] h-[240px]  md:h-[60vh] rounded-lg overflow-hidden">
+          <div className="relative w-full md:min-h-[300px] h-[240px] xl:h-[60vh] rounded-lg overflow-hidden">
             {mainImage?.image && (
               <Image
                 src={mainImage.image}

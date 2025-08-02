@@ -42,9 +42,9 @@ const Legacy = () => {
           </div>
 
           {/* Right: Content */}
-          <div className="w-full lg:w-1/2 text-left lg:pl-24 lg:pr-12">
+          <div className="w-full lg:w-1/2 text-left lg:pl-12 xl:pl-24 xl:pr-12">
             <motion.h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-4 xl:mb-6"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -53,7 +53,7 @@ const Legacy = () => {
               Enduring Legacy
             </motion.h2>
             <motion.p
-              className="mb-4"
+              className="mb-2 xl:mb-4"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
@@ -63,7 +63,7 @@ const Legacy = () => {
             </motion.p>
 
             <motion.p
-              className="mb-12"
+              className="mb-4 xl:mb-12"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}

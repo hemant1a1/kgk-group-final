@@ -18,7 +18,7 @@ export default function OurBusiness({ data }) {
   return (
     <div className="bg-white pt-8 pb-12">
       <div className="container">
-        <div className="flex flex-col lg:flex-row items-start lg:pl-10 gap-x-10 w-full mb-8">
+        <div className="flex flex-col lg:flex-row items-start xl:pl-10 gap-x-6 xl:gap-x-10 w-full mb-8">
             {/* Heading */}
             <motion.h2
             initial={{ opacity: 0, y: -30 }}
@@ -30,19 +30,19 @@ export default function OurBusiness({ data }) {
           </motion.h2>
 
             {/* Paragraph + Line */}
-            <div className="flex flex-col w-full relative lg:-right-14">
+            <div className="flex flex-col w-full relative xl:-right-14">
               {/* Single paragraph for mobile and tablet */}
-              <p className="md:text-lg lg:text-xl leading-relaxed text-black max-w-4xl block lg:hidden">
+              <p className="text-base xl:text-lg xl:text-xl leading-relaxed text-black max-w-4xl block xl:hidden">
                 KGK Group stands out with its vertically integrated business model, seamlessly connecting the entire value chain from mines to retail. As a global leader in gemstones and diamonds, KGK Group provides exceptional quality to customers worldwide.
               </p>
 
               {/* Split paragraphs for large screens */}
-              <div className="hidden lg:flex flex-col">
-                <p className="md:text-lg lg:text-xl leading-relaxed text-black">
+              <div className="hidden xl:flex flex-col">
+                <p className="text-base xl:text-lg xl:text-xl leading-relaxed text-black">
                   KGK Group leads with a vertically integrated model, connecting the entire value
                 </p>
                 <div className="flex items-center">
-                  <p className="md:text-lg lg:text-xl leading-relaxed text-black">
+                  <p className="text-base xl:text-lg xl:text-xl leading-relaxed text-black">
                     chain from mines to retail, delivering exceptional quality globally.
                   </p>
                   <div className="flex-grow h-0.5 bg-light-gray ml-14" />

@@ -33,7 +33,7 @@ export default function KGKGrid({
   return (
     <div className="relative">
       {/* Desktop */}
-      <div className="hidden md:block relative">
+      <div className="hidden lg:block relative">
         <div className="grid grid-cols-5 min-h-[88vh] mx-auto h-[500px]">
           <div className={`${getAnimateClass(animationDirections[0])} relative h-full`}>
             <Image src={images[0]} alt="img1" fill className="object-cover" />
@@ -72,7 +72,7 @@ export default function KGKGrid({
       </div>
 
       {/* Mobile */}
-      <div className="block md:hidden relative">
+      <div className="block lg:hidden relative">
         <div className="grid grid-cols-3 min-h-[320px] mx-auto h-[55vh] relative">
           <div className={`flex flex-col relative z-10 ${getAnimateClass(animationDirections[1])}`}>
             <div className="relative h-[37%]">

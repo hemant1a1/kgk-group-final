@@ -1,21 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useSwiper } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function Blogs({ data = [] }) {
-  const [hoveredIndex, setHoveredIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   return (
-    <div className="bg-light-primary md:px-12 py-16">
+    <div className="bg-light-primary xl:px-12 py-16">
       <div className="container">
         {/* Header */}
         <div className="flex justify-between items-center mb-12 flex-wrap gap-4">
@@ -33,50 +45,83 @@ export default function Blogs({ data = [] }) {
         </div>
 
         {/* Swiper Slider */}
-        <div className="overflow-hidden">
+        <div ref={containerRef}>
           <Swiper
-            loop={false}
+            loop={true}
             spaceBetween={20}
-            slidesPerView="auto"
             modules={[Pagination]}
+             breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              640: { // sm
+                slidesPerView: 1,
+              },
+              768: { // md
+                slidesPerView: 1,
+              },
+              1024: { // lg
+                slidesPerView: 2,
+              },
+              1280: { // xl
+                slidesPerView: 'auto', // only auto at xl and above
+              },
+            }}
             className="group"
           >
             {data.map((post, index) => {
-              const isActive = hoveredIndex === index;
+              const isActive = selectedIndex === index;
+
+              const slideWidth = () => {
+                if (typeof window === 'undefined') return 'auto';
+
+                const width = window.innerWidth;
+
+                if (width < 768) {
+                  return containerWidth * 0.9;
+                } else if (width >= 1280) {
+                  return isActive ? containerWidth * 0.385 : containerWidth * 0.285;
+                } else {
+                  return 'auto'; // For md & lg: let Swiper handle it
+                }
+              };
 
               return (
-                <SwiperSlide
-                  key={index}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  className={`
-                    !w-[90%] md:!w-[28.50%]
-                    transition-[width] duration-500 ease-in-out rounded-xl overflow-hidden cursor-pointer
-                    ${isActive ? 'md:!w-[38.50%]' : ''}
-                  `}
-                >
-                  <div className="relative h-[320px] md:h-[400px] w-full rounded-xl overflow-hidden">
-                    {post.image ? (
-                      <Image
-                        src={post.image}
-                        alt={post.title || 'Blog Image'}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-500">
-                        No Image
-                      </div>
-                    )}
-                  </div>
-                  <div className="pt-6 px-4 pb-6">
-                    <Link
-                      href="#"
-                      className="text-xl font-normal text-black block mb-2"
+                <SwiperSlide key={post.slug} className="xl:!w-auto overflow-hidden">
+                  <motion.div
+                      onMouseEnter={() => setSelectedIndex(index)}
+                      animate={{
+                        width: slideWidth(),
+                      }}
+                      transition={{ duration: 0.4, ease: 'easeInOut' }}
+                      className="h-full rounded-xl overflow-hidden cursor-pointer"
                     >
-                      {post.title?.replace(/\\'/g, "'")}
-                    </Link>
-                    <p className="text-sm text-gray-600">{post.short_description}</p>
-                  </div>
+                    <div className="relative h-[400px] w-full rounded-xl overflow-hidden group">
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title || 'Blog Image'}
+                          fill
+                          className="object-cover transition-transform duration-500 xl:group-hover:scale-105"
+                          sizes="(max-width: 768px) 90vw, 38vw"
+                          unoptimized
+                        />
+                      ) : (
+                        <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-500">
+                          No Image
+                        </div>
+                      )}
+                    </div>
+                    <div className="pt-6 px-4 pb-6">
+                      <Link
+                        href={`/blogs/${post.slug}`}
+                        className="text-xl font-normal text-black block mb-2"
+                      >
+                        {post.title?.replace(/\\'/g, "'")}
+                      </Link>
+                      <p className="text-sm text-gray-600">{post.short_description}</p>
+                    </div>
+                  </motion.div>
                 </SwiperSlide>
               );
             })}

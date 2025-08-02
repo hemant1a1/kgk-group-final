@@ -44,12 +44,17 @@ const AwardsSwiper = ({ data }) => {
             breakpoints={{
               0: {
                 slidesPerView: 1,
-                spaceBetween:30
               },
-              640: {
+              640: { // sm
+                slidesPerView: 1,
+              },
+              768: { // md
+                slidesPerView: 1,
+              },
+              1024: { // lg
                 slidesPerView: 3,
               },
-              1024: {
+              1280: { // xl
                 slidesPerView: 4.2,
               },
             }}
@@ -63,32 +68,31 @@ const AwardsSwiper = ({ data }) => {
                     key={index}
                     className={clsx(
                       'flex justify-center transition-all duration-300 ease-in-out px-4',
-                      isActive ? 'md:w-[320px] z-20 md:mx-[10px]' : 'md:w-[300px] z-10 md:px-[10px]'
                     )}
                   >
                   <div
                     className={clsx(
                       'transition-all duration-300 ease-in-out rounded-xl overflow-hidden',
-                      isActive ? 'md:scale-100 z-20' : 'md:scale-100 z-10'
+                      isActive ? 'scale-100 z-20' : 'scale-100 z-10'
                     )}
                   >
                     <div
                       className={clsx(
-                        'h-full',
+                        'h-full rounded-xl overflow-hidden',
                         index === activeIndex ? '' : 'pt-12'
                       )}
                     >
                       {/* Outer Background Box */}
                       <div 
                         className={clsx(
-                          ' rounded-xl',
-                          index === activeIndex ? 'relative center-card-after' : 'bg-mid-gray px-3 pt-12'
+                          'rounded-xl',
+                          index === activeIndex ? 'relative center-card-after' : 'bg-mid-gray px-2 pt-12'
                         )}
                       >
                         {/* Image Box */}
                         <div 
                           className={clsx(
-                            'relative w-full h-[250px]',
+                            'relative w-full h-[300px] lg:h-[250px] rounded-xl overflow-hidden',
                             index === activeIndex ? 'relative' : '-mt-24'
                           )}
                         >
@@ -97,8 +101,8 @@ const AwardsSwiper = ({ data }) => {
                             alt={item.title}
                             fill
                             className={clsx(
-                              'object-cover rounded-xl',
-                              index === activeIndex ? 'mx-auto' : ''
+                              'transition-transform duration-300 ease-in-out object-cover object-top rounded-xl overflow-hidden',
+                              index === activeIndex ? 'mx-auto scale-105' : 'scale-95'
                             )}
                             sizes="(max-width: 768px) 100vw, 33vw"
                           />

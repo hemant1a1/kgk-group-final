@@ -55,14 +55,14 @@ export default function BrandSlide() {
 
   return (
     <div className="w-full flex items-center justify-center py-12">
-      <div className="flex flex-col md:flex-row w-full md:min-h-[390px] md:h-[60vh] bg-light-gray overflow-hidden">
+      <div className="flex flex-col lg:flex-row w-full lg:min-h-[390px] lg:h-[60vh] bg-light-gray overflow-hidden">
         {/* Left: Title Section */}
-        <div className="w-full md:w-[33%] p-[30px] md:p-[50px] flex items-center justify-start text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading">
+        <div className="w-full lg:w-[33%] p-[30px] lg:p-[50px] flex items-center justify-start text-2xl sm:text-3xl lg:text-4xl lg:text-[42px] font-normal text-heading">
           KGK Brands
         </div>
 
         {/* Right: Brand Grid */}
-        <div className="w-full md:w-[66.98%] hidden md:grid grid-cols-3">
+        <div className="w-full lg:w-[66.98%] hidden lg:grid grid-cols-3">
           {brands.map((brand, i) => {
             const isActive = hoveredIndex === i || (hoveredIndex === null && i === 1);
 
@@ -111,7 +111,7 @@ export default function BrandSlide() {
         </div>
 
         {/* Mobile Swiper (only shown on small screens) */}
-        <div className="block md:hidden px-4 h-[200px]">
+        <div className="block lg:hidden px-4 h-[200px] md:h-[300px]">
           <Swiper
             spaceBetween={0}
             grabCursor={true}

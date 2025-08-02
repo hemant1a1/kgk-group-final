@@ -6,7 +6,7 @@ const countries = [
 
 export default function CountryList({ selected, setSelected }) {
   return (
-    <div className="text-sm pb-5 md:pb-12 max-w-6xl mx-auto">
+    <div className="text-sm pb-5 md:pb-12 max-w-7xl lg:max-w-6xl mx-auto">
       {/* Stylish Mobile Dropdown */}
       <div className="block sm:hidden px-4">
         <div className="relative">
@@ -51,7 +51,7 @@ export default function CountryList({ selected, setSelected }) {
               key={key}
               onClick={() => setSelected(key)}
               onMouseEnter={() => setSelected(key)}
-              className={`transition duration-200 font-cardo font-normal text-[13.5px] basis-1/4 md:basis-[10%] ${
+              className={`transition duration-200 font-cardo font-normal text-[13.5px] basis-1/4 lg:basis-[12%] lg:basis-[10%] ${
                 isActive ? 'text-primary' : 'hover:text-primary'
               }`}
             >
