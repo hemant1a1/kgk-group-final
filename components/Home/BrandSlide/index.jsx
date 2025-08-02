@@ -5,6 +5,13 @@ import Image from 'next/image';
 import clsx from 'clsx';
 import Link from "next/link";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 // Image imports from assets/images
 import MartinFlyerBlack from '@/assets/images/martin-flyer-black.png';
 import MartinFlyerWhite from '@/assets/images/martin-flyer-white.png';
@@ -42,6 +49,7 @@ const brands = [
 ];
 
 export default function BrandSlide() {
+  const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
    const [mobileIndex, setMobileIndex] = useState(0);
 
@@ -102,37 +110,60 @@ export default function BrandSlide() {
           })}
         </div>
 
-        {/* Mobile View */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:hidden px-4">
-          {brands.map((brand, index) => (
-            <Link 
-              key={index}
-              href={brand.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative w-full h-[160px] rounded overflow-hidden"
-            >
-              {/* Background Image */}
-              <Image
-                src={brand.bgImage}
-                alt={`${brand.name} background`}
-                fill
-                className="object-cover transition-all duration-500"
-              />
-              
-              {/* Logo Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/40">
-                <Image
-                  src={brand.logoWhite}
-                  alt={brand.name}
-                  width={200}
-                  height={150}
-                  className="object-contain"
-                />
-              </div>
-            </Link>
-          ))}
+        {/* Mobile Swiper (only shown on small screens) */}
+        <div className="block md:hidden px-4 h-[200px]">
+          <Swiper
+            spaceBetween={0}
+            grabCursor={true}
+            effect="coverflow"
+            speed={1000}
+            loop={true}
+            autoplay={{
+              delay: 3000, 
+              disableOnInteraction: false, 
+            }}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.realIndex); 
+            }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 500,
+              modifier: 1,
+              slideShadows: true,
+              scale: 0.5,
+            }}
+            className="h-full w-full"
+          >
+            {brands.map((brand, index) => (
+              <SwiperSlide key={index}>
+                <Link
+                  href={brand.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative w-full h-full rounded-xl overflow-hidden"
+                >
+                  <Image
+                    src={brand.bgImage}
+                    alt={`${brand.name} background`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-20">
+                    <Image
+                      src={brand.logoWhite}
+                      alt={brand.name}
+                      width={160}
+                      height={100}
+                      className="object-contain"
+                    />
+                  </div>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
+
 
 
       </div>
