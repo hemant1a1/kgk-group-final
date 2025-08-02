@@ -1,59 +1,52 @@
-'use client';
-
-import { useEffect } from 'react';
-
-const languages = [
-  { name: 'English', code: 'EN', value: 'en', flag: '🇺🇸' },
-  { name: '繁體中文', code: 'TW', value: 'zh-TW', flag: '🇹🇼' },
-  { name: '简体中文', code: 'ZH', value: 'zh-CN', flag: '🇨🇳' },
-  { name: 'ภาษาไทย', code: 'TH', value: 'th', flag: '🇹🇭' },
-  { name: 'Русский', code: 'RU', value: 'ru', flag: '🇷🇺' },
-  { name: '日本語', code: 'JA', value: 'ja', flag: '🇯🇵' },
-];
-
-export default function LanguageModal({ isOpen, onClose }) {
-  const changeLanguage = (langValue) => {
-    const iframe = document.querySelector('iframe');
-    const innerDoc = iframe?.contentDocument || iframe?.contentWindow?.document;
-    const select = innerDoc?.querySelector('.goog-te-combo');
-    if (select) {
-        select.value = langValue;
-        select.dispatchEvent(new Event('change'));
-    }
-    onClose();
-    };
-
+// components/LanguageModal.jsx
+export default function LanguageModal({ isOpen, onClose, onSelectLanguage }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center">
-      <div className="bg-white rounded-xl p-8 w-[90%] max-w-lg relative text-center shadow-lg">
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute top-3 right-3 text-xl text-gray-600 hover:text-black"
-        >
-          ✕
-        </button>
-
-        <h1 className="text-xl font-semibold text-yellow-600 mb-6">
-          Choose your preferred language
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {languages.map((lang) => (
+    <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center transition-opacity">
+      <div className="bg-white w-full sm:w-80 rounded-t-3xl sm:rounded-xl p-6 shadow-lg animate-slide-up">
+        <div className="text-center">
+          <div className="w-10 h-1.5 bg-gray-300 rounded-full mx-auto mb-4"></div>
+          <h2 className="text-base font-medium text-gray-800 mb-4">Select Language</h2>
+        </div>
+        <div className="divide-y divide-gray-200">
+          {['EN', 'ZH', 'ZT', 'TH', 'RU', 'JA'].map((lang) => (
             <button
-              key={lang.code}
-              onClick={() => changeLanguage(lang.value)}
-              className="flex items-center gap-3 border border-gray-300 rounded px-4 py-2 hover:bg-gray-100 transition"
+              key={lang}
+              className="w-full py-3 text-sm text-gray-800 hover:bg-gray-100 text-center"
+              onClick={() => {
+                onSelectLanguage(lang);
+                onClose();
+              }}
             >
-              {lang.flag}
-              <span className="text-sm font-medium">{lang.name}</span>
-              <span className="ml-auto text-xs text-gray-500">{lang.code}</span>
+              {lang}
             </button>
           ))}
         </div>
+        <button
+          onClick={onClose}
+          className="mt-5 w-full py-3 text-sm font-medium text-blue-600 border-t border-gray-200 hover:bg-gray-50"
+        >
+          Cancel
+        </button>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-up {
+          from {
+            transform: translateY(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        .animate-slide-up {
+          animation: slide-up 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

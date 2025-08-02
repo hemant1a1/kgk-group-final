@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -8,7 +9,9 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
 import SearchModal from '@/components/SearchModal';
-import LanguageToggle from '@/components/LanguageToggle';
+const LanguageToggle = dynamic(() => import('@/components/LanguageToggle'), {
+  ssr: false,
+});
 
 import logo from "@/assets/images/kgk-logo.webp";
 import search from "@/assets/images/search.webp";

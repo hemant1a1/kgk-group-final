@@ -1,6 +1,10 @@
 "use client";
-import LanguageToggleButton from '@/components/LanguageToggleButton';
 import { useEffect } from "react";
+
+import dynamic from 'next/dynamic';
+const LanguageToggleButton = dynamic(() => import('@/components/LanguageToggleButton'), {
+  ssr: false,
+});
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronUpCircle } from "lucide-react";

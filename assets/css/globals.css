@@ -47,6 +47,7 @@
 
 body {
   overflow-x: hidden;
+  top: 0 !important;
 }
 
 .container {
@@ -180,4 +181,18 @@ body {
 
 .animate-slide-in-down {
   animation: slideInDownCustom 0.3s ease forwards;
+}
+
+
+/* Hide Google Translate's top frame and overlay */
+iframe.skiptranslate,
+body > .goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
 }
