@@ -7,7 +7,7 @@ import DistributionMap from '@/components/Gemstones/DistributionMap';
 import Contact from '@/components/Diamonds/Contact';
 import Image from 'next/image';
 
-import bgImage from '@/assets/images/banners/diamonds-banner-1.jpg';
+import bgImage from '@/assets/images/banners/jewellery-banner-1.jpg';
 import contactBg from '@/assets/images/jewellery-contacts.jpg';
 import gemstoneBg from '@/assets/images/The-KGK-Difference-3.jpg';
 import worldImg from '@/assets/images/gemstones/around-world.png';
@@ -59,7 +59,7 @@ export default function Jewellery() {
               <h2 className="text-3xl md:text-4xl mb-4">
                 Exquisite Craftsmanship, Limitless Potential
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p>
                 KGK Group’s jewellery collections represent timeless elegance, innovative designs, and unmatched quality.
                 The leading global brand offers a comprehensive range of impeccable creations that resonate with style and sophistication.
               </p>
@@ -110,7 +110,7 @@ export default function Jewellery() {
           {/* Empowering the Industry */}
           <div className="mb-16">
             <h3 className="text-2xl font-semibold mb-4">Empowering the Industry</h3>
-            <p className="text-gray-700">
+            <p>
               KGK Group provides robust sales support, helping clients establish their own branded online sales and distribution networks for complete control and scalability.
             </p>
           </div>
@@ -118,7 +118,7 @@ export default function Jewellery() {
           {/* Manufacturing Excellence */}
           <div>
             <h3 className="text-2xl font-semibold mb-4">Manufacturing Excellence: Crafting Perfection</h3>
-            <p className="text-gray-700 mb-4">
+            <p>
               KGK Group continually invests in advanced technology and innovative processes to deliver exceptional quality and efficiency. The brand’s fully digitized design and production capabilities include:
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-1">
@@ -126,7 +126,6 @@ export default function Jewellery() {
               <li>Laser cutting and soldering</li>
               <li>Fire assay testing</li>
               <li>Pressure setting</li>
-              <li>...and so much more</li>
             </ul>
           </div>
         </div>

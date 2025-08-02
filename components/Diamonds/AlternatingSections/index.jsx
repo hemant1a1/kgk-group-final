@@ -20,7 +20,7 @@ const AlternatingSections = ({ sections }) => {
                     </div>
 
                     {/* Image */}
-                    <div className="w-full md:w-1/2">
+                    <div className="w-full md:w-1/2 mb-10 lg:mb-0">
                         <Image
                         src={image}
                         alt={title}

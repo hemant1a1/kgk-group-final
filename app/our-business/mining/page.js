@@ -21,7 +21,7 @@ const sectionsData = [
     description:
       "KGK’s advanced mining practices, coupled with the expertise of KGK gemologists and engineers, enable the brand to extract some of the world’s most unique and exotic colored gemstones, including emeralds, rubies and sapphires. These gemstones form an integral part of the brand’s gemstone and jewellery portfolio making them global leaders in the industry.",
     image: img1,
-    reverse: false,
+    reverse: true,
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Mining() {
           "The brand’s commitment to ethical sourcing and sustainable gemstone production defines every approach. Adhering to international best practices, the brand ensures all operations benefit local communities while maintaining a zero-tolerance policy towards conflict zone sourcing.",
         ]}
         pProps={{
-          className: "text-lg md:text-xl text-gray-600",
+          className: "text-base",
         }}
       />
       <AlternatingSections sections={sectionsData} />

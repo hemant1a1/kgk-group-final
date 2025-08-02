@@ -31,10 +31,11 @@ export default function GemstoneManufacturing({
         backgroundImage: `url(${typeof backgroundImage === 'string' ? backgroundImage : backgroundImage.src})`,
       }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="absolute inset-0 bg-black/60 md:hidden z-0" />
+      <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 ">
         <div className="hidden md:block" />
 
-        <div className="text-white px-[50px] lg:pl-0 lg:pr-[125px] py-20 flex items-center">
+        <div className="text-white px-[15px] lg:pl-0 lg:pr-[125px] py-20 flex items-center">
           <div>
             <motion.h2 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal mb-10"
