@@ -44,7 +44,7 @@ export default function KGKAdvantage() {
           </div>
 
           {/* Right Absolute Icons Layout */}
-          <div className="w-full lg:w-7/12 relative h-[380px]">
+          <div className="w-full lg:w-7/12 relative h-[380px] scale-80 md:scale-100">
 
             {/* Icon Block 1 */}
             <motion.div
@@ -58,7 +58,7 @@ export default function KGKAdvantage() {
             >
               <div className="flex items-start gap-6">
                 <Image src={Icon1} alt="Office" className="w-[153px] h-[130px]" />
-                <p className="text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-60">
+                <p className="text-sm md:text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-60">
                   Global headquarters in Hong Kong
                 </p>
               </div>
@@ -76,7 +76,7 @@ export default function KGKAdvantage() {
             >
               <div className="flex items-center gap-8">
                 <Image src={Icon2} alt="Operation" className="w-[95px] h-[164px]" />
-                <p className="text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-sm">
+                <p className="text-sm md:text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-sm">
                   Operations across Asia, North & South 
                   America, Europe, and Africa
                 </p>
@@ -95,7 +95,7 @@ export default function KGKAdvantage() {
             >
               <div className="flex items-end gap-6">
                 <Image src={Icon3} alt="Team" className="w-[153px] h-[130px]" />
-                <p className="text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-60">
+                <p className="text-sm md:text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-60">
                   A dynamic team of 15,000 professionals
                 </p>
               </div>
