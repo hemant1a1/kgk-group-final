@@ -13,7 +13,7 @@ export default function Leadership({
   zIndex,
 }) {
   const TextSection = (
-    <div className="w-full md:w-6/12 px-4 lg:px-[50px] flex items-center h-full">
+    <div className="w-full xl:w-6/12 px-4 xl:px-[50px] flex items-center h-full">
       <div>
         {/* Heading Animation */}
         <motion.h2
@@ -56,7 +56,7 @@ export default function Leadership({
   return (
     <>
       <div
-        className="hidden lg:block w-full h-[85vh] min-h-[380px] sticky top-0"
+        className="hidden xl:block w-full h-[85vh] min-h-[380px] sticky top-0"
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
@@ -82,7 +82,7 @@ export default function Leadership({
       </div>
 
       {/* Mobile View */}
-      <div className="lg:hidden relative w-full">
+      <div className="xl:hidden relative w-full">
         {/* Background Image with Title + Subtitle Overlay */}
         <div
           className="w-full h-[300px] bg-cover relative"

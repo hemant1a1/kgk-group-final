@@ -74,6 +74,7 @@ export default function OurBusiness({ data }) {
                     src={displayImage.image}
                     alt={displayImage.title}
                     fill
+                    unoptimized
                     className="object-cover scale-[1.1] object-[-20px] transition-transform"
                 />
                 <div className="absolute inset-0 pb-6 flex flex-col justify-end text-white bg-gradient-to-t from-black to-black/30">
@@ -124,6 +125,7 @@ export default function OurBusiness({ data }) {
                       alt={item.title}
                       width={100}
                       height={100}
+                      unoptimized
                       className="block lg:hidden w-full h-full object-cover"
                     />
                     <Image
