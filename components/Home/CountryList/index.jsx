@@ -1,3 +1,10 @@
+'use client';
+
+import { Listbox } from '@headlessui/react';
+import { ChevronDown } from 'lucide-react'; // Or use your inline SVG
+import React from 'react';
+
+
 const countries = [
   'USA', 'Brazil', 'Botswana', 'South Africa', 'India',
   'Belgium', 'Russia', 'Spain', 'UAE', 'China',
@@ -5,40 +12,44 @@ const countries = [
 ]
 
 export default function CountryList({ selected, setSelected }) {
+  const selectedCountryName = countries.find(
+    (name) => name.toLowerCase().replace(/\s/g, '') === selected
+  );
+
   return (
     <div className="text-sm pb-5 md:pb-12 max-w-7xl lg:max-w-6xl mx-auto">
       {/* Stylish Mobile Dropdown */}
       <div className="block sm:hidden px-4">
-        <div className="relative">
-          <select
-            value={selected}
-            onChange={(e) => setSelected(e.target.value)}
-            className="w-full appearance-none bg-white/30 backdrop-blur-md border border-gray-300 rounded-xl px-4 py-3 shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-200 text-white font-medium"
-          >
-            <option value="">Select a country</option>
-            {countries.map((name) => {
-              const key = name.toLowerCase().replace(/\s/g, '')
-              return (
-                <option key={key} value={key}>
-                  {name}
-                </option>
-              )
-            })}
-          </select>
+        <Listbox
+          value={selectedCountryName || ''}
+          onChange={(value) => setSelected(value.toLowerCase().replace(/\s/g, ''))}
+        >
+          <div className="relative">
+            <Listbox.Button className="w-full bg-white/30 backdrop-blur-md border border-gray-300 text-white rounded-xl px-4 py-3 shadow-md flex justify-between items-center font-medium">
+              <span>{selectedCountryName || 'Select a country'}</span>
+              <ChevronDown className="w-5 h-5 text-gray-300" />
+            </Listbox.Button>
 
-          {/* Chevron Icon */}
-          <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-white">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+            <Listbox.Options className="absolute z-50 mt-2 w-full bg-[#2c2c25] text-gray-300 rounded-xl shadow-lg max-h-60 overflow-auto border border-gray-700 backdrop-blur-md">
+              {countries.map((name) => {
+                const key = name.toLowerCase().replace(/\s/g, '');
+                return (
+                  <Listbox.Option
+                    key={key}
+                    value={name}
+                    className={({ active }) =>
+                      `cursor-pointer px-4 py-2 ${
+                        active ? 'bg-gray-700 text-white' : ''
+                      }`
+                    }
+                  >
+                    {name}
+                  </Listbox.Option>
+                );
+              })}
+            </Listbox.Options>
           </div>
-        </div>
+        </Listbox>
       </div>
 
       {/* Desktop Button List */}
