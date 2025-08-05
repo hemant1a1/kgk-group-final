@@ -2,9 +2,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from "swiper/modules";
+import {
+  EffectFade,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -16,28 +21,19 @@ export default function HeroSlider({ data }) {
   return (
     <section className="w-full h-[600px] relative bg-black">
       <Swiper
-        spaceBetween={0}
-        grabCursor={true}
-        effect="coverflow"
+        effect="fade"
         speed={1000}
         loop={true}
         autoplay={{
-          delay: 3000, 
-          disableOnInteraction: false, 
+          delay: 4000,
+          disableOnInteraction: false,
         }}
         onSlideChange={(swiper) => {
-          setActiveIndex(swiper.realIndex); 
+          setActiveIndex(swiper.realIndex);
         }}
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 500,
-          modifier: 1,
-          slideShadows: true,
-          scale: 0.5,
-        }}
+        modules={[EffectFade, Pagination, Navigation, Autoplay]}
         className="h-full w-full"
+        fadeEffect={{ crossFade: true }}
       >
         {data?.map((slide, index) => (
           <SwiperSlide key={index}>
