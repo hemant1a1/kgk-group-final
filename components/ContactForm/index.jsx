@@ -45,15 +45,40 @@ const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState('');
 
   const onSubmit = async (data) => {
-    setLoading(true);
-    console.log('Submitted Data:', data);
+  setLoading(true);
 
-    await new Promise((res) => setTimeout(res, 2000));
+  try {
+    const payload = {
+      full_name: data.name,
+      phone: data.mobile,
+      email: data.email,
+      location: data.location,
+      about: data.about || '',
+    };
+
+    const response = await fetch('http://reinventmedia.in/kgkgroup-backend/wp-json/custom/v1/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
 
     reset();
-    setLoading(false);
     router.push('/thank-you');
-  };
+  } catch (error) {
+    console.error('Form submission error:', error);
+    alert('Something went wrong. Please try again later.');
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const officeOptions = officeLocations.flatMap((region) =>
     region.offices

@@ -1,14 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { PlayCircle } from 'lucide-react';
-import img1 from '@/assets/images/diamond1.jpg';
-import YoutubeVideoModal from '@/components/YoutubeVideoModal'; // <-- make sure this path is correct
+import YoutubeVideoModal from '@/components/YoutubeVideoModal';
 
-const AlternatingVideoSections = () => {
+const AlternatingVideoSections = ({
+  title,
+  description,
+  image,
+  youtubeId,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const youtubeId = 'J2i96vBtpnQ'; 
 
   return (
     <>
@@ -19,10 +22,10 @@ const AlternatingVideoSections = () => {
               {/* Text */}
               <div className="w-full md:w-1/2 space-y-4">
                 <h2 className="text-2xl md:text-3xl text-gray-800">
-                  Integrated Supply Pipeline: From Rough to Radiant
+                  {title}
                 </h2>
                 <p className="text-base text-gray-600 leading-relaxed">
-                  KGK Group ensures full control over the supply chain by carrying only high-quality diamonds. Each diamond is meticulously tracked from its raw form to the finished product, reinforcing the brand’s commitment to sustainable gemstone sourcing and ethical practices.
+                  {description}
                 </p>
               </div>
 
@@ -32,14 +35,12 @@ const AlternatingVideoSections = () => {
                 onClick={() => setIsOpen(true)}
               >
                 <Image
-                  src={img1}
-                  alt="Integrated Supply Pipeline"
+                  src={image}
+                  alt={title}
                   className="rounded-xl shadow-lg"
                   placeholder="blur"
                 />
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-black/60 rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                {/* Play Icon */}
                 <div className="absolute inset-0 flex items-center justify-center z-20">
                   <PlayCircle size={64} className="text-white drop-shadow-lg hover:scale-110 transition-transform" />
                 </div>
@@ -49,7 +50,6 @@ const AlternatingVideoSections = () => {
         </div>
       </section>
 
-      {/* YouTube Modal */}
       {isOpen && (
         <YoutubeVideoModal
           youtubeId={youtubeId}

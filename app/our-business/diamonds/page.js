@@ -13,6 +13,8 @@ import contactBg from '@/assets/images/diamonds-contacts.jpg';
 import gemstoneBg from '@/assets/images/The-KGK-Difference.jpg';
 import worldImg from '@/assets/images/gemstones/around-world.png';
 
+import diamondImg from '@/assets/images/diamond1.jpg';
+
 import img1 from "@/assets/images/diamond1.jpg";
 import img2 from "@/assets/images/diamond2.jpg";
 import img3 from "@/assets/images/diamond3.jpg";
@@ -42,7 +44,12 @@ export default function Diamonds() {
         subheading="Outstanding Brilliance"
         bgImage={bgImage}
       />
-      <AlternatingVideoSections />
+      <AlternatingVideoSections
+        title="Integrated Supply Pipeline: From Rough to Radiant"
+        description="KGK Group ensures full control over the supply chain by carrying only high-quality diamonds. Each diamond is meticulously tracked from its raw form to the finished product, reinforcing the brand’s commitment to sustainable gemstone sourcing and ethical practices."
+        image={diamondImg}
+        youtubeId="J2i96vBtpnQ"
+      />
       <AlternatingSections sections={sectionsData} />
       {/* <SourcingWorld
         heading="Diamonds Direct from the <br /> Source"
