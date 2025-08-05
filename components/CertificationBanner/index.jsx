@@ -1,26 +1,37 @@
-// components/CertificationBanner.jsx
 'use client';
 
-import { FileText } from 'lucide-react';
-import Link from 'next/link';
+import Image from 'next/image';
+import cert1 from '@/assets/images/certification-1.jpg';
+import cert2 from '@/assets/images/certification-2.jpg';
 
 export default function CertificationBanner() {
   return (
-    <div className="text-center py-16">
+    <section className="py-16 bg-gray-50 text-center">
       <div className="container">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-2">Our Certifications</h2>
-      <p className="text-gray-600 mb-4">
-        We are proud to be <strong>BPP Compliant</strong> and certified by the <strong>Responsible Jewellery Council (RJC)</strong>.
-      </p>
-      <Link
-        href="/certificates/BPP_RJC_Certification.pdf"
-        target="_blank"
-        className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-full hover:bg-primary transition"
-      >
-        <FileText className="w-5 h-5" />
-        View Certificate
-      </Link>
-    </div>  
-    </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-4">
+          Our Certifications
+        </h2>
+        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          We are proud to be <strong>BPP Compliant</strong> and certified by the <strong>Responsible Jewellery Council (RJC)</strong>.
+        </p>
+
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <div className="shadow-lg rounded-xl overflow-hidden">
+            <Image
+              src={cert1}
+              alt="BPP Compliance Slide"
+              className="object-cover w-full h-auto"
+            />
+          </div>
+          <div className="shadow-lg rounded-xl overflow-hidden">
+            <Image
+              src={cert2}
+              alt="RJC Certification Slide"
+              className="object-cover w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
