@@ -4,20 +4,20 @@ import map from '@/assets/images/map.webp'
 
 const locations = {
   india: { x: '68%', y: '45%', label: 'Jaipur\nMumbai' },
-  usa: { x: '27.7%', y: '29%', label: 'New York\nSan Francisco' },
-  brazil: { x: '32%', y: '62%', label: 'São Paulo\nRio de Janeiro' },
+  usa: { x: '18.7%', y: '32%', label: 'New York\nSan Francisco' },
+  brazil: { x: '31.5%', y: '69%', label: 'São Paulo\nRio de Janeiro' },
   botswana: { x: '53.5%', y: '65.5%', label: 'Gaborone' },
-  southafrica: { x: '54.5%', y: '68.5%', label: 'Cape Town\nJohannesburg' },
+  southafrica: { x: '55%', y: '69%', label: 'Cape Town\nJohannesburg' },
   belgium: { x: '48.7%', y: '25.5%', label: 'Brussels' },
-  russia: { x: '56%', y: '19.5%', label: 'Moscow\nSaint Petersburg' },
+  russia: { x: '74%', y: '19.5%', label: 'Moscow\nSaint Petersburg' },
   spain: { x: '45.5%', y: '32%', label: 'Madrid\nBarcelona' },
   uae: { x: '62.8%', y: '43%', label: 'Dubai\nAbu Dhabi' },
-  china: { x: '79.5%', y: '42%', label: 'Beijing\nShanghai' },
-  australia: { x: '88.5%', y: '70.5%', label: 'Sydney\nMelbourne' },
-  thailand: { x: '78.4%', y: '41.5%', label: 'Bangkok\nChiang Mai' },
+  china: { x: '76.5%', y: '38%', label: 'Beijing\nShanghai' },
+  australia: { x: '85.5%', y: '69.5%', label: 'Sydney\nMelbourne' },
+  thailand: { x: '74.4%', y: '48.5%', label: 'Bangkok\nChiang Mai' },
   israel: { x: '57.5%', y: '39%', label: 'Tel Aviv\nJerusalem' },
-  taiwan: { x: '80.5%', y: '42%', label: 'Taipei' },
-  japan: { x: '84.7%', y: '34%', label: 'Tokyo\nOsaka' }
+  taiwan: { x: '80%', y: '42%', label: 'Taipei' },
+  japan: { x: '85.7%', y: '34%', label: 'Tokyo\nOsaka' }
 }
 
 
