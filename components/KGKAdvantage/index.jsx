@@ -96,7 +96,7 @@ export default function KGKAdvantage() {
               <div className="flex items-end gap-6">
                 <Image src={Icon3} alt="Team" className="w-[153px] h-[130px]" />
                 <p className="text-sm md:text-xl text-heading font-bold font-[Cardo] mt-2 md:max-w-60">
-                  A dynamic team of 15,000 professionals
+                  A dynamic team of 18,000 professionals
                 </p>
               </div>
             </motion.div>
