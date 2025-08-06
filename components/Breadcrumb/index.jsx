@@ -15,7 +15,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
 
   return (
     <div
-      className="relative text-white h-[400px] min-h-[50vh] bg-cover bg-center px-6 pt-14 pb-6 flex flex-col justify-between items-center text-center"
+      className="relative text-white h-[600px] bg-cover bg-center px-6 pt-14 pb-6 flex flex-col justify-between items-center text-center"
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       {/* Centered Content */}
