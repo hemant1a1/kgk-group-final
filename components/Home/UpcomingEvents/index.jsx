@@ -47,9 +47,9 @@ export default function UpcomingEvents() {
               </p>
               <p className="font-cardo text-xl lg:text-2xl font-normal mt-1 mb-6 ">KGK Namibia</p>
 
-              <Link href="/events-&-media" className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
+              {/* <Link href="/events-&-media" className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
                 DISCOVER MORE
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

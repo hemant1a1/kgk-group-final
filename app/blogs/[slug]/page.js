@@ -33,7 +33,7 @@ export default async function BlogDetailPage({ params }) {
           alt={data.blog.title}
           width={1200}
           height={700}
-          className="w-full min-h-96 h-[58vh] mb-8"
+          className="w-full min-h-96 h-[58vh] object-cover mb-8"
           unoptimized
         />
         <div className="px-0 lg:px-[50px] pt-8 pb-16">

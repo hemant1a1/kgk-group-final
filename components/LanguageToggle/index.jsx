@@ -29,9 +29,10 @@ function getLangCodeFromCookie() {
 }
 
 export default function LanguageToggle() {
-  const pathname = usePathname(); // still useful for re-rendering on route change
+  const pathname = usePathname();
   const [modalOpen, setModalOpen] = useState(false);
   const [langCode, setLangCode] = useState('EN');
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setLangCode(getLangCodeFromCookie());
@@ -41,9 +42,10 @@ export default function LanguageToggle() {
     const googleLangCode = langMap[targetCode];
     if (!googleLangCode) return;
 
+    setIsLoading(true); 
     setCookie('googtrans', `/en/${googleLangCode}`);
-    localStorage.setItem('googtrans', `/en/${googleLangCode}`); // Optional
-    location.reload();
+    localStorage.setItem('googtrans', `/en/${googleLangCode}`); 
+   location.reload();
   };
 
   return (
@@ -58,7 +60,15 @@ export default function LanguageToggle() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         onSelectLanguage={changeLanguage}
+        activeLangCode={langCode}
       />
+
+      {isLoading && (
+        <div className="fixed inset-0 z-[999] bg-black/50 flex items-center justify-center">
+          <div className="h-10 w-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+
     </>
   );
 }
