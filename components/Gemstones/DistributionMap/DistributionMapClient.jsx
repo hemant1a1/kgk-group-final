@@ -5,27 +5,19 @@ import { motion } from "framer-motion";
 import { VectorMap } from '@react-jvectormap/core';
 import { mergedWorldWithHK } from './mergedWorldWithHK';
 
-const euroZoneCodes = [
-  'FR', 'DE', 'IT', 'ES', 'NL', 'BE', 'AT',
-  'FI', 'IE', 'PT', 'GR', 'SK', 'SI',
-  'EE', 'LV', 'LT', 'LU', 'MT', 'CY',
-];
-
-const countries = [
-  { name: 'CHINA', code: 'CN' },
-  { name: 'INDIA', code: 'IN' },
-  { name: 'HONG KONG SAR', code: 'HK' },
-  { name: 'SOUTH EAST ASIA', code: ['SG', 'MY', 'PH', 'VN', 'TH', 'ID'] },
-  { name: 'MIDDLE EAST', code: ['AE', 'SA', 'OM', 'KW', 'QA', 'BH'] },
-  { name: 'USA', code: 'US' },
-  { name: 'THAILAND', code: 'TH' },
-  { name: 'EUROZONE', code: euroZoneCodes },
-  { name: 'CHINESE TAIWAN', code: 'TW' },
-  { name: 'JAPAN', code: 'JP' },
-];
-
-
-export default function DistributionMapClient() {
+export default function DistributionMapClient({
+  heading = 'Efficient distribution network',
+  subheading = `The KGK Group’s valuable logistics distribution infrastructure extends around the world.
+  The main markets for our coloured gemstones are:`,
+  footer = (
+  <>
+    * Domestic manufacturing for tariff-free local distribution
+    <br />
+    The KGK Group regularly exhibits at many of the world’s leading gemstone and jewellery trade events.
+  </>
+),
+  countries = defaultCountries,
+}) {
   const [hovered, setHovered] = useState(null);
 
   const regionValues = countries.reduce((acc, country) => {
@@ -43,7 +35,6 @@ export default function DistributionMapClient() {
     return acc;
   }, {});
 
-
   return (
     <div id="distribution-map" className="py-16 bg-white">
       <div className="container">
@@ -55,8 +46,9 @@ export default function DistributionMapClient() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            Efficient distribution network
+            {heading}
           </motion.h2>
+
           <motion.p 
             className="text-center max-w-4xl mx-auto mb-4"
             initial={{ opacity: 0, y: 30 }}
@@ -64,42 +56,28 @@ export default function DistributionMapClient() {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            The KGK Group’s valuable logistics distribution infrastructure extends around the world.
-            The main markets for our coloured gemstones are:
+            {subheading}
           </motion.p>
 
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="lg:w-4/12">
-              <div className=" grid grid-cols-2 gap-x-10 gap-y-2 text-[14px] lg:text-[17px] uppercase text-heading font-normal font-cardo">
-                  <ul className="space-y-3 list-none list-inside">
-                    {countries.slice(0, 5).map((c) => (
-                      <li
-                        key={c.name}
-                        onMouseEnter={() => setHovered(c.name)}
-                        onMouseLeave={() => setHovered(null)}
-                        className={`cursor-pointer transition ${
-                          hovered === c.name || hovered === c.code ? 'text-[#c09e7b] font-semibold' : 'text-[#444]'
-                        }`}
-                      >
-                        {c.name}{['CHINA', 'INDIA'].includes(c.name) && '*'}
-                      </li>
-                    ))}
-                  </ul>
-                  <ul className="space-y-3 list-none list-inside">
-                      {countries.slice(5).map((c) => (
-                        <li
-                          key={c.name}
-                          onMouseEnter={() => setHovered(c.name)}
-                          onMouseLeave={() => setHovered(null)}
-                          className={`cursor-pointer transition ${
-                            hovered === c.name || hovered === c.code ? 'text-[#c09e7b]' : 'text-[#444]'
-                          }`}
-                        >
-                          {c.name}
-                        </li>
-                      ))}
-                  </ul>
-              </div>
+              <ul className="grid grid-cols-2 gap-x-10 gap-y-2 text-[14px] lg:text-[17px] uppercase text-heading font-normal font-cardo">
+                {countries.map((c) => (
+                    <li
+                      key={c.name}
+                      onMouseEnter={() => setHovered(c.name)}
+                      onMouseLeave={() => setHovered(null)}
+                      className={`cursor-pointer transition ${
+                        hovered === c.name || hovered === c.code
+                          ? 'text-[#c09e7b] font-semibold'
+                          : 'text-[#444]'
+                      }`}
+                    >
+                      {c.name}
+                      {['CHINA', 'INDIA'].includes(c.name) && '*'}
+                    </li>
+                  ))}
+              </ul>
             </div>
 
             <div className="w-full lg:w-8/12">
@@ -168,22 +146,38 @@ export default function DistributionMapClient() {
                 />
               </div>
             </div>
-
           </div>
 
           <motion.div 
-            className="md:mt-10 text-[14px] md:text-[15px] leading-[25px] tracking-[0px] text-[#010101] font-normal text-center"
+            className="mx-auto max-w-3xl md:mt-10 text-[14px] md:text-[15px] leading-[25px] tracking-[0px] text-[#010101] font-normal text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             viewport={{ once: true }}      
           >
-            * Domestic manufacturing for tariff-free local distribution
-            <br />
-            The KGK Group regularly exhibits at many of the world’s leading gemstone and jewellery trade events.
+           {footer}
           </motion.div>
         </div>
       </div>
     </div>
   );
 }
+
+const euroZoneCodes = [
+  'FR', 'DE', 'IT', 'ES', 'NL', 'BE', 'AT',
+  'FI', 'IE', 'PT', 'GR', 'SK', 'SI',
+  'EE', 'LV', 'LT', 'LU', 'MT', 'CY',
+];
+
+const defaultCountries = [
+  { name: 'CHINA', code: 'CN' },
+  { name: 'USA', code: 'US' },
+  { name: 'INDIA', code: 'IN' },
+  { name: 'THAILAND', code: 'TH' },
+  { name: 'HONG KONG SAR', code: 'HK' },
+  { name: 'EUROZONE', code: euroZoneCodes },
+  { name: 'SOUTH EAST ASIA', code: ['SG', 'MY', 'PH', 'VN', 'TH', 'ID'] },
+  { name: 'CHINESE TAIWAN', code: 'TW' },
+  { name: 'MIDDLE EAST', code: ['AE', 'SA', 'OM', 'KW', 'QA', 'BH'] },
+  { name: 'JAPAN', code: 'JP' },
+];

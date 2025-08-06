@@ -7,6 +7,6 @@ const DistributionMapClient = dynamic(
   { ssr: false }
 );
 
-export default function DistributionMap({ data }) {
-  return <DistributionMapClient data={data} />;
+export default function DistributionMap(props) {
+  return <DistributionMapClient {...props} />;
 }

@@ -2,7 +2,7 @@
 import Breadcrumb from '@/components/Breadcrumb';
 import AlternatingSections from '@/components/Diamonds/AlternatingSections';
 import AlternatingVideoSections from '@/components/AlternatingVideoSections';
-import SourcingWorld from '@/components/Diamonds/SourcingWorld';
+import DiamondProductionSection from '@/components/DiamondProductionSection';
 import GemstoneManufacturing from '@/components/Diamonds/GemstoneManufacturing';
 import DistributionMap from '@/components/Gemstones/DistributionMap';
 import Contact from '@/components/Diamonds/Contact';
@@ -36,6 +36,22 @@ const sectionsData = [
   },
 ];
 
+const customCountries = [
+  { name: 'Belgium', code: 'BE' },
+  { name: 'China', code: 'CN' },
+  { name: 'Chinese Taiwan', code: 'TW' },
+  { name: 'Hong Kong SAR', code: 'HK' },
+  { name: 'India', code: 'IN' },
+  { name: 'Japan', code: 'JP' },
+  { name: 'Namibia', code: 'NA' },
+  { name: 'South Africa', code: 'ZA' },
+  { name: 'SOUTH EAST ASIA', code: ['SG', 'MY', 'PH', 'VN', 'TH', 'ID'] },
+  { name: 'Switzerland', code: 'CH' },
+  { name: 'Thailand', code: 'TH' },
+  { name: 'UAE', code: 'AE' },
+  { name: 'USA', code: 'US' },
+];
+
 export default function Diamonds() {
   return (
     <>
@@ -51,25 +67,19 @@ export default function Diamonds() {
         youtubeId="J2i96vBtpnQ"
       />
       <AlternatingSections sections={sectionsData} />
-      {/* <SourcingWorld
-        heading="Diamonds Direct from the <br /> Source"
-        description="With a team of highly skilled diamond buyers renowned for their expertise in evaluating and grading rough stones, KGK Group ensures only the finest diamonds enter the value and supply chain. Each ethically sourced diamond is processed at their state-of-the-art manufacturing units in:"
-        list={[
-          'Angola',
-          'Botswana',
-          'India',
-          'Namibia',
-          'South Africa',
-        ]}
-        image={worldImg}
-      /> */}
       <GemstoneManufacturing
         backgroundImage={gemstoneBg}
         heading={`Diamonds <br/> Direct from the Source`}
         descriptionTop="With a team of highly skilled diamond buyers renowned for their expertise in evaluating and grading rough stones, KGK Group ensures only the finest diamonds enter the value and supply chain. Each ethically sourced diamond is processed at their state-of-the-art manufacturing units in:"
         listItems={["Angola", "Botswana", "India", "Namibia", "South Africa"]}
       />
-      <DistributionMap />
+      <DiamondProductionSection />
+      <DistributionMap 
+        heading="Efficient Distribution Network"
+        subheading="The KGK Group operates a sophisticated secure global distribution infrastructure bringing wholesale diamonds to:"
+        footer="KGK Group’s global distribution network ensures that diamonds are delivered efficiently and securely to clients worldwide, maintaining the highest standards of quality and service."
+        countries={customCountries}
+      />
       <Contact backgroundImage={contactBg} />
 
     </>

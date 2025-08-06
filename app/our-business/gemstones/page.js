@@ -25,7 +25,7 @@ export default async function Gemstones() {
       <SemiPrecious data={gemstoneData.semi_precious_gemstones} />
       <SourcingWorld data={gemstoneData.sourcing_countries} />
       <GemstoneManufacturing data={gemstoneData.manufacturing_countries} />
-      <DistributionMap data={gemstoneData.distribution_network} />
+      <DistributionMap />
       <Contact />
 
     </>
