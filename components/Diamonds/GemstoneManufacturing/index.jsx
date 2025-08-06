@@ -35,7 +35,7 @@ export default function GemstoneManufacturing({
       <div className="grid grid-cols-1 md:grid-cols-2 relative z-10 ">
         <div className="hidden md:block" />
 
-        <div className="text-white px-[15px] lg:pl-0 lg:pr-[125px] py-20 flex items-center">
+        <div className="text-white px-[15px] lg:pl-0 lg:pr-[125px] py-16 flex items-center">
           <div>
             <motion.h2 
               className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal mb-10"
@@ -57,7 +57,7 @@ export default function GemstoneManufacturing({
             </motion.p>
 
             <motion.ul
-              className="space-y-1 list-disc list-inside text-[18px] leading-[32px] sm:text-[20px] sm:leading-[36px] md:text-[22px] md:leading-[40px] text-white font-bold font-cardo mb-6"
+              className="space-y-1 list-disc list-inside text-[18px] leading-[32px] sm:text-[20px] sm:leading-[36px] md:text-[22px] md:leading-[40px] text-white font-bold font-cardo"
               variants={listVariants}
               initial="hidden"
               whileInView="visible"
@@ -70,14 +70,17 @@ export default function GemstoneManufacturing({
               ))}
             </motion.ul>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
-              {descriptionBottom}
-            </motion.p>
+            {descriptionBottom && (
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+                viewport={{ once: true }}
+                className="mt-6"
+              >
+                {descriptionBottom}
+              </motion.p>
+            )}
           </div>
         </div>
       </div>

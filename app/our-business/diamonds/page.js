@@ -65,10 +65,9 @@ export default function Diamonds() {
       /> */}
       <GemstoneManufacturing
         backgroundImage={gemstoneBg}
-        heading={`Manufacturing <br/> innovation`}
-        descriptionTop="We process, cut and polish our own gemstones to ensure maximum quality and value. For speed and efficiency, our digitally controlled production lines are equipped with automated gemstone production technology. To provide optimum access to global markets, KGK gemstone manufacturing units are located in:"
-        listItems={["India", "Thailand"]}
-        descriptionBottom="KGK is unique in the gems and jewellery sector for being amongst the industry’s only few that also mines and produces coloured gemstones."
+        heading={`Diamonds <br/> Direct from the Source`}
+        descriptionTop="With a team of highly skilled diamond buyers renowned for their expertise in evaluating and grading rough stones, KGK Group ensures only the finest diamonds enter the value and supply chain. Each ethically sourced diamond is processed at their state-of-the-art manufacturing units in:"
+        listItems={["Angola", "Botswana", "India", "Namibia", "South Africa"]}
       />
       <DistributionMap />
       <Contact backgroundImage={contactBg} />

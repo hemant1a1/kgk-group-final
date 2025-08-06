@@ -39,7 +39,7 @@ export default function SemiPrecious({ data }) {
                   className="relative w-full h-[332px] overflow-hidden"
                 >
                   <Image
-                    src={selectedGem.video_thumbnail || selectedGem.image}
+                    src={getThumbnail(selectedGem)}
                     alt="Video preview"
                     fill
                     className="object-cover w-full h-full"
@@ -149,3 +149,20 @@ function extractYoutubeId(url) {
   const match = url.match(regExp);
   return match ? match[1] : null;
 }
+
+function getThumbnail(gem) {
+  // 1. Use provided video thumbnail if available
+  if (gem.video_thumbnail && gem.video_thumbnail.trim() !== '') {
+    return gem.video_thumbnail;
+  }
+
+  // 2. Fallback to YouTube HD thumbnail if video ID is present
+  const youtubeId = extractYoutubeId(gem.youtube_video_id);
+  if (youtubeId) {
+    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  }
+
+  // 3. Fallback to normal image
+  return gem.image;
+}
+
