@@ -47,11 +47,11 @@ export default function EventsMedia({ data }) {
               {mainImage?.short_description}
             </p> */}
           </div>
-          <div>
+          {/* <div>
             <Link href={`/events-&-media/${mainImage.slug || '#'}`} className="bg-white text-black font-medium px-6 py-2 rounded-full hover:bg-gray-300 transition">
               READ MORE
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -110,12 +110,18 @@ const AwardsSwiper = ({ data }) => {
   
                         {/* Text Box inside dark background */}
                         <div className="px-4 pt-2 pb-2 text-black text-center flex flex-col items-center justify-center">
-                          <p className="font-cardo font-bold text-sm md:text-base lg:text-lg">{item.title}</p>
-                          {index === activeIndex && (
+                          <p className="font-cardo font-bold text-sm md:text-base lg:text-lg">
+                            {index === activeIndex
+                              ? item.title
+                              : item.title.length > 23
+                                ? item.title.slice(0, 23) + '...'
+                                : item.title}
+                          </p>
+                          {/* {index === activeIndex && (
                             <Link href={`/events-&-media/${item.slug || '#'}`}>
                               <ChevronRight size={42} strokeWidth={0.5} />
                             </Link>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>
