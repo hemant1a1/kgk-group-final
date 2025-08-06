@@ -37,7 +37,7 @@ const AlternatingVideoSections = ({
                 <Image
                   src={image}
                   alt={title}
-                  className="rounded-xl shadow-lg"
+                  className="w-full rounded-xl shadow-lg"
                   placeholder="blur"
                 />
                 <div className="absolute inset-0 bg-black/60 rounded-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 z-10" />

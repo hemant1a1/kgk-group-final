@@ -1,6 +1,6 @@
 
 import Breadcrumb from '@/components/Breadcrumb';
-import AlternatingSections from '@/components/Diamonds/AlternatingSections';
+import AlternatingVideoSections from '@/components/AlternatingVideoSections';
 import SourcingWorld from '@/components/Diamonds/SourcingWorld';
 import GemstoneManufacturing from '@/components/Diamonds/GemstoneManufacturing';
 import DistributionMap from '@/components/Gemstones/DistributionMap';
@@ -18,29 +18,6 @@ import img1 from "@/assets/images/diamond1.jpg";
 import img2 from "@/assets/images/diamond2.jpg";
 import img3 from "@/assets/images/diamond3.jpg";
 
-const sectionsData = [
-  {
-    title: "Integrated Supply Pipeline: From Rough to Radiant",
-    description:
-      "KGK Group ensures full control over the supply chain by carrying only high-quality diamonds. Each diamond is meticulously tracked from its raw form to the finished product, reinforcing the brand’s commitment to sustainable gemstone sourcing and ethical practices.",
-    image: img1,
-    reverse: false,
-  },
-  {
-    title: "A Legacy of Expertise",
-    description:
-      "Since entering diamond distribution in 1969 and manufacturing finished diamonds in 1986, KGK Group has built a reputation for precision and excellence. Headquartered in Antwerp, the global diamond capital, the brand’s operations and processes are streamlined based on the same values at various locations around the world.",
-    image: img2,
-    reverse: true,
-  },
-  {
-    title: "Unmatched Quality and Choice",
-    description:
-      "KGK Group’s diamond portfolio features an extraordinary range of natural, colorless, and colored stones in every popular size, shape, and shade, reflecting versatility and innovation.",
-    image: img3,
-    reverse: false,
-  },
-];
 
 export default function Jewellery() {
   return (
@@ -50,11 +27,19 @@ export default function Jewellery() {
         subheading="Stunning Masterpieces"
         bgImage={bgImage}
       />
+
+      <AlternatingVideoSections
+        title="Exquisite Craftsmanship, Limitless Potential"
+        description="KGK Group’s jewellery collections represent timeless elegance, innovative designs, and unmatched quality. The leading global brand offers a comprehensive range of impeccable creations that resonate with style and sophistication."
+        image={craftsmanshipImg}
+        youtubeId="EaKYnxzx3Eg"
+      />
+
       <section className="py-20 bg-white">
         <div className="container">
         <div className="px-0 lg:px-[50px]">
           {/* Section Heading with Image */}
-          <div className="grid md:grid-cols-2 gap-10 items-center mb-16">
+          {/* <div className="grid md:grid-cols-2 gap-10 items-center mb-16">
             <div>
               <h2 className="text-3xl md:text-4xl mb-4">
                 Exquisite Craftsmanship, Limitless Potential
@@ -74,7 +59,7 @@ export default function Jewellery() {
                 placeholder="blur"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* The KGK Difference */}
           <div className="mb-16">
