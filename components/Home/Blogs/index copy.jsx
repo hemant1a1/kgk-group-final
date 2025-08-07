@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -49,11 +49,7 @@ export default function Blogs({ data = [] }) {
           <Swiper
             loop={true}
             spaceBetween={20}
-            modules={[Pagination, Autoplay]}
-            autoplay={{
-              delay: 3000, 
-              disableOnInteraction: false,
-            }}
+            modules={[Pagination]}
              breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -68,7 +64,7 @@ export default function Blogs({ data = [] }) {
                 slidesPerView: 2,
               },
               1280: { // xl
-                slidesPerView: '3', // only auto at xl and above
+                slidesPerView: 'auto', // only auto at xl and above
               },
             }}
             className="group"
@@ -76,9 +72,28 @@ export default function Blogs({ data = [] }) {
             {data.map((post, index) => {
               const isActive = selectedIndex === index;
 
+              const slideWidth = () => {
+                if (typeof window === 'undefined') return 'auto';
+
+                const width = window.innerWidth;
+
+                if (width < 768) {
+                  return containerWidth * 0.9;
+                } else if (width >= 1280) {
+                  return isActive ? containerWidth * 0.385 : containerWidth * 0.285;
+                } else {
+                  return 'auto'; // For md & lg: let Swiper handle it
+                }
+              };
+
               return (
-                <SwiperSlide key={post.slug}>
-                  <div
+                <SwiperSlide key={post.slug} className="xl:!w-auto overflow-hidden">
+                  <motion.div
+                      onMouseEnter={() => setSelectedIndex(index)}
+                      animate={{
+                        width: slideWidth(),
+                      }}
+                      transition={{ duration: 0.4, ease: 'easeInOut' }}
                       className="h-full rounded-xl overflow-hidden cursor-pointer"
                     >
                     <div className="relative h-[400px] w-full rounded-xl overflow-hidden group">
@@ -110,7 +125,7 @@ export default function Blogs({ data = [] }) {
                           : post.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </SwiperSlide>
               );
             })}
