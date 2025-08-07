@@ -5,7 +5,7 @@ export default function Contact({ backgroundImage }) {
     <div className="flex flex-col md:flex-row w-full">
       <div className="w-full md:w-1/2 bg-primary flex flex-col justify-center px-5 md:px-20 py-20 text-white">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal mb-8">
-          Contact KGK<br />about Gemstones
+          Contact KGK<br />about Diamonds
         </h2>
 
         <div className="flex w-full max-w-md h-[57px]">
