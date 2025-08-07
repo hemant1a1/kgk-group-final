@@ -98,6 +98,79 @@ export default function SemiPrecious({ data }) {
                 }}
                 className="!overflow-visible"
               >
+                {data.map((gem) => (
+                  <SwiperSlide key={gem.title}>
+                    <div
+                      className={`
+                        relative
+                        group
+                        flex flex-col items-center justify-end
+                        rounded-xl border border-[#d6d6d6]
+                        overflow-hidden
+                        backdrop-blur-md
+                        transition-all duration-300 ease-in-out
+                        hover:border-black/25 hover:scale-[1.025]
+                        active:scale-[0.98]
+                        px-4 py-3
+                        cursor-pointer
+                        ${selectedGem.title === gem.title ? 'border-black/30' : ''}
+                      `}
+                      onClick={() => setSelectedGem(gem)}
+                    >
+                      {/* Blurred BG */}
+                      <div className="absolute inset-0 z-0">
+                        <Image
+                          src={gem.image}
+                          alt="bg"
+                          fill
+                          className="object-cover opacity-30 blur-md scale-110"
+                        />
+                        <div className="absolute inset-0 bg-white/40 backdrop-blur-sm" />
+                      </div>
+
+                      {/* Optional overlay for active */}
+                      {selectedGem.title === gem.title && (
+                        <div className="absolute inset-0 z-10 rounded-xl border-2 border-[#007aff]/20 pointer-events-none" />
+                      )}
+
+                      {/* Foreground Content */}
+                      <motion.div
+                        layout
+                        className="w-full aspect-[3/2] relative mb-3 z-10"
+                        initial={{ opacity: 0, scale: 0.96 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.35, ease: 'easeOut' }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Image
+                          src={gem.image}
+                          alt={gem.title}
+                          fill
+                          className="object-contain rounded-lg"
+                        />
+                      </motion.div>
+                      <p className="text-sm leading-[16px] text-heading font-medium text-center min-h-8 mt-2 flex items-end justify-center z-10">
+                        {gem.title}
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
+            {/* <div className="mt-12">
+              <Swiper
+                loop={true}
+                spaceBetween={20}
+                slidesPerView={2}
+                breakpoints={{
+                  640: { slidesPerView: 3 },
+                  768: { slidesPerView: 4 },
+                  1024: { slidesPerView: 6 },
+                  1280: { slidesPerView: 8 },
+                }}
+                className="!overflow-visible"
+              >
                 {data.map((gem, index) => (
                   <SwiperSlide key={gem.title}>
                     <div
@@ -128,7 +201,7 @@ export default function SemiPrecious({ data }) {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
+            </div> */}
           </div>
         </div>  
       </div>
