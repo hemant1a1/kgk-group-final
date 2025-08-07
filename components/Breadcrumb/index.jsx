@@ -12,7 +12,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
 
   const formatSegment = (str) =>
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
-
+ 
   return (
     <div
       className="relative text-white h-[600px] bg-cover bg-center px-6 pt-14 pb-6 flex flex-col justify-between items-center text-center"

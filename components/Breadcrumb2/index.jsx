@@ -41,7 +41,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
           <div className="w-80 h-0.5 bg-white/30 mt-9"></div>
         </div>
         {/* Bottom Breadcrumb */}
-        <div className="mt-2 mb-12">
+        <div className="mt-2">
           <div className="flex flex-wrap justify-center items-center gap-1 text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] tracking-[0.5px] sm:tracking-[0.75px] md:tracking-[1px] uppercase text-[#060201] uppercase">
             <Link href="/" className="hover:text-[#060201]">Home</Link>
             {segments.map((seg, index) => {
