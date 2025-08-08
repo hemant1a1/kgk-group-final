@@ -15,19 +15,19 @@ export default function CertificationBanner() {
           We are proud to be <strong>BPP Compliant</strong> and certified by the <strong>Responsible Jewellery Council (RJC)</strong>.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <div className="shadow-lg rounded-xl overflow-hidden">
+        <div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-center items-center gap-6">
+          <div className="w-full h-[380px]">
             <Image
               src={cert1}
               alt="BPP Compliance Slide"
-              className="object-cover w-full h-auto"
+              className="object-contain w-full h-full rounded-xl "
             />
           </div>
-          <div className="shadow-lg rounded-xl overflow-hidden">
+          <div className="w-full h-[380px]">
             <Image
               src={cert2}
               alt="RJC Certification Slide"
-              className="object-cover w-full h-auto"
+              className="object-contain w-full h-full rounded-xl "
             />
           </div>
         </div>
