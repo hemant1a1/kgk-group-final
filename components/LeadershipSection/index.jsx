@@ -20,7 +20,7 @@ export default function LeadershipSection() {
   const builders = [
     {
       index: 0,
-      zIndex: 10,
+      zIndex: 5,
       title: 'Navrattan Kothari',
       subtitle: 'Patriarch',
       backgroundImage: leadershipBg1.src,
@@ -37,7 +37,7 @@ export default function LeadershipSection() {
     },
     {
       index: 1,
-      zIndex: 20,
+      zIndex: 10,
       title: 'Sanjay Kothari',
       subtitle: 'Vice Chairman',
       backgroundImage: leadershipBg2.src,
@@ -55,7 +55,7 @@ export default function LeadershipSection() {
     },
     {
       index: 2,
-      zIndex: 30,
+      zIndex: 15,
       title: 'Sandeep Kothari',
       subtitle: 'Managing Director',
       backgroundImage: leadershipBg3.src,

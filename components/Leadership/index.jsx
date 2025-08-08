@@ -55,28 +55,30 @@ export default function Leadership({
 
   return (
     <>
-      <div
-        className="hidden xl:block w-full h-[85vh] min-h-[380px] sticky top-0"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          zIndex: zIndex,
-        }}
-      >
-        <div className="container h-full">
-          <div className="flex flex-col md:flex-row items-center gap-2 h-full">
-            {imagePosition === 'left' ? (
-              <>
-                {ImageSection}
-                {TextSection}
-              </>
-            ) : (
-              <>
-                {TextSection}
-                {ImageSection}
-              </>
-            )}
+      <div className="sticky top-[60px]">
+        <div
+          className="hidden xl:block w-full h-[85vh] min-h-[380px]"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            zIndex: zIndex,
+          }}
+        >
+          <div className="container h-full">
+            <div className="flex flex-col md:flex-row items-center gap-2 h-full">
+              {imagePosition === 'left' ? (
+                <>
+                  {ImageSection}
+                  {TextSection}
+                </>
+              ) : (
+                <>
+                  {TextSection}
+                  {ImageSection}
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
