@@ -62,8 +62,8 @@ export default function CountryList({ selected, setSelected }) {
               key={key}
               onClick={() => setSelected(key)}
               onMouseEnter={() => setSelected(key)}
-              className={`transition duration-200 font-medium text-[13.5px] basis-1/4 lg:basis-[12%] xl:basis-[10%] ${
-                isActive ? 'text-primary' : 'hover:text-primary'
+              className={`text-shadow-sm transition duration-200 font-medium text-[13.5px] basis-1/4 lg:basis-[12%] xl:basis-[10%] ${
+                isActive ? 'text-[#f6dcbf] text-shadow-lg' : 'hover:text-[#f6dcbf] text-shadow-lg'
               }`}
             >
               {name.toUpperCase()}

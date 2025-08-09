@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 
 import { motion } from "framer-motion";
 
-export default function Breadcrumb({ heading, subheading, bgImage, subheadingClassName = "" }) {
+export default function Breadcrumb({ heading, subheading, bgImage, subheadingClassName = "", showGradient = false }) {
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean);
 
@@ -18,7 +18,11 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
       className="relative text-white h-[600px] bg-cover bg-top px-6 pt-14 pb-6 "
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
-      <div className="flex flex-col justify-between items-center text-center md:max-w-xl lg:max-w-6xl mx-auto h-full">
+      {showGradient && (
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent"></div>
+      )}
+
+      <div className="relative flex flex-col justify-between items-center text-center md:max-w-xl lg:max-w-6xl mx-auto h-full">
         {/* Centered Content */}
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <motion.h1 

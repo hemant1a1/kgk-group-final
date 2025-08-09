@@ -32,6 +32,7 @@ export default async function AboutUs() {
           </>
         }
         bgImage={bgImage}
+        showGradient={true}
       />
       <KGKAdvantage />
       <TheLegacy />
