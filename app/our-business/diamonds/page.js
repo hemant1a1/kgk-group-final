@@ -69,7 +69,7 @@ export default function Diamonds() {
       <AlternatingSections sections={sectionsData} />
       <GemstoneManufacturing
         backgroundImage={gemstoneBg}
-        heading={`Diamonds <br/> Direct from the Source`}
+        heading={`Diamonds Direct from <br/> the Source`}
         descriptionTop="With a team of highly skilled diamond buyers renowned for their expertise in evaluating and grading rough stones, KGK Group ensures only the finest diamonds enter the value and supply chain. Each ethically sourced diamond is processed at their state-of-the-art manufacturing units in:"
         listItems={["Angola", "Botswana", "India", "Namibia", "South Africa"]}
       />

@@ -47,7 +47,7 @@ export default function GemstoneManufacturing({
             ></motion.h2>
 
             <motion.p 
-              className="mb-8"
+              className="mb-8 text-base"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
@@ -57,7 +57,7 @@ export default function GemstoneManufacturing({
             </motion.p>
 
             <motion.ul
-              className="space-y-1 list-disc list-inside text-[18px] leading-[32px] sm:text-[20px] sm:leading-[36px] md:text-[22px] md:leading-[40px] text-white font-bold font-cardo"
+              className="space-y-1 list-disc list-inside text-sm sm:text-base md:text-lg text-white font-semibold font-cardo"
               variants={listVariants}
               initial="hidden"
               whileInView="visible"
