@@ -1,4 +1,4 @@
-
+import Link from 'next/link';
 import Image from "next/image";
 
 const AlternatingSections = ({ sections }) => {
@@ -6,7 +6,7 @@ const AlternatingSections = ({ sections }) => {
     <section className="py-8 bg-white">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
-                {sections.map(({ title, description, image, reverse }, idx) => (
+                {sections.map(({ title, description, image, reverse, button }, idx) => (
                     <div
                     key={idx}
                     className={`flex flex-col md:flex-row items-center gap-8 lg:gap-x-16 ${
@@ -17,6 +17,17 @@ const AlternatingSections = ({ sections }) => {
                     <div className="w-full md:w-1/2 space-y-4">
                         <h2 className="text-2xl md:text-3xl text-gray-800">{title}</h2>
                         <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+
+                        {button && button.link && (
+                            <Link
+                                href={button.link}
+                                target={button.newTab ? "_blank" : "_self"}
+                                rel={button.newTab ? "noopener noreferrer" : undefined}
+                                className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition mt-4 inline-block"
+                            >
+                                {button.text || "Learn More"}
+                            </Link>
+                        )}
                     </div>
 
                     {/* Image */}

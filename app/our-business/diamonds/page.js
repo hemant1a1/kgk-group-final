@@ -33,6 +33,11 @@ const sectionsData = [
       "KGK Group’s diamond portfolio features an extraordinary range of natural, colorless, and colored stones in every popular size, shape, and shade, reflecting versatility and innovation.",
     image: img3,
     reverse: false,
+    button: {
+      text: "Visit KGK Diamonds",
+      link: "https://kgkdiamonds.com/",
+      newTab: true
+    }
   },
 ];
 
