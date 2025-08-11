@@ -68,7 +68,7 @@ export default function TechnologicalCarousel() {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          Brilliance Meets Integrity Crafting Masterpieces, Inspiring Trust
+          Precision Tools. Proprietary Processes. Proven Performance.
         </motion.p>
 
         <motion.p 

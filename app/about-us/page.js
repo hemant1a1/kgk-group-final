@@ -19,16 +19,12 @@ export default async function AboutUs() {
       <Breadcrumb
         heading={
           <>
-            Where Brilliance
-            <br className="hidden lg:block" />
-            Meets Integrity
+            Brilliance Meets Integrity
           </>
         }
         subheading={
           <>
-            Creating timeless masterpieces
-            <br className="hidden lg:block" />
-            through innovation and skill
+            Crafting Masterpieces, Inspiring Trust
           </>
         }
         bgImage={bgImage}

@@ -13,6 +13,7 @@ import leadershipBg3 from '@/assets/images/sandeep-kothari.jpg';
 // You can import carrier images similarly
 import carrierBg1 from '@/assets/images/arnav.jpg'; 
 import carrierBg2 from '@/assets/images/saransh-kothari.jpg'; 
+import carrierBg3 from '@/assets/images/vedant-kothari.jpg'; 
 
 export default function LeadershipSection() {
   const [activeTab, setActiveTab] = useState('builders');
@@ -41,7 +42,6 @@ export default function LeadershipSection() {
       title: 'Sanjay Kothari',
       subtitle: 'Vice Chairman',
       backgroundImage: leadershipBg2.src,
-      imagePosition: 'left',
       paragraph: (
         <>
           <p className="text-white xl:text-black">
@@ -75,6 +75,20 @@ export default function LeadershipSection() {
   const carriers = [
     {
       index: 3,
+      zIndex: 20,
+      title: 'Vedant Kothari',
+      subtitle: '',
+      backgroundImage: carrierBg3.src,
+      paragraph: (
+        <>
+          <p className="text-white xl:text-black">
+            Born in India and raised across Mumbai, Antwerp, and the U.S., Vedant Kothari brings global perspective and entrepreneurial spirit to KGK’s international expansion. After helping scale a U.S.-based e-commerce venture to $100M in revenue, he joined the KGK Group with a focus on augmenting KGK’s presence in the American market. Based in New York, he is driving exponential growth in diamond trading and retail, while also overseeing real estate investments across the U.S. His consumer-first thinking, analytical approach, and exposure to diverse business cultures position him as a key force in shaping KGK’s future.
+          </p>
+        </>
+      ),
+    },
+    {
+      index: 4,
       zIndex: 10,
       title: 'Arnav Kothari',
       subtitle: '',
@@ -88,12 +102,11 @@ export default function LeadershipSection() {
       ),
     },
     {
-      index: 4,
+      index: 5,
       zIndex: 20,
       title: 'Saransh Kothari',
       subtitle: '',
       backgroundImage: carrierBg2.src,
-      imagePosition: 'left',
       paragraph: (
         <>
           <p className="text-white xl:text-black">
@@ -102,6 +115,7 @@ export default function LeadershipSection() {
         </>
       ),
     },
+    
   ];
 
   const dataToRender = activeTab === 'builders' ? builders : carriers;
