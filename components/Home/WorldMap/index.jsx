@@ -4,7 +4,7 @@ import map from '@/assets/images/map.webp'
 
 const locations = {
   india: { x: '68%', y: '45%', label: 'Jaipur\nMumbai' },
-  usa: { x: '18.7%', y: '32%', label: 'New York\nSan Francisco' },
+  usa: { x: '18.7%', y: '32%', label: 'New York' },
   brazil: { x: '31.5%', y: '69%', label: 'São Paulo\nRio de Janeiro' },
   botswana: { x: '53.5%', y: '65.5%', label: 'Gaborone' },
   southafrica: { x: '55%', y: '69%', label: 'Cape Town\nJohannesburg' },
