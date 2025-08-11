@@ -10,8 +10,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 import technological1 from '@/assets/images/technological/1.png';
-import technological2 from '@/assets/images/technological/2.jpg';
-import technological3 from '@/assets/images/technological/3.jpg';
+import technological2 from '@/assets/images/technological/3.jpg';
+import technological3 from '@/assets/images/technological/2.jpg';
 import technological4 from '@/assets/images/technological/4.jpg';
 
 const slides = [
@@ -19,23 +19,28 @@ const slides = [
     image: technological1, 
     title: 'Diamond Precision Cutting',
     description: 'Ultra-fine laser technology for flawless shaping and unmatched brilliance.', 
+    positionClass: 'object-center'
   },
   { 
     image: technological2, 
     title: '⁠Advanced Diamond R&D Lab',
     description: 'Innovating next-generation gemstones through science and expertise.', 
+    positionClass: '[object-position:50%_30%]'
   },
   { 
     image: technological3, 
     title: '⁠Robotic Quality Inspection',
     description: 'AI-driven precision ensuring purity, symmetry, and structural integrity.', 
+    positionClass: '[object-position:50%_30%]'
   },
   { 
     image: technological4, 
     title: 'Surface Finishing & Grading',
     description: 'Meticulous texturing and grading for superior luster and durability.', 
+    positionClass: '[object-position:50%_10%]'
   },
 ];
+
 
 export default function TechnologicalCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -112,7 +117,7 @@ export default function TechnologicalCarousel() {
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  className="rounded-[20px] object-cover w-full h-full"
+                  className={`rounded-[20px] object-cover w-full h-full ${slide.positionClass}`}
                   placeholder="blur"
                 />
               </div>
