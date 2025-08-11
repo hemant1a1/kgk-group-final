@@ -9,38 +9,31 @@ import { motion } from 'framer-motion';
 
 import Image from 'next/image';
 
-import technological1 from '@/assets/images/technological-1.jpg';
+import technological1 from '@/assets/images/technological/1.png';
+import technological2 from '@/assets/images/technological/2.jpg';
+import technological3 from '@/assets/images/technological/3.jpg';
+import technological4 from '@/assets/images/technological/4.jpg';
 
 const slides = [
   { 
     image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
+    title: 'Diamond Precision Cutting',
+    description: 'Ultra-fine laser technology for flawless shaping and unmatched brilliance.', 
   },
   { 
-    image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
+    image: technological2, 
+    title: '⁠Advanced Diamond R&D Lab',
+    description: 'Innovating next-generation gemstones through science and expertise.', 
   },
   { 
-    image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
+    image: technological3, 
+    title: '⁠Robotic Quality Inspection',
+    description: 'AI-driven precision ensuring purity, symmetry, and structural integrity.', 
   },
   { 
-    image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
-  },
-  { 
-    image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
-  },
-  { 
-    image: technological1, 
-    title: 'Microwave Plasma CVD',
-    description: 'Precision growth of lab-grown diamonds with controlled purity and structure.', 
+    image: technological4, 
+    title: 'Surface Finishing & Grading',
+    description: 'Meticulous texturing and grading for superior luster and durability.', 
   },
 ];
 
@@ -75,7 +68,7 @@ export default function TechnologicalCarousel() {
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          Precision Tools. Proprietary Processes. Proven Performance.
+          Brilliance Meets Integrity Crafting Masterpieces, Inspiring Trust
         </motion.p>
 
         <motion.p 
