@@ -9,13 +9,13 @@ const locations = {
   botswana: { x: '53.5%', y: '65.5%', label: 'Gaborone' },
   southafrica: { x: '55%', y: '69%', label: 'Johannesburg' },
   belgium: { x: '48.7%', y: '25.5%', label: 'Antwerp' },
-  russia: { x: '74%', y: '19.5%', label: 'Moscow\nSaint Petersburg' },
-  spain: { x: '45.5%', y: '32%', label: 'Madrid\nBarcelona' },
+  russia: { x: '74%', y: '19.5%', label: 'Moscow' },
+  spain: { x: '45.5%', y: '32%', label: 'Madrid' },
   uae: { x: '62.8%', y: '43%', label: 'Dubai' },
   china: { x: '76.5%', y: '38%', label: 'Panyu\nShanghai\nShenzhen' },
-  australia: { x: '85.5%', y: '69.5%', label: 'Sydney\nMelbourne' },
+  australia: { x: '85.5%', y: '69.5%', label: 'Sydney' },
   thailand: { x: '74.4%', y: '48.5%', label: 'Bangkok' },
-  israel: { x: '57.5%', y: '39%', label: 'Tel Aviv\nJerusalem' },
+  israel: { x: '57.5%', y: '39%', label: 'Tel Aviv' },
   taiwan: { x: '80%', y: '42%', label: 'Taipei' },
   japan: { x: '85.7%', y: '34%', label: 'Tokyo' }
 }
