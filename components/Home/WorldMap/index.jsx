@@ -13,7 +13,7 @@ const locations = {
     { x: '84.5%', y: '69.5%', label: 'Sydney' }
   ],
   europe: [
-    { x: '47%', y: '28%%', label: 'Belgium\nSwitzerland' },
+    { x: '47%', y: '28%', label: 'Belgium\nSwitzerland' },
   ],
   northamerica: [
     { x: '18.7%', y: '32%', label: 'New York' }
