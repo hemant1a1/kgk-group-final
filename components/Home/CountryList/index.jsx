@@ -6,9 +6,12 @@ import React from 'react';
 
 
 const countries = [
-  'USA', 'Brazil', 'Botswana', 'South Africa', 'India',
-  'Belgium', 'Russia', 'Spain', 'UAE', 'China',
-  'Australia', 'Thailand', 'Israel', 'Taiwan', 'Japan'
+  'Africa', 
+  'ASIA',
+  'Australia', 
+  'Europe',
+  'North America',
+  'South America',
 ]
 
 export default function CountryList({ selected, setSelected }) {
@@ -53,7 +56,7 @@ export default function CountryList({ selected, setSelected }) {
       </div>
 
       {/* Desktop Button List */}
-      <div className="hidden sm:flex sm:flex-wrap sm:justify-center sm:gap-y-7 sm:gap-x-8 lg:gap-x-5 text-center">
+      <div className="hidden sm:flex sm:flex-wrap sm:justify-center sm:gap-y-4 sm:gap-x-6 lg:gap-x-10 text-center">
         {countries.map((name) => {
           const key = name.toLowerCase().replace(/\s/g, '')
           const isActive = selected === key
@@ -62,7 +65,7 @@ export default function CountryList({ selected, setSelected }) {
               key={key}
               onClick={() => setSelected(key)}
               onMouseEnter={() => setSelected(key)}
-              className={`text-shadow-sm transition duration-200 font-medium text-[13.5px] basis-1/4 lg:basis-[12%] xl:basis-[10%] ${
+              className={`text-shadow-sm transition duration-200 font-medium font-cardo text-[13.5px] ${
                 isActive ? 'text-[#f6dcbf] text-shadow-lg' : 'hover:text-[#f6dcbf] text-shadow-lg'
               }`}
             >
