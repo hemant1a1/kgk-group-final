@@ -11,9 +11,9 @@ import leadershipBg2 from '@/assets/images/sanjay-kothari.jpg';
 import leadershipBg3 from '@/assets/images/sandeep-kothari.jpg';
 
 // You can import carrier images similarly
-import carrierBg1 from '@/assets/images/arnav.jpg'; 
-import carrierBg2 from '@/assets/images/saransh-kothari.jpg'; 
-import carrierBg3 from '@/assets/images/vedant-kothari.jpg'; 
+import carrierBg1 from '@/assets/images/saransh-kothari.jpg'; 
+import carrierBg2 from '@/assets/images/vedant-kothari.jpg'; 
+import carrierBg3 from '@/assets/images/arnav.jpg'; 
 
 export default function LeadershipSection() {
   const [activeTab, setActiveTab] = useState('builders');
@@ -76,9 +76,23 @@ export default function LeadershipSection() {
     {
       index: 3,
       zIndex: 20,
+      title: 'Saransh Kothari',
+      subtitle: '',
+      backgroundImage: carrierBg1.src,
+      paragraph: (
+        <>
+          <p className="text-white xl:text-black">
+            With a background in electrical engineering and global consulting experience, Saransh Kothari brings a future-facing mindset to KGK. He launched KGK Diamatrix in Hong Kong, positioning the Group at the intersection of technology and materials innovation through lab-grown diamonds for industrial applications. Simultaneously, he founded Prismara, a D2C lifestyle jewellery brand merging design, technology, and craftsmanship. His initiatives in data science and internal digital transformation are paving the way for smarter, agile operations, ensuring KGK stays relevant in emerging sectors and markets.
+          </p>
+        </>
+      ),
+    },
+    {
+      index: 4,
+      zIndex: 20,
       title: 'Vedant Kothari',
       subtitle: '',
-      backgroundImage: carrierBg3.src,
+      backgroundImage: carrierBg2.src,
       paragraph: (
         <>
           <p className="text-white xl:text-black">
@@ -88,11 +102,11 @@ export default function LeadershipSection() {
       ),
     },
     {
-      index: 4,
+      index: 5,
       zIndex: 10,
       title: 'Arnav Kothari',
       subtitle: '',
-      backgroundImage: carrierBg1.src,
+      backgroundImage: carrierBg3.src,
       paragraph: (
         <>
           <p className="text-white xl:text-black">
@@ -101,20 +115,7 @@ export default function LeadershipSection() {
         </>
       ),
     },
-    {
-      index: 5,
-      zIndex: 20,
-      title: 'Saransh Kothari',
-      subtitle: '',
-      backgroundImage: carrierBg2.src,
-      paragraph: (
-        <>
-          <p className="text-white xl:text-black">
-            With a background in electrical engineering and global consulting experience, Saransh Kothari brings a future-facing mindset to KGK. He launched KGK Diamatrix in Hong Kong, positioning the Group at the intersection of technology and materials innovation through lab-grown diamonds for industrial applications. Simultaneously, he founded Prismara, a D2C lifestyle jewellery brand merging design, technology, and craftsmanship. His initiatives in data science and internal digital transformation are paving the way for smarter, agile operations, ensuring KGK stays relevant in emerging sectors and markets.
-          </p>
-        </>
-      ),
-    },
+    
     
   ];
 
