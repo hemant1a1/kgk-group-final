@@ -155,8 +155,7 @@ const socialIcons = [
 
         {/* Copyright */}
         <p className="text-[13px] tracking-widest text-white">
-          Copyright © {new Date().getFullYear()} by KGK Group |{" "}
-          <span className="text-white">Legal and Privacy</span>
+          Copyright © {new Date().getFullYear()} by KGK Group
         </p>
       </div>
     </footer>
