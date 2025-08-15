@@ -13,7 +13,7 @@ const VisionMission = () => {
       <div className="hidden md:block absolute left-0 right-0 top-0 bg-[#33342f] w-full h-48 lg:h-60 z-0" />
 
       {/* Cards overlapping background transition */}
-      <div className="max-w-4xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 xl:gap-16">
+      <div className="max-w-4xl mx-auto px-4 py-8 lg:py-14 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 xl:gap-16">
         {[
           { img: visionImg, title: 'Vision', desc: 'To lead a future where diamond materials drive transformative technologies and elevate human progress across industries.' },
           { img: missionImg, title: 'Mission', desc: 'To deliver sustainable, high-performance diamond solutions that enable innovation, improve lives, and support a smarter, tech-driven world.' },

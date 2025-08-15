@@ -8,7 +8,7 @@ export default function DiamatricsSection() {
   return (
     <div className="relative pt-10 pb-6 md:pt-12 bg-white">
       <div className="container">
-        <div className="px-0 lg:px-[50px] flex flex-col lg:flex-row items-center">
+        <div className="px-0 lg:px-[50px] flex flex-col lg:flex-row items-center gap-y-6">
 
           {/* Left Animated Image */}
           <motion.div
@@ -16,7 +16,7 @@ export default function DiamatricsSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true }}
-            className="relative w-full lg:w-[50%] mb-12 lg:mb-0 z-10 xl:pl-[50px]"
+            className="relative w-full lg:w-[50%] lg:mb-0 z-10 xl:pl-[50px]"
           >
             <Image src={about2} alt="about" className="w-full h-[240px]  md:h-[360px] object-cover rounded-2xl" />
           </motion.div>

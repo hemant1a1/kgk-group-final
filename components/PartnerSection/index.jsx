@@ -25,7 +25,7 @@ export default function PartnerSection() {
                     {/* Text Content */}
                     <div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal mb-4">
-                        Partner With Us
+                        Connect With Us
                     </h2>
                     <p className="text-base lg:text-lg text-white/90 leading-relaxed mb-4">
                         Whether you're developing breakthrough technologies or seeking materials that elevate performance,

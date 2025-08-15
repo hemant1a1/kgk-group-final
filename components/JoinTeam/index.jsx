@@ -135,8 +135,25 @@ export default function JoinTeam({ data = [] }) {
                       <p className="text-sm text-dark-gray mb-4">
                         {truncateText(job.short_description, 100)}
                       </p>
-                      <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
-                        Read More
+                      <button
+                        className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full"
+                        onClick={() => {
+                          setFormData((prev) => ({ ...prev, job_title: job.title }));
+
+                          // Only scroll on mobile
+                          if (window.innerWidth < 1024) {
+                            document
+                              .getElementById("apply-form")
+                              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }
+
+                          // Focus the first input field after a short delay
+                          setTimeout(() => {
+                            document.querySelector("#apply-form input[name='name']")?.focus();
+                          }, 300);
+                        }}
+                      >
+                        Apply Now
                       </button>
                     </motion.div>
                   );
@@ -146,8 +163,10 @@ export default function JoinTeam({ data = [] }) {
             </div>
 
             {/* Right Column – Application Form */}
-            <motion.form onSubmit={handleSubmit}
-              className="w-full lg:w-5/12 bg-dark-primary text-white rounded-xl px-12 py-4 space-y-3"
+            <motion.form 
+              id="apply-form"
+              onSubmit={handleSubmit}
+              className="w-full lg:w-5/12 bg-dark-primary text-white rounded-xl px-12 py-4 space-y-3 sm:pointer-events-auto pointer-events-non"
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: 'easeOut' }} viewport={{ once: true }}
             >

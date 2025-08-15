@@ -11,7 +11,7 @@ import luxury from '@/assets/images/luxury.png';
 
 export default function ApplicationsSection() {
   return (
-    <section className="relative bg-[#1A1A1A] bg-[url('/images/diamond-bg.jpg')] bg-no-repeat bg-cover text-white pt-96 md:pt-28 pb-10 overflow-hidden ">
+    <section className="relative bg-[#1A1A1A] bg-[url('/images/diamond-bg.jpg')] bg-no-repeat bg-cover bg-right-bottom lg:bg-center text-white py-8 md:pt-28 lg:pb-10 overflow-hidden ">
         <div className="container">
             <div className="px-0 lg:px-[50px]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
