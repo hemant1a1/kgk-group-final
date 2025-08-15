@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from "next/navigation"; 
 import { motion } from 'framer-motion';
 
 const ease = [0.4, 0, 0.2, 1];
@@ -34,6 +35,7 @@ function truncateText(text, maxLength = 100) {
 }
 
 export default function JoinTeam({ data = [] }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -43,7 +45,7 @@ export default function JoinTeam({ data = [] }) {
     about_yourself: '',
   });
   const [selectedFile, setSelectedFile] = useState(null);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({}); 
   const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
@@ -52,14 +54,24 @@ export default function JoinTeam({ data = [] }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setErrors({});
     setSuccess('');
     setLoading(true);
 
     const { name, email, mobile, job_title, about_yourself } = formData;
+    let newErrors = {};
 
-    if (!name || !email || !mobile || !job_title || !about_yourself || !selectedFile) {
-      setError('All fields are required.');
+    if (!name) newErrors.name = 'Name is required';
+    if (!email) newErrors.email = 'Email is required';
+    if (!mobile) newErrors.mobile = 'Mobile is required';
+    if (!job_title) newErrors.job_title = 'Please select a job';
+    if (!about_yourself) newErrors.about_yourself = 'This field is required';
+    if (!selectedFile) newErrors.file = 'Resume is required';
+
+    // Agar koi error hai
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setLoading(false); // ✅ loader band karo
       return;
     }
 
@@ -78,14 +90,14 @@ export default function JoinTeam({ data = [] }) {
       });
 
       if (!res.ok) throw new Error('Failed to apply');
-
-      setSuccess('Application submitted successfully!');
+      router.push('/join-thank-you');
+      /* setSuccess('Application submitted successfully!');
       setFormData({ name: '', email: '', mobile: '', job_title: '', about_yourself: '' });
-      setSelectedFile(null);
+      setSelectedFile(null); */
     } catch (err) {
-      setError('Something went wrong. Please try again.');
+      setErrors({ form: 'Something went wrong. Please try again.' });
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
@@ -177,57 +189,67 @@ export default function JoinTeam({ data = [] }) {
               </motion.h3>
 
               {['name', 'email', 'mobile'].map((field, i) => (
-                <motion.input
-                  key={field}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  type={field === 'email' ? 'email' : 'text'}
-                  placeholder={field[0].toUpperCase() + field.slice(1)}
-                  className="w-full bg-transparent border-b border-[#545750] py-2 placeholder:text-white/60 focus:outline-none"
-                  custom={i + 1} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                />
+                <motion.div key={field}>
+                  <motion.input
+                    name={field}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    type={field === 'email' ? 'email' : 'text'}
+                    placeholder={field[0].toUpperCase() + field.slice(1)}
+                    className="w-full bg-transparent border-b border-[#545750] py-2 placeholder:text-white/60 focus:outline-none"
+                    custom={i + 1} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                  />
+                  {errors[field] && <p className="text-sm text-red-400">{errors[field]}</p>}
+                </motion.div>
               ))}
 
-              <motion.select
-                name="job_title"
-                value={formData.job_title}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-[#545750] py-2 text-white focus:outline-none"
-                initial="hidden" whileInView="visible" custom={4} viewport={{ once: true }} variants={fadeInUp}
-              >
-                <option className="text-black" value="">Select Job</option>
-                {data.map(job => (
-                  <option className="text-black" key={job.slug} value={job.title}>
-                    {job.title}
-                  </option>
-                ))}
-              </motion.select>
+              <div>
+                <motion.select
+                  name="job_title"
+                  value={formData.job_title}
+                  onChange={handleChange}
+                  className="w-full bg-transparent border-b border-[#545750] py-2 text-white focus:outline-none"
+                  initial="hidden" whileInView="visible" custom={4} viewport={{ once: true }} variants={fadeInUp}
+                >
+                  <option className="text-black" value="">Select Job</option>
+                  {data.map(job => (
+                    <option className="text-black" key={job.slug} value={job.title}>
+                      {job.title}
+                    </option>
+                  ))}
+                </motion.select>
+                {errors.job_title && <p className="text-sm text-red-400">{errors.job_title}</p>}
+              </div>
 
-              <motion.textarea
-                name="about_yourself"
-                value={formData.about_yourself}
-                onChange={handleChange}
-                rows={3}
-                placeholder="About yourself"
-                className="w-full bg-transparent border-b border-[#545750] py-2 placeholder:text-white/70 focus:outline-none resize-none"
-                initial="hidden" whileInView="visible" custom={5} viewport={{ once: true }} variants={fadeInUp}
-              />
+              {/* About Yourself */}
+              <div>
+                <motion.textarea
+                  name="about_yourself"
+                  value={formData.about_yourself}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="About yourself"
+                  className="w-full bg-transparent border-b border-[#545750] py-2 placeholder:text-white/70 focus:outline-none resize-none"
+                  initial="hidden" whileInView="visible" custom={5} viewport={{ once: true }} variants={fadeInUp}
+                />
+                {errors.about_yourself && <p className="text-sm text-red-400">{errors.about_yourself}</p>}
+              </div>
 
-              <motion.div className="flex items-center gap-3"
-                initial="hidden" whileInView="visible" custom={6} viewport={{ once: true }} variants={fadeInUp}>
-                <label className="px-4 py-1.5 bg-primary text-xs font-medium text-white rounded-full cursor-pointer">
-                  Choose file
-                  <input type="file" className="hidden" accept=".doc,.pdf,.docx"
-                    onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} />
-                </label>
-                <span className="text-[11px] text-white font-normal italic">
-                  Upload Resume (doc, pdf, docx)
-                </span>
-              </motion.div>
-
-              {error && <p className="text-sm text-red-400">{error}</p>}
-              {success && <p className="text-sm text-green-400">{success}</p>}
+              {/* File Upload */}
+              <div>
+                <motion.div className="flex items-center gap-3"
+                  initial="hidden" whileInView="visible" custom={6} viewport={{ once: true }} variants={fadeInUp}>
+                  <label className="px-4 py-1.5 bg-primary text-xs font-medium text-white rounded-full cursor-pointer">
+                    Choose file
+                    <input type="file" className="hidden" accept=".doc,.pdf,.docx"
+                      onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} />
+                  </label>
+                  <span className="text-[11px] text-white font-normal italic">
+                    Upload Resume (doc, pdf, docx)
+                  </span>
+                </motion.div>
+                {errors.file && <p className="text-sm text-red-400">{errors.file}</p>}
+              </div>
 
               <motion.button
                 type="submit"
