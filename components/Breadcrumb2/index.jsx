@@ -19,7 +19,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       {showGradient && (
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.5)_100%)]"></div>
       )}
 
       <div className="relative flex flex-col justify-between items-center text-center md:max-w-xl lg:max-w-6xl mx-auto h-full">
@@ -46,8 +46,8 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
         </div>
         {/* Bottom Breadcrumb */}
         <div className="mt-2">
-          <div className="flex flex-wrap justify-center items-center gap-1 text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] tracking-[0.5px] sm:tracking-[0.75px] md:tracking-[1px] uppercase text-[#060201] uppercase">
-            <Link href="/" className="hover:text-[#060201]">Home</Link>
+          <div className="flex flex-wrap justify-center items-center gap-1 text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] tracking-[0.5px] sm:tracking-[0.75px] md:tracking-[1px] uppercase text-white uppercase">
+            <Link href="/" className="hover:text-white">Home</Link>
             {segments.map((seg, index) => {
               const href = '/' + segments.slice(0, index + 1).join('/');
               const isLast = index === segments.length - 1;
@@ -56,9 +56,9 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
                 <div key={href} className="flex items-center gap-1">
                   <ChevronRight className="w-4 h-4" />
                   {isLast ? (
-                    <span className="text-[#060201]">{formatSegment(seg)}</span>
+                    <span className="text-white">{formatSegment(seg)}</span>
                   ) : (
-                    <Link href={href} className="hover:text-[#060201]">
+                    <Link href={href} className="hover:text-white">
                       {formatSegment(seg)}
                     </Link>
                   )}
