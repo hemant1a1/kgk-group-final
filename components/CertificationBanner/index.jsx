@@ -6,13 +6,13 @@ import cert2 from '@/assets/images/certification-2.jpg';
 
 export default function CertificationBanner() {
   return (
-    <section className="py-16 bg-gray-50 text-center">
+    <section className="py-10 bg-gray-50 text-center">
       <div className="container">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading mb-4">
           Our Certifications
         </h2>
         <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          We are proud to be <strong>BPP Compliant</strong> and certified by the <strong>Responsible Jewellery Council (RJC)</strong>.
+          We are proud to be <strong>BPP Compliant</strong> and certified by the <strong>Responsible Jewellery Council</strong>.
         </p>
 
         <div className="mx-auto max-w-6xl flex flex-col sm:flex-row justify-center items-center gap-6">

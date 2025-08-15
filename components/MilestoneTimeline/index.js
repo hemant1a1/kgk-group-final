@@ -48,7 +48,7 @@ export default function MilestoneTimeline({ data = [] }) {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="relative w-full bg-white overflow-hidden pt-16 md:py-20">
+    <div className="relative w-full bg-white overflow-hidden pt-8 md:py-14">
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none" />
 

@@ -98,9 +98,9 @@ export default function SemiPrecious({ data }) {
                 }}
                 className="!overflow-visible"
               >
-                {data.map((gem) => (
+                {data.map((gem, index) => (
                   <SwiperSlide key={gem.title}>
-                    <div
+                    <motion.div
                       className={`
                         relative
                         group
@@ -116,6 +116,10 @@ export default function SemiPrecious({ data }) {
                         ${selectedGem.title === gem.title ? 'border-black/30' : ''}
                       `}
                       onClick={() => setSelectedGem(gem)}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       {/* Blurred BG */}
                       <div className="absolute inset-0 z-0">
@@ -137,9 +141,10 @@ export default function SemiPrecious({ data }) {
                       <motion.div
                         layout
                         className="w-full aspect-[3/2] relative mb-3 z-10"
-                        initial={{ opacity: 0, scale: 0.96 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.35, ease: 'easeOut' }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                        viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
                       >
                         <Image
@@ -149,59 +154,20 @@ export default function SemiPrecious({ data }) {
                           className="object-contain rounded-lg"
                         />
                       </motion.div>
-                      <p className="text-sm leading-[16px] text-heading font-medium text-center min-h-8 mt-2 flex items-end justify-center z-10">
+                      <motion.p
+                        className="text-sm leading-[16px] text-heading font-medium text-center min-h-8 mt-2 flex items-end justify-center z-10"
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: index * 0.12, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                      >
                         {gem.title}
-                      </p>
-                    </div>
+                      </motion.p>
+                    </motion.div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-
-            {/* <div className="mt-12">
-              <Swiper
-                loop={true}
-                spaceBetween={20}
-                slidesPerView={2}
-                breakpoints={{
-                  640: { slidesPerView: 3 },
-                  768: { slidesPerView: 4 },
-                  1024: { slidesPerView: 6 },
-                  1280: { slidesPerView: 8 },
-                }}
-                className="!overflow-visible"
-              >
-                {data.map((gem, index) => (
-                  <SwiperSlide key={gem.title}>
-                    <div
-                      className={`flex flex-col justify-end items-center cursor-pointer p-3 lg:p-2.5 border transition-all duration-300 hover:border-[#cdc7bb] ${
-                        selectedGem.title === gem.title ? 'border-[#cdc7bb]' : 'border-transparent'
-                      }`}
-                      onClick={() => setSelectedGem(gem)}
-                    >
-                      <motion.div
-                        layout
-                        className="w-full aspect-[3/2] relative mb-2"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3 }}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        <Image
-                          src={gem.image}
-                          alt={gem.title}
-                          fill
-                          className="object-contain"
-                        />
-                      </motion.div>
-                      <p className="text-[15px] leading-[16px] text-heading font-bold font-cardo text-center min-h-8 mt-2 flex items-end justify-center">
-                        {gem.title}
-                      </p>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div> */}
           </div>
         </div>  
       </div>
