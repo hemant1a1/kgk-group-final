@@ -40,19 +40,24 @@ export default function Transcending() {
             variants={staggerContainer}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <motion.div
+            {/* <motion.div
               className="w-full lg:w-7/12"
               variants={fadeInUp}
               custom={0}
+            > */}
+            <motion.div
+              className="w-full"
+              variants={fadeInUp}
+              custom={0}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading lg:leading-[57px] max-w-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-normal text-heading lg:leading-[57px]">
                 At <span className="font-semibold text-primary">KGK Group</span>, we have been
                 transcending boundaries 
                 through our work and our quality.
               </h2>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               className="w-full lg:w-5/12"
               variants={fadeInUp}
               custom={1}
@@ -60,7 +65,7 @@ export default function Transcending() {
               <p className="lg:pl-9 text-justify">
                 Our legacy is built on a foundation of innovation, trust, and excellence. Over the years, we’ve continuously pushed the limits—transforming challenges into opportunities and redefining standards across the gemstone and jewelry industry. Here’s a glimpse of what sets us apart:
               </p>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Achievement Cards */}
