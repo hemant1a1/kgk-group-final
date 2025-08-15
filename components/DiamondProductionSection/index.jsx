@@ -26,7 +26,7 @@ const itemVariants = {
 
 export default function DiamondProductionSection() {
   return (
-    <section className="bg-[#f9f9f9] py-16">
+    <section className="bg-[#f9f9f9] py-8 lg:py-16">
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
         {/* Text Section */}
         <motion.div

@@ -44,14 +44,14 @@ const AlternatingVideoSections = ({
                 }}
               >
                 <h2 className="text-2xl md:text-3xl text-gray-800">{title}</h2>
-                <p className="text-base text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed text-justify md:text-left">
                   {description}
                 </p>
               </motion.div>
 
               {/* Image Thumbnail with Play Icon */}
               <motion.div
-                className="w-full md:w-1/2 mb-10 lg:mb-0 relative overflow-hidden group cursor-pointer"
+                className="w-full md:w-1/2 relative overflow-hidden group cursor-pointer"
                 onClick={() => setIsOpen(true)}
                 variants={{
                   hidden: { opacity: 0, x: reverse ? -50 : 50 },

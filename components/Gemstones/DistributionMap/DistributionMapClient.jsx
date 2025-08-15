@@ -36,7 +36,7 @@ export default function DistributionMapClient({
   }, {});
 
   return (
-    <div id="distribution-map" className="py-16 bg-white">
+    <div id="distribution-map" className=" py-8 lg:py-16 bg-white">
       <div className="container">
         <div className="px-0 lg:px-[50px]">
           <motion.h2 
