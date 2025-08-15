@@ -1,48 +1,69 @@
+'use client';
+
 import Link from 'next/link';
-import Image from "next/image";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const AlternatingSections = ({ sections }) => {
   return (
     <section className="py-8 bg-white">
-        <div className="container">
-            <div className="px-0 lg:px-[50px]">
-                {sections.map(({ title, description, image, reverse, button }, idx) => (
-                    <div
-                    key={idx}
-                    className={`flex flex-col md:flex-row items-center gap-8 lg:gap-x-16 ${
-                        reverse ? "md:flex-row-reverse" : ""
-                    }`}
-                    >
-                    {/* Text */}
-                    <div className="w-full md:w-1/2 space-y-4">
-                        <h2 className="text-2xl md:text-3xl text-gray-800">{title}</h2>
-                        <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+      <div className="container">
+        <div className="px-0 lg:px-[50px] space-y-20">
+          {sections.map(({ title, description, image, reverse, button }, idx) => (
+            <motion.div
+              key={idx}
+              className={`flex flex-col md:flex-row items-center gap-8 lg:gap-x-16 ${
+                reverse ? 'md:flex-row-reverse' : ''
+              }`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.2 } },
+              }}
+            >
+              {/* Text */}
+              <motion.div
+                className="w-full md:w-1/2 space-y-4"
+                variants={{
+                  hidden: { opacity: 0, x: reverse ? 50 : -50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                }}
+              >
+                <h2 className="text-2xl md:text-3xl text-gray-800">{title}</h2>
+                <p className="text-base text-gray-600 leading-relaxed">{description}</p>
 
-                        {button && button.link && (
-                            <Link
-                                href={button.link}
-                                target={button.newTab ? "_blank" : "_self"}
-                                rel={button.newTab ? "noopener noreferrer" : undefined}
-                                className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition mt-4 inline-block"
-                            >
-                                {button.text || "Learn More"}
-                            </Link>
-                        )}
-                    </div>
+                {button && button.link && (
+                  <Link
+                    href={button.link}
+                    target={button.newTab ? '_blank' : '_self'}
+                    rel={button.newTab ? 'noopener noreferrer' : undefined}
+                    className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition mt-4 inline-block"
+                  >
+                    {button.text || 'Learn More'}
+                  </Link>
+                )}
+              </motion.div>
 
-                    {/* Image */}
-                    <div className="w-full md:w-1/2 mb-10 lg:mb-0">
-                        <Image
-                        src={image}
-                        alt={title}
-                        className="rounded-xl shadow-md"
-                        placeholder="blur"
-                        />
-                    </div>
-                    </div>
-                ))}
-            </div>
+              {/* Image */}
+              <motion.div
+                className="w-full md:w-1/2 mb-10 lg:mb-0"
+                variants={{
+                  hidden: { opacity: 0, x: reverse ? -50 : 50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+                }}
+              >
+                <Image
+                  src={image}
+                  alt={title}
+                  className="rounded-xl shadow-md"
+                  placeholder="blur"
+                />
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
+      </div>
     </section>
   );
 };
