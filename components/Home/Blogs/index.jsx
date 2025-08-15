@@ -71,23 +71,21 @@ export default function Blogs({ data = [] }) {
                 slidesPerView: '3', // only auto at xl and above
               },
             }}
-            className="group"
+            className=""
           >
             {data.map((post, index) => {
               const isActive = selectedIndex === index;
 
               return (
                 <SwiperSlide key={post.slug}>
-                  <div
-                      className="h-full rounded-xl overflow-hidden cursor-pointer"
-                    >
-                    <div className="relative h-[400px] w-full rounded-xl overflow-hidden group">
+                  <div className="h-full rounded-xl overflow-hidden cursor-pointer group">
+                    <div className="relative h-[400px] w-full rounded-xl overflow-hidden">
                       {post.image ? (
                         <Image
                           src={post.image}
                           alt={post.title || 'Blog Image'}
                           fill
-                          className="object-cover transition-transform duration-500 xl:group-hover:scale-105"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                           sizes="(max-width: 768px) 90vw, 38vw"
                           unoptimized
                         />
@@ -112,6 +110,7 @@ export default function Blogs({ data = [] }) {
                     </div>
                   </div>
                 </SwiperSlide>
+
               );
             })}
           </Swiper>

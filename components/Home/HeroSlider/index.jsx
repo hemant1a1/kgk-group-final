@@ -19,7 +19,7 @@ export default function HeroSlider({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="w-full h-[600px] relative bg-black">
+    <section className="w-full h-screen min-h-[600px] relative bg-black">
       <Swiper
         effect="fade"
         speed={1000}

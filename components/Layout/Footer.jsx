@@ -132,7 +132,7 @@ const socialIcons = [
               {item.label}
             </Link>
           ))}
-          <LanguageToggleButton />
+          {/* <LanguageToggleButton /> */}
         </div>
 
         {/* Social Media Icons */}

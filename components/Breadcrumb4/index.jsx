@@ -15,7 +15,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
 
   return (
     <div
-      className="relative text-white h-[600px] bg-cover bg-top px-6 pt-14 pb-6 "
+      className="relative text-white h-screen min-h-[600px] bg-cover bg-top px-6 pt-14 pb-6 "
       style={{ backgroundImage: `url(${bgImage.src})` }}
     >
       <div className="flex flex-col justify-between items-center text-center md:max-w-xl lg:max-w-6xl mx-auto h-full">

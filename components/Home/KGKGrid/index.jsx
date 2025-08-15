@@ -34,7 +34,7 @@ export default function KGKGrid({
     <div className="relative">
       {/* Desktop */}
       <div className="hidden lg:block relative">
-        <div className="grid grid-cols-5 min-h-[88vh] mx-auto h-[500px]">
+        <div className="grid grid-cols-5  mx-auto xl:min-h-[88vh] h-[500px]">
           <div className={`${getAnimateClass(animationDirections[0])} relative h-full`}>
             <Image src={images[0]} alt="img1" fill className="object-cover" />
           </div>
