@@ -21,6 +21,7 @@ export default async function RealEstate() {
         subheading="TRANSFORMING SPACES INTO LANDMARKS"
         bgImage={bgImage}
         subheadingClassName="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[25px]"
+        showGradient={true}
       />
       <RealEstateSection />
       <RealEstateCarousel data={data.properties} />
