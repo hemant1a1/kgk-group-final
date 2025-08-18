@@ -28,7 +28,7 @@ export default function LatestBlogs({ data }) {
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
-        Latest Blogs
+        Across Sectors
       </motion.h2>
 
       <motion.div 
