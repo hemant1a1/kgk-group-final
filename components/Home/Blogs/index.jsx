@@ -36,7 +36,7 @@ export default function Blogs({ data = [] }) {
               Our Blogs
             </h2>
             <p className="md:text-lg lg:text-xl leading-relaxed max-w-2xl">
-              Discover trends, styling tips, and insights from the world of fine jewellery.
+              Discover trends, insights, and stories from the world of our diverse businesses.
             </p>
           </div>
           <Link href="/blogs" className="bg-primary text-white px-5 py-2 rounded-full text-sm">
