@@ -13,6 +13,7 @@ export default async function Blogs() {
     <>
       <Breadcrumb
         heading="Blogs"
+        subheading="Trends and stories from ventures"
         bgImage={bgImage}
       />
 
