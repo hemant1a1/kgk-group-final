@@ -22,7 +22,7 @@ export default async function Gemstones() {
         bgImage={bgImage}
       />
       <Precious data={gemstoneData.precious_gemstones} />
-      <SemiPrecious data={gemstoneData.semi_precious_gemstones} />
+      <SemiPrecious data={gemstoneData.semi_precious_gemstones} staticYoutubeId="4D8-d6sp5jE" />
       <SourcingWorld data={gemstoneData.sourcing_countries} />
       <GemstoneManufacturing data={gemstoneData.manufacturing_countries} />
       <DistributionMap />

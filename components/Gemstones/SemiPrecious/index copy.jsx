@@ -7,17 +7,17 @@ import 'swiper/css';
 
 import { motion } from "framer-motion";
 
-import defaultThumb from '@/assets/images/gemstones/pink-tourmaline-thumb.jpg';
 import YoutubeVideoModal from '@/components/YoutubeVideoModal';
+
 import play from '@/assets/images/gemstones/play.png';
 
-export default function SemiPrecious({ data, staticYoutubeId }) {
+export default function SemiPrecious({ data }) {
   const [selectedGem, setSelectedGem] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (data && data.length > 0) {
-      setSelectedGem(data[0]); // just for slider highlight
+      setSelectedGem(data[0]);
     }
   }, [data]);
 
@@ -29,17 +29,17 @@ export default function SemiPrecious({ data, staticYoutubeId }) {
         <div className="container">
           <div className="px-0 lg:px-[50px]">
             <div className="flex flex-col lg:flex-row items-center gap-14">
-              {/* Left Video/Image preview - STATIC */}
+              {/* Left Video/Image preview */}
               <div className="lg:w-6/12 w-full">
                 <motion.div
-                  key="static-thumb"
+                  key={selectedGem.title}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                   className="relative w-full h-[332px] overflow-hidden"
                 >
                   <Image
-                    src={defaultThumb}
+                    src={getThumbnail(selectedGem)}
                     alt="Video preview"
                     fill
                     className="object-cover w-full h-full"
@@ -115,7 +115,7 @@ export default function SemiPrecious({ data, staticYoutubeId }) {
                         cursor-pointer
                         ${selectedGem.title === gem.title ? 'border-black/30' : ''}
                       `}
-                      onClick={() => setSelectedGem(gem)} // only highlight
+                      onClick={() => setSelectedGem(gem)}
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
@@ -172,13 +172,36 @@ export default function SemiPrecious({ data, staticYoutubeId }) {
         </div>  
       </div>
 
-      {/* Static video modal */}
-      {modalOpen && staticYoutubeId && (
+      {modalOpen && selectedGem.youtube_video_id && (
         <YoutubeVideoModal
-          youtubeId={staticYoutubeId}
+          youtubeId={extractYoutubeId(selectedGem.youtube_video_id)}
           onClose={() => setModalOpen(false)}
         />
       )}
     </>
   );
 }
+
+// Helper to extract YouTube video ID from URL
+function extractYoutubeId(url) {
+  const regExp = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/;
+  const match = url.match(regExp);
+  return match ? match[1] : null;
+}
+
+function getThumbnail(gem) {
+  // 1. Use provided video thumbnail if available
+  if (gem.video_thumbnail && gem.video_thumbnail.trim() !== '') {
+    return gem.video_thumbnail;
+  }
+
+  // 2. Fallback to YouTube HD thumbnail if video ID is present
+  const youtubeId = extractYoutubeId(gem.youtube_video_id);
+  if (youtubeId) {
+    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  }
+
+  // 3. Fallback to normal image
+  return gem.image;
+}
+
