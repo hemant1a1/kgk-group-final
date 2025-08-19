@@ -16,6 +16,7 @@ export default async function Home() {
   const data = await fetchFromAPI('homepage');
   const blogsData = await fetchFromAPI('blogs');
   const eventsData = await fetchFromAPI('events');
+  const awardsData = await fetchFromAPI('awards');
 
   return (
     <>
@@ -26,7 +27,7 @@ export default async function Home() {
       <LifeAtKGK />
       <BrandSlide />
       <EventsMedia data={eventsData.more} />
-      <Awards data={eventsData.more} />
+      <Awards data={awardsData} />
       <UpcomingEvents />
       <Blogs data={blogsData.blogs} />
       <Newsletter />
