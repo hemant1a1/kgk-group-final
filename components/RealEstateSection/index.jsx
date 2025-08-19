@@ -40,7 +40,7 @@ export default function RealEstateSection() {
           </motion.p>
 
           <Link
-            href="https://staging.kgkrealty.com/"
+            href="https://kgkrealty.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition"

@@ -33,7 +33,7 @@ export default function KGKRealty() {
                     </motion.p>
 
                     <Link
-                        href="https://staging.kgkrealty.com/"
+                        href="https://kgkrealty.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-3 inline-block bg-white text-black text-xs font-medium tracking-wide uppercase px-4 py-2.5 rounded-full hover:bg-gray-100 transition"
