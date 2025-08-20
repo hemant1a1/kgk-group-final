@@ -228,6 +228,11 @@ const linkClass = (href) => {
                               <li key={childIdx}>
                                 <Link
                                   href={child.href}
+                                  onClick={() => {
+                                    setSubmenuOpen(false);
+                                    setActiveIndex(null);
+                                    setActiveSubIndex(null);
+                                  }}
                                   className="block px-4 py-2 hover:bg-gray-100"
                                 >
                                   {child.label}
