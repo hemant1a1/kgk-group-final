@@ -13,18 +13,15 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
 
   return (
-    <div className="relative text-white h-screen min-h-[600px] px-6 pt-14 pb-6 overflow-hidden">
+    <div className="relative text-white h-screen min-h-[600px] px-6 pt-14 pb-6 overflow-hidden bg-black">
       
       {/* Background with One-time Cinematic Zoom Animation */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center will-change-transform"
         style={{ backgroundImage: `url(${bgImage.src})` }}
-        initial={{ scale: 1.2, opacity: 1 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          duration: 6,        // smooth slow effect
-          ease: "easeOut"
-        }}
+        initial={{ scale: 1.2 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 6, ease: "easeOut" }}
       />
 
       {showGradient && (
