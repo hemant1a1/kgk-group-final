@@ -28,6 +28,9 @@ export default function Header() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeSubIndex, setActiveSubIndex] = useState(null)
 
+ const [openMenu, setOpenMenu] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null);
+
   const toggleDrawer = () => setDrawerOpen(!drawerOpen);
   const toggleSubmenu = () => setSubmenuOpen(!submenuOpen);
 
@@ -35,82 +38,82 @@ export default function Header() {
   const isBlogDetailPage = ["/blogs/", "/events-&-media/"].some((path) =>
     pathname.startsWith(path)
   );
-const businessMenu = [
-  {
-    label: "Gems And Jewellery",
-    children: [
-      { label: "Gemstones", href: "/our-business/gemstones" },
-      { label: "Mining", href: "/our-business/mining" },
-      { label: "Diamond", href: "/our-business/diamonds" },
-      { label: "Jewellery", href: "/our-business/jewellery" },
-    ],
-  },
-  {
-    label: "Real Estate",
-    children: [
-      { label: "KGK Realty", href: "/our-business/real-estate" },
-    ],
-  },
-  {
-    label: "Natural Stone Mining",
-    children: [
-      { label: "KGK Stones", href: "/our-business/stones" },
-    ],
-  },
-  {
-    label: "Hospitality",
-    children: [
-      { label: "Meraaki Kitchen", href: "/our-business/hospitality" },
-    ],
-  },
-  {
-    label: "Technology & Innovations",
-    children: [
-      { label: "KGK Diamatrix", href: "/diamatrics" },
-    ],
-  },
-];
+  const businessMenu = [
+    {
+      label: "Gems And Jewellery",
+      children: [
+        { label: "Gemstones", href: "/our-business/gemstones" },
+        { label: "Mining", href: "/our-business/mining" },
+        { label: "Diamond", href: "/our-business/diamonds" },
+        { label: "Jewellery", href: "/our-business/jewellery" },
+      ],
+    },
+    {
+      label: "Real Estate",
+      children: [
+        { label: "KGK Realty", href: "/our-business/real-estate" },
+      ],
+    },
+    {
+      label: "Natural Stone Mining",
+      children: [
+        { label: "KGK Stones", href: "/our-business/stones" },
+      ],
+    },
+    {
+      label: "Hospitality",
+      children: [
+        { label: "Meraaki Kitchen", href: "/our-business/hospitality" },
+      ],
+    },
+    {
+      label: "Technology & Innovations",
+      children: [
+        { label: "KGK Diamatrix", href: "/diamatrics" },
+      ],
+    },
+  ];
 
-const mobileMenu = [
-  {
-    label: "Our Business",
-    children: [
-      {
-        label: "Gems And Jewellery",
-        children: [
-          { label: "Gemstones", href: "/our-business/gemstones" },
-          { label: "Mining", href: "/our-business/mining" },
-          { label: "Diamond", href: "/our-business/diamonds" },
-          { label: "Jewellery", href: "/our-business/jewellery" },
-        ],
-      },
-      {
-        label: "Real Estate",
-        children: [
-          { label: "KGK Realty", href: "/our-business/real-estate" },
-        ],
-      },
-      {
-        label: "Marble Mining",
-        children: [
-          { label: "KGK Stones", href: "/our-business/stones" },
-        ],
-      },
-      {
-        label: "Hospitality",
-        children: [
-          { label: "Meraaki Kitchen", href: "/our-business/hospitality" },
-        ],
-      },
-      {
-        label: "Technology & Innovations",
-        children: [
-          { label: "KGK Diamatrix", href: "/diamatrics" },
-        ],
-      },
-    ],
-  },
-];
+  const mobileMenu = [
+    {
+      label: "Our Business",
+      children: [
+        {
+          label: "Gems And Jewellery",
+          children: [
+            { label: "Gemstones", href: "/our-business/gemstones" },
+            { label: "Mining", href: "/our-business/mining" },
+            { label: "Diamond", href: "/our-business/diamonds" },
+            { label: "Jewellery", href: "/our-business/jewellery" },
+          ],
+        },
+        {
+          label: "Real Estate",
+          children: [
+            { label: "KGK Realty", href: "/our-business/real-estate" },
+          ],
+        },
+        {
+          label: "Marble Mining",
+          children: [
+            { label: "KGK Stones", href: "/our-business/stones" },
+          ],
+        },
+        {
+          label: "Hospitality",
+          children: [
+            { label: "Meraaki Kitchen", href: "/our-business/hospitality" },
+          ],
+        },
+        {
+          label: "Technology & Innovations",
+          children: [
+            { label: "KGK Diamatrix", href: "/diamatrics" },
+          ],
+        },
+      ],
+    },
+  ];
 
   
   const isBusinessActive = () =>
@@ -131,27 +134,28 @@ const mobileMenu = [
   const textColor = !hasScrolled && isBlogDetailPage ? "text-black" : "text-white";
 
 
-const linkClass = (href) => {
-  const isActive = pathname === href;
+  const linkClass = (href) => {
+    const isActive = pathname === href;
 
-  return `relative pb-1 transition duration-300 border-b ${
-    isActive
-      ? isBlogDetailPage
-        ? "border-black"
-        : "border-white"
-      : "border-transparent hover:border-white"
-  }`;
-};
+    return `relative pb-1 transition duration-300 border-b ${
+      isActive
+        ? isBlogDetailPage
+          ? "border-black"
+          : "border-white"
+        : "border-transparent hover:border-white"
+    }`;
+  };
 
 
   useEffect(() => {
-  const handleScroll = () => {
-    setHasScrolled(window.scrollY > 50);
-  };
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 50);
+    };
 
-  window.addEventListener("scroll", handleScroll, { passive: true });
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   return (
     <>
@@ -194,61 +198,73 @@ const linkClass = (href) => {
             <Link href="/about-us" className={linkClass("/about-us")}>About Us</Link>
 
             {/* Businesses Submenu */}
-            <div className="relative group">
-              <button
-                className={`flex items-center gap-1 uppercase border-b ${
-                  isBusinessActive()
-                    ? isBlogDetailPage
-                      ? "border-black"
-                      : "border-white"
-                    : "border-transparent"
-                }`}
+            <div
+      className="relative"
+      onMouseEnter={() => setOpenMenu(true)}
+      onMouseLeave={() => {
+        setOpenMenu(false);
+        setOpenSubMenu(null);
+      }}
+    >
+      {/* Main button */}
+      <button
+        className={`flex items-center gap-1 uppercase border-b ${
+          isBusinessActive()
+            ? isBlogDetailPage
+              ? "border-black"
+              : "border-white"
+            : "border-transparent"
+        }`}
+      >
+        Businesses <ChevronDown size={16} />
+      </button>
+
+      {/* First level dropdown */}
+      {openMenu && (
+        <div className="absolute top-full left-0 bg-white text-black shadow-md min-w-[220px] z-20">
+          <ul className="text-xs divide-y divide-gray-200">
+            {businessMenu.map((item, idx) => (
+              <li
+                key={idx}
+                className="relative hover:bg-gray-100"
+                onMouseEnter={() => setOpenSubMenu(idx)}
+                onMouseLeave={() => setOpenSubMenu(null)}
               >
-                Businesses <ChevronDown size={16} />
-              </button>
+                {/* Submenu label */}
+                <span className="block border-b-2 border-mid-gray last:border-b-0 cursor-pointer">
+                  <span className="flex items-center gap-2 py-2 px-2">
+                    <span className="w-2 h-2 rounded-full border-2 border-primary inline-block shrink-0"></span>
+                    {item.label}
+                  </span>
+                </span>
 
-              {/* First level dropdown (on Our Business hover) */}
-              <div className="absolute top-full left-0 bg-white text-black shadow-md hidden group-hover:block min-w-[220px] z-20">
-                <ul className="text-xs divide-y divide-gray-200">
-                  {businessMenu.map((item, idx) => (
-                    <li key={idx} className="relative hover:bg-gray-100 group/item">
-                      {/* Submenu label (non-clickable) */}
-                      <span className="block border-b-2 border-mid-gray last:border-b-0 cursor-pointer">
-                        <span className="flex items-center gap-2 py-2 px-2">
-                          <span className="w-2 h-2 rounded-full border-2 border-primary inline-block shrink-0"></span>
-                          {item.label}
-                        </span>
-                      </span>
-
-                      {/* Child submenu (on individual item hover only) */}
-                      {item.children && (
-                        <div className="absolute top-0 left-full bg-white text-black shadow-md hidden group-hover/item:block min-w-[200px] z-30">
-                          <ul className="text-xs divide-y divide-gray-100">
-                            {item.children.map((child, childIdx) => (
-                              <li key={childIdx}>
-                                <Link
-                                  href={child.href}
-                                  onClick={() => {
-                                    setSubmenuOpen(false);
-                                    setActiveIndex(null);
-                                    setActiveSubIndex(null);
-                                  }}
-                                  className="block px-4 py-2 hover:bg-gray-100"
-                                >
-                                  {child.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-
+                {/* Child submenu */}
+                {item.children && openSubMenu === idx && (
+                  <div className="absolute top-0 left-full bg-white text-black shadow-md min-w-[200px] z-30">
+                    <ul className="text-xs divide-y divide-gray-100">
+                      {item.children.map((child, childIdx) => (
+                        <li key={childIdx}>
+                          <Link
+                            href={child.href}
+                            onClick={() => {
+                              setOpenMenu(false);
+                              setOpenSubMenu(null);
+                            }}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
 
 
 
