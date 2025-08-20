@@ -50,7 +50,7 @@ export default function KgkDifferenceSection() {
             </div>
 
            {/* Empowering + Manufacturing Together */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Left Side: Text Sections */}
             <div className="space-y-10">
               
