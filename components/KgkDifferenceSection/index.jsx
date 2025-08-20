@@ -9,6 +9,10 @@ import {
   Settings2,
 } from 'lucide-react';
 
+import Image from 'next/image';
+
+import manufacturingExcellence from '@/assets/images/jewellery-manufacturing-excellence.jpg';
+
 export default function KgkDifferenceSection() {
   return (
     <section className="py-14 bg-gradient-to-b from-[#f9f9f9] via-gray-50 to-white">
@@ -45,31 +49,54 @@ export default function KgkDifferenceSection() {
                 </div>
             </div>
 
-            {/* Empowering the Industry */}
-            <div className="mb-12">
-            <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-normal mb-4">Empowering the Industry</h3>
-                <div className="border-l-4 border-primary pl-6 bg-white p-6 rounded-md">
-                    KGK Group provides robust sales support, helping clients establish their own branded online sales and distribution networks for complete control and scalability.
-                </div>
-            </div>
-
-            {/* Manufacturing Excellence */}
-            <div>
+           {/* Empowering + Manufacturing Together */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-12">
+            {/* Left Side: Text Sections */}
+            <div className="space-y-10">
+              
+              {/* Empowering the Industry */}
+              <div>
                 <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-normal mb-4">
-                    Manufacturing Excellence: Crafting Perfection
+                  Empowering the Industry
+                </h3>
+                <div className="border-l-4 border-primary pl-6 bg-white p-6 rounded-md">
+                  KGK Group provides robust sales support, helping clients establish
+                  their own branded online sales and distribution networks for complete
+                  control and scalability.
+                </div>
+              </div>
+
+              {/* Manufacturing Excellence */}
+              <div>
+                <h3 className="text-xl sm:text-xl md:text-2xl lg:text-3xl font-normal mb-4">
+                  Manufacturing Excellence: Crafting Perfection
                 </h3>
                 <div className="bg-white border-l-4 border-secondary pl-6 p-6 rounded-md">
-                    <p className="mb-4">
-                    KGK’s ongoing investment in digitization and advanced technology ensures top-tier quality and production efficiency:
-                    </p>
-                    <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <p className="mb-4">
+                    KGK’s ongoing investment in digitization and advanced technology ensures
+                    top-tier quality and production efficiency:
+                  </p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
                     <li>3D CAD/CAM design</li>
                     <li>Laser cutting and soldering</li>
                     <li>Fire assay testing</li>
                     <li>Pressure setting</li>
-                    </ul>
+                  </ul>
                 </div>
+              </div>
+
             </div>
+
+            {/* Right Side: Single Shared Image */}
+            <div className="flex justify-center self-center">
+              <Image
+                src={manufacturingExcellence}
+                alt="KGK Excellence"
+                className="rounded-xl shadow-lg object-cover max-h-[500px]"
+              />
+            </div>
+          </div>
+
 
         </div>
       </div>
