@@ -2,6 +2,7 @@
 import Breadcrumb from '@/components/Breadcrumb';
 import AlternatingVideoSections from '@/components/AlternatingVideoSections';
 import KgkDifferenceSection from '@/components/KgkDifferenceSection';
+import JewelleryExcellence from '@/components/JewelleryExcellence';
 import DistributionMap from '@/components/Gemstones/DistributionMap';
 import GemstoneManufacturing from '@/components/Diamonds/GemstoneManufacturing';
 import Contact from '@/components/Diamonds/Contact';
@@ -42,6 +43,7 @@ export default function Jewellery() {
         youtubeId="EaKYnxzx3Eg"
       />
       <KgkDifferenceSection />
+      <JewelleryExcellence />
  
       
       <GemstoneManufacturing
