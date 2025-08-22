@@ -1,6 +1,6 @@
 import { fetchFromAPI } from '@/lib/api';
 
-import Breadcrumb from '@/components/Breadcrumb6';
+import Breadcrumb from '@/components/Breadcrumb';
 import RealEstateSection from '@/components/RealEstateSection';
 import RealEstateCarousel from '@/components/RealEstateCarousel';
 import KGKRealty from '@/components/KGKRealty';
