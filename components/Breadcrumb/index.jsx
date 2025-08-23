@@ -13,7 +13,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
     str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
 
   return (
-    <div className="relative text-white h-screen min-h-[600px] px-6 pt-14 pb-6 overflow-hidden bg-black">
+    <div className="relative text-white h-[70vh] md:h-screen min-h-[400px] md:min-h-[600px] px-6 pt-14 pb-6 overflow-hidden bg-black">
       
       {/* Background with One-time Cinematic Zoom Animation */}
       <motion.div

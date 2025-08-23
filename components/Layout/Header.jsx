@@ -163,7 +163,7 @@ export default function Header() {
       className={clsx(
         "w-full top-0 left-0 z-[30] transition-all duration-300 ",
         !hasScrolled && isBlogDetailPage ? "relative" : "",
-        hasScrolled ? "fixed animate-slide-in-down" : "fixed",
+        hasScrolled ? "fixed animate-slide-in-down" : "absolute",
         hasScrolled
           ? "bg-black/80 text-white shadow-md backdrop-blur-lg"
           : "bg-transparent text-white"
