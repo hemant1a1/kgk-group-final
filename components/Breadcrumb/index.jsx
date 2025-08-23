@@ -25,7 +25,7 @@ export default function Breadcrumb({ heading, subheading, bgImage, subheadingCla
       />
       
       {showGradient && (
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.3)_50%,rgba(0,0,0,0.5)_100%)]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.5)_50%,rgba(0,0,0,0.5)_100%)]"></div>
       )}
 
       <div className="relative w-full h-full flex flex-col justify-between items-center text-center">

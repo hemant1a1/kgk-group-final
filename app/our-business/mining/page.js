@@ -32,6 +32,7 @@ export default function Mining() {
         heading="Mining"
         subheading="Value Direct from the Source"
         bgImage={bgImage}
+        showGradient={true}
       />
       <Intro
         paragraphs={[
