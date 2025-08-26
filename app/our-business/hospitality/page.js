@@ -14,6 +14,7 @@ export default function Hospitality() {
             heading="Hospitality"
             subheading="precision, innovation, and tradition"
             bgImage={bgImage}
+            showGradient={true}
         />
         <KGKHospitality />
         <HalfIntro
