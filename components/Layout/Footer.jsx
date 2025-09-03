@@ -21,7 +21,7 @@ export default function Footer() {
 
   const menuItems = [
     { label: "ABOUT", href: "/about-us" },
-    { label: "NEWS", href: "/events-&-media" },
+    { label: "NEWS", href: "/events-and-media" },
     { label: "FOUNDATION", href: "/kgk-foundation" },
     { label: "ESG", href: "/esg" },
     { label: "CAREERS", href: "/careers" },

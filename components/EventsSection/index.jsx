@@ -88,7 +88,7 @@ export default function EventsSection({ data = [] }) {
               {filteredEvents.map((event, index) => (
                 <motion.div key={index} variants={cardVariants} className="space-y-2">
                   <div className="overflow-hidden rounded-md">
-                    <Link href={`/events-&-media/${event.slug || '#'}`}>
+                    <Link href={`/events-and-media/${event.slug || '#'}`}>
                       <Image
                         src={event.image}
                         alt={event.title}
@@ -99,7 +99,7 @@ export default function EventsSection({ data = [] }) {
                       />
                     </Link>
                   </div>
-                  <Link href={`/events-&-media/${event.slug || '#'}`} className="text-base text-third max-w-xs">
+                  <Link href={`/events-and-media/${event.slug || '#'}`} className="text-base text-third max-w-xs">
                     {event.title.length > 90 ? event.title.slice(0, 90) + '...' : event.title}
                   </Link>
                 </motion.div>

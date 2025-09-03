@@ -9,7 +9,7 @@ import bgImage from '@/assets/images/banners/event-banner.jpg';
 import { getMetadata } from "@/lib/getMetadata";
 
 export async function generateMetadata() {
-  return getMetadata("/events-&-media");
+  return getMetadata("/events-and-media");
 }
 
 export default async function EventsAndMedia() {

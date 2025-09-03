@@ -118,7 +118,7 @@ const AwardsSwiper = ({ data }) => {
                                 : item.title}
                           </p>
                           {/* {index === activeIndex && (
-                            <Link href={`/events-&-media/${item.slug || '#'}`}>
+                            <Link href={`/events-and-media/${item.slug || '#'}`}>
                               <ChevronRight size={42} strokeWidth={0.5} />
                             </Link>
                           )} */}

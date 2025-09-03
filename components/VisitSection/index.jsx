@@ -29,7 +29,7 @@ export default function VisitSection({ data }) {
               {description?.length > 260 ? description.slice(0, 260) + '...' : description || ''}
             </p>
             <div className="text-center lg:text-left">
-              <Link href={`/events-&-media/${slug || '#'}`}>
+              <Link href={`/events-and-media/${slug || '#'}`}>
                 <button className="cursor-pointer px-4 py-1.5 text-xs font-medium bg-primary uppercase text-white rounded-full">
                   Read More
                 </button>

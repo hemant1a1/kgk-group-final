@@ -31,7 +31,7 @@ export default function UpcomingEvents() {
             </p>
             <div className="flex items-center">
               <div className="flex-grow h-0.5 bg-light-gray mr-6"></div>
-              <Link href="/events-&-media" className="bg-primary text-white text-sm rounded-full px-5 py-2">
+              <Link href="/events-and-media" className="bg-primary text-white text-sm rounded-full px-5 py-2">
                 SEE ALL
               </Link>
             </div>
@@ -47,7 +47,7 @@ export default function UpcomingEvents() {
               </p>
               <p className="font-cardo text-xl xl:text-2xl font-normal mt-1 mb-6 ">KGK Namibia</p>
 
-              {/* <Link href="/events-&-media" className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
+              {/* <Link href="/events-and-media" className="border border-gray-700 text-sm font-normal text-black tracking-widest uppercase px-6 py-2 rounded-full hover:bg-gray-100 transition">
                 DISCOVER MORE
               </Link> */}
             </div>
