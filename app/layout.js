@@ -5,8 +5,11 @@ import Layout from "@/components/Layout";
 import GoogleTranslateLoader from "@/components/GoogleTranslateLoader";
 
 export const metadata = {
-  title: "KGK Group",
-  description: "",
+  title: "KGK Group - Inspired to Shine",
+  description: "Discover KGK Group: Global leaders in gems, jewellery, and more.",
+  alternates: {
+    canonical: "https://kgk-group-new.vercel.app",
+  },
   robots: {
     index: false,
     follow: false,
@@ -24,6 +27,33 @@ export const metadata = {
     ],
   },
   themeColor: "#000000",
+
+  // ✅ Open Graph
+  openGraph: {
+    title: "KGK Group - Inspired to Shine",
+    description: "Discover KGK Group: Global leaders in gems, jewellery, and more.",
+    url: "https://kgk-group-new.vercel.app",
+    siteName: "KGK Group",
+    images: [
+      {
+        url: "https://kgk-group-new.vercel.app/og-image.jpg", // <-- Replace with your actual image
+        width: 1200,
+        height: 630,
+        alt: "KGK Group - Inspired to Shine",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  // ✅ Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "KGK Group - Inspired to Shine",
+    description: "Discover KGK Group: Global leaders in gems, jewellery, and more.",
+    images: ["https://kgk-group-new.vercel.app/og-image.jpg"], // same as OG
+    creator: "@kgk_group", // optional, if you have Twitter handle
+  },
 };
 
 export default function RootLayout({ children }) {
