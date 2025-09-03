@@ -7,6 +7,12 @@ import LifeAtKGK from "@/components/Home/LifeAtKGK";
 
 import bgImage from '@/assets/images/banners/career-banner.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/careers");
+}
+
 export default async function Career() {
   const data = await fetchFromAPI('careers');
 

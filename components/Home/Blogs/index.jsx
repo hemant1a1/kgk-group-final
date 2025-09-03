@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 
@@ -85,9 +84,9 @@ export default function Blogs({ data = [] }) {
                           src={post.image}
                           alt={post.title || 'Blog Image'}
                           fill
+                          loading="lazy" 
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                           sizes="(max-width: 768px) 90vw, 38vw"
-                          unoptimized
                         />
                       ) : (
                         <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-500">

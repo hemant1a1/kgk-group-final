@@ -12,11 +12,19 @@ import UpcomingEvents from "@/components/Home/UpcomingEvents";
 import Blogs from "@/components/Home/Blogs";
 import Newsletter from "@/components/Home/Newsletter";
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/");
+}
+
 export default async function Home() {
-  const data = await fetchFromAPI('homepage');
-  const blogsData = await fetchFromAPI('blogs');
-  const eventsData = await fetchFromAPI('events');
-  const awardsData = await fetchFromAPI('awards');
+  const [data, blogsData, eventsData, awardsData] = await Promise.all([
+    fetchFromAPI("homepage"),
+    fetchFromAPI("blogs"),
+    fetchFromAPI("events"),
+    fetchFromAPI("awards"),
+  ]);
 
   return (
     <>

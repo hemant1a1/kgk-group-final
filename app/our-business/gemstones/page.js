@@ -10,6 +10,11 @@ import Contact from '@/components/Gemstones/Contact';
 
 import bgImage from '@/assets/images/banners/gemstones-banner-1.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/gemstones");
+}
 
 export default async function Gemstones() {
   const gemstoneData = await fetchFromAPI('gemstones');

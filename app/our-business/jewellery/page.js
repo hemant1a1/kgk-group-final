@@ -14,6 +14,12 @@ import gemstoneBg from '@/assets/images/The-KGK-Difference-3.jpg';
 
 import craftsmanshipImg from '@/assets/images/jewellery-craftsmanship.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/jewellery");
+}
+
 const customCountries = [
   { name: 'Australia', code: 'AU' },
   { name: 'China', code: 'CN' },

@@ -5,6 +5,12 @@ import FoundationLegacy from '@/components/FoundationLegacy';
 
 import bgImage from '@/assets/images/banners/foundation-banner.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/kgk-foundation");
+}
+
 export default function KgkFoundation() {
   return (
     <>

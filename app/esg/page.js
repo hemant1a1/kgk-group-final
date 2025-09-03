@@ -6,6 +6,12 @@ import CommitmentSwiper from '@/components/CommitmentSwiper';
 
 import bgImage from '@/assets/images/banners/esg-banner.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/esg");
+}
+
 export default async function ESG() {
   const data = await fetchFromAPI('esg');
 

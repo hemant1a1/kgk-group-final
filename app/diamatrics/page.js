@@ -9,6 +9,12 @@ import PartnerSection from '@/components/PartnerSection';
 
 import bgImage from '@/assets/images/banners/diamatrics-banner.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/diamatrics");
+}
+
 export default function Diamatrics() {
     return (
         <>

@@ -10,6 +10,12 @@ import Newsletter from "@/components/Home/Newsletter";
 import bgImage from '@/assets/images/banners/stones-banner.jpg';
 import newsletterImg from '@/assets/images/stones-bg1.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/stones");
+}
+
 export default async function Stones() {
   const data = await fetchFromAPI('stones');
 

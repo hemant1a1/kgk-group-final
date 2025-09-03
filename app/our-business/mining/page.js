@@ -15,6 +15,12 @@ import worldImg from '@/assets/images/gemstones/around-world.png';
 
 import img1 from "@/assets/images/mining1.jpg";
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/mining");
+}
+
 const sectionsData = [
   {
     title: "Exquisite Gemstones, Responsibly Sourced",

@@ -19,6 +19,12 @@ import img1 from "@/assets/images/diamond1.jpg";
 import img2 from "@/assets/images/diamond2.jpg";
 import img3 from "@/assets/images/diamond3.jpg";
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/diamonds");
+}
+
 const sectionsData = [
   {
     title: "A Legacy of Expertise",

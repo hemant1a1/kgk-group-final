@@ -11,6 +11,12 @@ import Newsletter from "@/components/Home/Newsletter";
 
 import bgImage from '@/assets/images/banners/about-banner-1.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/about-us");
+}
+
 export default async function AboutUs() {
   const homeData = await fetchFromAPI('homepage');
   const data = await fetchFromAPI('about-us');

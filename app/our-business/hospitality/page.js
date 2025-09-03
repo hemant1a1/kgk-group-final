@@ -7,6 +7,12 @@ import Newsletter from "@/components/Home/Newsletter";
 import bgImage from '@/assets/images/banners/hospitality-banner.jpg';
 import newsletterImg from '@/assets/images/hospitality-bg1.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/hospitality");
+}
+
 export default function Hospitality() {
   return (
     <>

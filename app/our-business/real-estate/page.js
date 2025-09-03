@@ -10,6 +10,11 @@ import Newsletter from "@/components/Home/Newsletter";
 import bgImage from '@/assets/images/banners/real-estate-banner.jpg';
 import newsletterImg from '@/assets/images/real-estate-bg3.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/our-business/real-estate");
+}
 
 export default async function RealEstate() {
   const data = await fetchFromAPI('real-estate');

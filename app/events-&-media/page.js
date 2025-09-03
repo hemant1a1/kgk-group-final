@@ -6,6 +6,12 @@ import EventsSection from '@/components/EventsSection';
 
 import bgImage from '@/assets/images/banners/event-banner.jpg';
 
+import { getMetadata } from "@/lib/getMetadata";
+
+export async function generateMetadata() {
+  return getMetadata("/events-&-media");
+}
+
 export default async function EventsAndMedia() {
   const data = await fetchFromAPI('events');
 
