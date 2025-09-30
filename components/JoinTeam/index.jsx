@@ -84,7 +84,7 @@ export default function JoinTeam({ data = [] }) {
     submission.append('file', selectedFile);
 
     try {
-      const res = await fetch('https://demo.kgkgroup.com/wp-json/custom/v1/careers/apply', {
+      const res = await fetch('https://reinventmedia.in/kgkgroup-backend/wp-json/custom/v1/careers/apply', {
         method: 'POST',
         body: submission,
       });

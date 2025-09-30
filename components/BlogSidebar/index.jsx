@@ -12,7 +12,7 @@ export default function BlogSidebar({ popularPosts = [], categories = [], tags =
     if (!searchQuery.trim()) return;
 
     try {
-      const res = await fetch(`https://demo.kgkgroup.com/wp-json/custom/v1/blogs/search?query=${encodeURIComponent(searchQuery)}`);
+      const res = await fetch(`https://reinventmedia.in/kgkgroup-backend/wp-json/custom/v1/blogs/search?query=${encodeURIComponent(searchQuery)}`);
       const data = await res.json();
       setSearchResults(data.results || []);
     } catch (error) {

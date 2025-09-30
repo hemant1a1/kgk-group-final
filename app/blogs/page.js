@@ -6,8 +6,21 @@ import LatestBlogs from '@/components/LatestBlogs';
 
 import bgImage from '@/assets/images/banners/blog-banner.jpg';
 
+// ✅ Force server-side dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export default async function Blogs() {
-  const data = await fetchFromAPI('blogs');
+  let data;
+
+  try {
+    data = await fetchFromAPI('blogs');
+  } catch (err) {
+    console.error('Failed to fetch blogs:', err);
+    data = null;
+  }
+
+  const featuredBlog = Array.isArray(data?.featured_blog) ? data.featured_blog : [];
+  const blogs = Array.isArray(data?.blogs) ? data.blogs : [];
 
   return (
     <>
@@ -17,13 +30,9 @@ export default async function Blogs() {
         bgImage={bgImage}
       />
 
-      {Array.isArray(data.featured_blog) && data.featured_blog.length > 0 && (
-        <FeaturedBlogs data={data.featured_blog} />
-      )}
+      {featuredBlog.length > 0 && <FeaturedBlogs data={featuredBlog} />}
 
-      {Array.isArray(data.blogs) && data.blogs.length > 0 && (
-        <LatestBlogs data={data.blogs} />
-      )}
+      {blogs.length > 0 && <LatestBlogs data={blogs} />}
     </>
   );
 }

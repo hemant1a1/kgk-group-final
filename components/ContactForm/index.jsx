@@ -56,7 +56,7 @@ const ContactForm = () => {
       about: data.about || '',
     };
 
-    const response = await fetch('https://demo.kgkgroup.com/wp-json/custom/v1/contact', {
+    const response = await fetch('https://reinventmedia.in/kgkgroup-backend/wp-json/custom/v1/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

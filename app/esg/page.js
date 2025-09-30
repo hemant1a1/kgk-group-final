@@ -5,15 +5,27 @@ import ESGSection from '@/components/ESGSection';
 import CommitmentSwiper from '@/components/CommitmentSwiper';
 
 import bgImage from '@/assets/images/banners/esg-banner.jpg';
-
 import { getMetadata } from "@/lib/getMetadata";
+
+// ✅ Force server-side dynamic rendering
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata() {
   return getMetadata("/esg");
 }
 
 export default async function ESG() {
-  const data = await fetchFromAPI('esg');
+  let data;
+
+  try {
+    data = await fetchFromAPI('esg');
+  } catch (err) {
+    console.error('Failed to fetch ESG data:', err);
+    data = null;
+  }
+
+  const esgData = data?.esg || null;
+  const commitmentData = Array.isArray(data?.commitment) ? data.commitment : [];
 
   return (
     <>
@@ -29,8 +41,8 @@ export default async function ESG() {
         }
         bgImage={bgImage}
       />
-      <ESGSection data={data.esg}  />
-      <CommitmentSwiper data={data.commitment}  />
+      {esgData && <ESGSection data={esgData} />}
+      {commitmentData.length > 0 && <CommitmentSwiper data={commitmentData} />}
     </>
   );
 }

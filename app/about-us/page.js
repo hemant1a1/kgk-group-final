@@ -13,34 +13,45 @@ import bgImage from '@/assets/images/banners/about-banner-1.jpg';
 
 import { getMetadata } from "@/lib/getMetadata";
 
+// ✅ Force dynamic rendering
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata() {
   return getMetadata("/about-us");
 }
 
 export default async function AboutUs() {
-  const homeData = await fetchFromAPI('homepage');
-  const data = await fetchFromAPI('about-us');
+  let homeData = null;
+  let data = null;
+
+  try {
+    homeData = await fetchFromAPI('homepage');
+  } catch (err) {
+    console.error('Failed to fetch homepage:', err);
+  }
+
+  try {
+    data = await fetchFromAPI('about-us');
+  } catch (err) {
+    console.error('Failed to fetch About Us:', err);
+  }
+
+  const milestones = Array.isArray(data?.milestones) ? data.milestones : [];
+  const businesses = Array.isArray(homeData?.businesses) ? homeData.businesses : [];
+
   return (
     <>
       <Breadcrumb
-        heading={
-          <>
-            Brilliance Meets Integrity
-          </>
-        }
-        subheading={
-          <>
-            Crafting Masterpieces, Inspiring Trust
-          </>
-        }
+        heading="Brilliance Meets Integrity"
+        subheading="Crafting Masterpieces, Inspiring Trust"
         bgImage={bgImage}
         showGradient={true}
       />
       <KGKAdvantage />
       <TheLegacy />
       <LeadershipSection />
-      <MilestoneTimeline data={data.milestones} />
-      <OurBusiness data={homeData.businesses} />
+      {milestones.length > 0 && <MilestoneTimeline data={milestones} />}
+      {businesses.length > 0 && <OurBusiness data={businesses} />}
       <CertificationBanner />
       <Newsletter />
     </>

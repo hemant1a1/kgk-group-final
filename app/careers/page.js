@@ -6,15 +6,26 @@ import Transcending from '@/components/Transcending';
 import LifeAtKGK from "@/components/Home/LifeAtKGK";
 
 import bgImage from '@/assets/images/banners/career-banner.jpg';
-
 import { getMetadata } from "@/lib/getMetadata";
+
+// ✅ Force server-side dynamic rendering
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata() {
   return getMetadata("/careers");
 }
 
 export default async function Career() {
-  const data = await fetchFromAPI('careers');
+  let data;
+
+  try {
+    data = await fetchFromAPI('careers');
+  } catch (err) {
+    console.error('Failed to fetch careers:', err);
+    data = null;
+  }
+
+  const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
 
   return (
     <>
@@ -24,7 +35,7 @@ export default async function Career() {
         bgImage={bgImage}
         showDivider={true}
       />
-      <JoinTeam data={data.jobs} />
+      <JoinTeam data={jobs} />
       <Transcending />
       <LifeAtKGK />
     </>

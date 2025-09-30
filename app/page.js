@@ -14,30 +14,48 @@ import Newsletter from "@/components/Home/Newsletter";
 
 import { getMetadata } from "@/lib/getMetadata";
 
+// ⚡ Force dynamic so Next.js won't try to prerender statically
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata() {
   return getMetadata("/");
 }
 
 export default async function Home() {
-  const [data, blogsData, eventsData, awardsData] = await Promise.all([
-    fetchFromAPI("homepage"),
-    fetchFromAPI("blogs"),
-    fetchFromAPI("events"),
-    fetchFromAPI("awards"),
-  ]);
+  let data = {};
+  let blogsData = {};
+  let eventsData = {};
+  let awardsData = [];
+
+  try {
+    [data, blogsData, eventsData, awardsData] = await Promise.all([
+      fetchFromAPI("homepage").catch(() => ({})),
+      fetchFromAPI("blogs").catch(() => ({})),
+      fetchFromAPI("events").catch(() => ({})),
+      fetchFromAPI("awards").catch(() => ([])),
+    ]);
+  } catch (err) {
+    console.error('Failed to fetch homepage data:', err);
+  }
+
+  const heroSlider = Array.isArray(data?.hero_slider) ? data.hero_slider : [];
+  const businesses = Array.isArray(data?.businesses) ? data.businesses : [];
+  const blogs = Array.isArray(blogsData?.blogs) ? blogsData.blogs : [];
+  const events = Array.isArray(eventsData?.more) ? eventsData.more : [];
+  const awards = Array.isArray(awardsData) ? awardsData : [];
 
   return (
     <>
-      <HeroSlider data={data.hero_slider} />
+      <HeroSlider data={heroSlider} />
       <Legacy />
-      <OurBusiness data={data.businesses} />
+      {businesses.length > 0 && <OurBusiness data={businesses} />}
       <OurPresence />
       <LifeAtKGK />
       <BrandSlide />
-      <EventsMedia data={eventsData.more} />
-      <Awards data={awardsData} />
+      {events.length > 0 && <EventsMedia data={events} />}
+      {awards.length > 0 && <Awards data={awards} />}
       <UpcomingEvents />
-      <Blogs data={blogsData.blogs} />
+      {blogs.length > 0 && <Blogs data={blogs} />}
       <Newsletter />
     </>
   );
